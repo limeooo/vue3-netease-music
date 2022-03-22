@@ -1,5 +1,4 @@
 /dist/*
-/lime_music/*
 .local
 .output.js
 /node_modules/**

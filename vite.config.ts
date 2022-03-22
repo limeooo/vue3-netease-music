@@ -5,9 +5,6 @@ import { join } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  build: {
-    outDir: 'lime_music'
-  },
   resolve: {
     alias: {
       '@': join(__dirname, 'src'),
