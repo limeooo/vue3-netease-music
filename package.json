@@ -12,7 +12,10 @@
     "lint": "eslint --ext .js --ext .jsx --ext .vue src/"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "axios": "^0.26.1",
+    "pinia": "^2.0.12",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",

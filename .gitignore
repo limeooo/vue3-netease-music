@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+lime_music
 *.local
 
 # Editor directories and files
