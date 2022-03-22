@@ -1,5 +1,7 @@
 <template>
-  <div>1</div>
+  <div>2</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// import moduleName from '';
+</script>
