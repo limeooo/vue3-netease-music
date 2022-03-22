@@ -1,7 +1,7 @@
 <template>
-  <div>3</div>
+  <Layout />
 </template>
 
 <script setup lang="ts">
-// import moduleName from '';
+import Layout from '@/layout/Layout.vue'
 </script>
