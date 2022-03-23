@@ -2,9 +2,17 @@ import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import type { requestInterceptors, requestConfig } from './type'
 
+import { ElLoading } from 'element-plus'
+import 'element-plus/es/components/loading/style/css'
+import type { LoadingInstance } from 'element-plus/lib/components/loading/src/loading'
+
+const DEAFULT_LOADING = true
+
 class requset {
   instance: AxiosInstance
   interceptors?: requestInterceptors
+  showLoading: boolean
+  loading?: LoadingInstance
 
   constructor(config: requestConfig) {
     // 创建axios实例
@@ -12,6 +20,7 @@ class requset {
 
     // 保存基本信息
     this.interceptors = config.interceptors
+    this.showLoading = config.showLoading ?? DEAFULT_LOADING
 
     // 使用拦截器
     // 1.从config中取出的拦截器是对应的实例的拦截器
@@ -27,6 +36,13 @@ class requset {
     // 2.添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
+        if (this.showLoading) {
+          this.loading = ElLoading.service({
+            lock: true,
+            text: '正在加载中...',
+            background: 'rgba(255, 255, 255, 0.3)'
+          })
+        }
         return config
       },
       (err) => {
@@ -35,6 +51,10 @@ class requset {
     )
     this.instance.interceptors.response.use(
       (res) => {
+        setTimeout(() => {
+          // 将loading移除
+          this.loading?.close()
+        }, 500)
         return res
       },
       (err) => {

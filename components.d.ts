@@ -17,6 +17,7 @@ declare module 'vue' {
     HeaderButton: typeof import('./src/components/header/components/HeaderButton.vue')['default']
     HeaderNavgitor: typeof import('./src/components/header/components/HeaderNavgitor.vue')['default']
     HeaderSearch: typeof import('./src/components/header/components/HeaderSearch.vue')['default']
+    Loading: typeof import('element-plus/es')['ElLoadingDirective']
     Menu: typeof import('./src/components/menu/Menu.vue')['default']
     MenuList: typeof import('./src/components/menu/components/MenuList.vue')['default']
     MenuUser: typeof import('./src/components/menu/components/MenuUser.vue')['default']
