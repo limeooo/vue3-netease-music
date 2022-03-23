@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { requestBanner } from '@/service/discovery'
-import { Banner } from '@/service/discovery/banner-types'
+import { IBanner } from '@/service/discovery/types'
 
 const useDiscoveryStore = defineStore('discovery', {
   state: () => {
     return {
-      bannerList: [] as Banner[]
+      bannerList: [] as IBanner[]
     }
   },
   actions: {
@@ -13,9 +13,9 @@ const useDiscoveryStore = defineStore('discovery', {
       this.getBannerList()
     },
     async getBannerList() {
-      const { banners } = await requestBanner()
+      const bannerList = await requestBanner()
       this.$patch((state) => {
-        state.bannerList = banners
+        state.bannerList = bannerList
       })
     }
   }
