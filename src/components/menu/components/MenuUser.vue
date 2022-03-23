@@ -1,7 +1,7 @@
 <template>
   <div class="menu-user">
     <div class="user-avatar">
-      <el-avatar :icon="StarFilled" />
+      <el-avatar :icon="Avatar" />
     </div>
     <div class="user-name">
       <span>{{ userName }}</span>
@@ -11,9 +11,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { StarFilled } from '@element-plus/icons-vue'
+import { Avatar } from '@element-plus/icons-vue'
 
-const userName = ref('登录')
+const userName = ref('请登录...')
 </script>
 
 <style lang="less" scoped>
@@ -28,7 +28,7 @@ const userName = ref('登录')
     }
   }
   .user-name {
-    font-size: 15px;
+    font-size: 14px;
     padding-left: 10px;
   }
 }
