@@ -10,9 +10,9 @@ import type { CSSProperties } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    prefix: string
     name: string
-    size: number | string
+    prefix?: string
+    size?: number | string
   }>(),
   {
     prefix: 'icon',
