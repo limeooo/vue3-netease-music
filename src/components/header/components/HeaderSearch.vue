@@ -20,10 +20,10 @@ const inputValue = ref('')
 <style lang="less" scoped>
 .header-search {
   padding-right: 30px;
-  /deep/ .el-input {
+  :deep(.el-input) {
     font-size: 12px;
   }
-  /deep/ .el-input__inner {
+  :deep(.el-input__inner) {
     width: 172px;
     height: 28px;
     transition: 0.5s;
@@ -31,7 +31,7 @@ const inputValue = ref('')
       box-shadow: 0 0 0 1px var(--color-main) inset;
     }
   }
-  /deep/.el-input__prefix-inner {
+  :deep(.el-input__prefix-inner) {
     display: flex;
     align-items: center;
   }
