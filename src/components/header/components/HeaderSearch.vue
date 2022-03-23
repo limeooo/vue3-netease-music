@@ -1,16 +1,18 @@
 <template>
   <div class="header-search">
-    <el-input v-model="inputValue" size="default" placeholder="搜索" clearable>
-      <template #prefix>
-        <SvgIcon name="search" size="14" />
-      </template>
-    </el-input>
+    <el-input
+      v-model="inputValue"
+      size="default"
+      placeholder="搜索"
+      :prefix-icon="Search"
+      clearable
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import SvgIcon from '@/components/base/SvgIcon.vue'
+import { Search } from '@element-plus/icons-vue'
 
 const inputValue = ref('')
 </script>
