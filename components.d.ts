@@ -4,14 +4,18 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElSlider: typeof import('element-plus/es')['ElSlider']
     Header: typeof import('./src/components/header/Header.vue')['default']
     HeaderButton: typeof import('./src/components/header/components/HeaderButton.vue')['default']
-    'HeaderButton copy': typeof import('./src/components/header/components/HeaderButton copy.vue')['default']
-    HeaderNavgator: typeof import('./src/components/header/components/HeaderNavgator.vue')['default']
     HeaderNavgitor: typeof import('./src/components/header/components/HeaderNavgitor.vue')['default']
     HeaderSearch: typeof import('./src/components/header/components/HeaderSearch.vue')['default']
+    Menu: typeof import('./src/components/menu/Menu.vue')['default']
+    MenuList: typeof import('./src/components/menu/components/MenuList.vue')['default']
+    MenuUser: typeof import('./src/components/menu/components/MenuUser.vue')['default']
+    Player: typeof import('./src/components/player/Player.vue')['default']
     SvgIcon: typeof import('./src/components/base/SvgIcon.vue')['default']
   }
 }
