@@ -1,6 +1,6 @@
 <template>
   <svg class="icon" aria-hidden="true" :style="getStyle">
-    <use :xlink:href="symbolId" :fill="color" />
+    <use :xlink:href="symbolId" />
   </svg>
 </template>
 
@@ -12,12 +12,10 @@ const props = withDefaults(
   defineProps<{
     prefix: string
     name: string
-    color: string
     size: number | string
   }>(),
   {
     prefix: 'icon',
-    color: '#333',
     size: 16
   }
 )

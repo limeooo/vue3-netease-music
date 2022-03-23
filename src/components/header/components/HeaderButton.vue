@@ -19,13 +19,13 @@
     border-radius: 50%;
     cursor: pointer;
     &.mac-icon--red {
-      background-color: #e65b51;
+      background-color: var(--color-mac-button-red);
     }
     &.mac-icon--yellow {
-      background-color: #e9c522;
+      background-color: var(--color-mac-button-yellow);
     }
     &.mac-icon--green {
-      background-color: #44d02a;
+      background-color: var(--color-mac-button-green);
     }
   }
 }

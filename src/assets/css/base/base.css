@@ -1,3 +1,15 @@
+/*:root获取根元素html*/
+:root {
+  --color-text: #666;
+  --color-main: #d33a31;
+  --color-background: #fff;
+
+  --color-header-background:#f8f8f8;
+  --color-mac-button-red:#e65b51;
+  --color-mac-button-yellow:#e9c522;
+  --color-mac-button-green:#44d02a;
+}
+
 /**
 * 公共css资源
 */
@@ -9,15 +21,6 @@ body,
   height: 100%;
 }
 
-/*:root获取根元素html*/
-:root {
-  --color-text: #666;
-  --color-high-text: #00a1d6;
-  --color-tint: #6fc0dc;
-  --color-background: #fff;
-  --font-size: 14px;
-  --line-height: 1.5;
-}
 
 *,
 *::before,
@@ -55,12 +58,4 @@ a {
 
 .clear-fix {
   zoom: 1;
-}
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
 }

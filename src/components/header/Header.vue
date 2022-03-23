@@ -4,7 +4,9 @@
       <HeaderButton />
       <HeaderNavgitor />
     </div>
-    <HeaderSearch />
+    <div class="header-right">
+      <HeaderSearch />
+    </div>
   </div>
 </template>
 
@@ -21,7 +23,7 @@ import HeaderSearch from './components/HeaderSearch.vue'
   left: 0;
   right: 0;
   height: 50px;
-  background-color: #f8f8f8;
+  background-color: var(--color-header-background);
   display: flex;
   justify-content: space-between;
   align-items: center;
