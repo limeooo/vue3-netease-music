@@ -4,9 +4,13 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Banner: typeof import('./src/components/banner/Banner.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElSlider: typeof import('element-plus/es')['ElSlider']
     Header: typeof import('./src/components/header/Header.vue')['default']

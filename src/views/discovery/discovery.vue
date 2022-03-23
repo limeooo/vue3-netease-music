@@ -1,44 +1,11 @@
 <template>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discovery</div>
-  <div>discoveßry</div>
+  <div class="discovery">
+    <Banner />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Banner from '@/components/banner/Banner.vue'
+</script>
 
 <style scoped></style>
