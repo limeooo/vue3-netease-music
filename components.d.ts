@@ -21,7 +21,10 @@ declare module 'vue' {
     MenuList: typeof import('./src/components/menu/components/MenuList.vue')['default']
     MenuUser: typeof import('./src/components/menu/components/MenuUser.vue')['default']
     Player: typeof import('./src/components/player/Player.vue')['default']
-    SongListItem: typeof import('./src/components/songList/song-list-item.vue')['default']
+    SongList: typeof import('./src/components/song-list/SongList.vue')['default']
+    SongListItem: typeof import('./src/components/song-list/SongListItem.vue')['default']
+    SongListItem2: typeof import('./src/components/song-list/SongListItem2.vue')['default']
+    SongListItems: typeof import('./src/components/song-list/SongListItems.vue')['default']
     SvgIcon: typeof import('./src/components/base/SvgIcon.vue')['default']
   }
 }
