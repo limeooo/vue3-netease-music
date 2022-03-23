@@ -3,14 +3,14 @@
   <Menu />
   <Player />
   <div class="page-content">
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
-import Header from '@/components/header/Header.vue'
-import Menu from '@/components/menu/Menu.vue'
-import Player from '@/components/player/Player.vue'
+import Header from './header/Header.vue'
+import Menu from './menu/Menu.vue'
+import Player from './player/Player.vue'
 </script>
 
 <style lang="less" scoped>

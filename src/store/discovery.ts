@@ -9,7 +9,7 @@ const useDiscoveryStore = defineStore('discovery', {
     }
   },
   actions: {
-    getDiscovery() {
+    getDiscoveryData() {
       this.getBannerList()
     },
     async getBannerList() {

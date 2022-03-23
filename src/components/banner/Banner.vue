@@ -13,7 +13,6 @@ import { storeToRefs } from 'pinia'
 import { useDiscoveryStore } from '@/store'
 
 const discoveryStore = useDiscoveryStore()
-discoveryStore.getBannerList()
 const { bannerList } = storeToRefs(discoveryStore)
 </script>
 
