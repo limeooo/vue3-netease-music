@@ -1,10 +1,12 @@
 /*:root获取根元素html*/
 :root {
   /* 全局样式 */
-  --color-text: #666;
+  --color-text: #4a4a4a;
+  --color-text-light: #bebebe;
   --color-main: #54b780;
   --color-background: #fff;
   --color-avtive-background:#e3e3e3;
+  --color-avtive-background-light:#f5f5f5;
   /* Header样式 */
   --color-header-background:#f8f8f8;
   --color-mac-button-red:#e65b51;
@@ -62,4 +64,10 @@ a {
 
 .clear-fix {
   zoom: 1;
+}
+
+.text-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
