@@ -1,13 +1,16 @@
 /*:root获取根元素html*/
 :root {
+  /* 全局样式 */
   --color-text: #666;
-  --color-main: #d33a31;
+  --color-main: #54b780;
   --color-background: #fff;
-
+  /* Header样式 */
   --color-header-background:#f8f8f8;
   --color-mac-button-red:#e65b51;
   --color-mac-button-yellow:#e9c522;
   --color-mac-button-green:#44d02a;
+  /* Menu样式 */
+  --color-menu-background:#eaeaea;
 }
 
 /**
