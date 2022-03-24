@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { withDefaults, defineProps } from 'vue'
+import { withDefaults } from 'vue'
 import { thumbnail, formatSecondsDuration } from '@/utils'
 import type { ISong } from '@/service/latest/types'
 

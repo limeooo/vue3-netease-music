@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import SvgIcon from '@/components/base/SvgIcon.vue'
 
-import { withDefaults, defineProps, defineEmits } from 'vue'
+import { withDefaults } from 'vue'
 
 const props = withDefaults(
   defineProps<{

@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import SongListItems from './SongListItems.vue'
 
-import { withDefaults, defineProps } from 'vue'
+import { withDefaults } from 'vue'
 import type { ISong } from '@/service/latest/types'
 
 withDefaults(
