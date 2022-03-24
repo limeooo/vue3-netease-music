@@ -1,4 +1,5 @@
 <template>
+  <!-- 公用Svg组件，需引入vite-plugin-svg-icons包 ，官网：https://github.com/vbenjs/vite-plugin-svg-icons -->
   <svg class="icon" :class="className" aria-hidden="true" :style="getStyle">
     <use :xlink:href="symbolId" />
   </svg>

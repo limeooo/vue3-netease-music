@@ -1,10 +1,13 @@
 <template>
   <div class="header">
     <div class="header-left">
+      <!-- 左上角按钮 -->
       <HeaderButton />
+      <!-- 前进后退 -->
       <HeaderNavgitor />
     </div>
     <div class="header-right">
+      <!-- 搜索 -->
       <HeaderSearch />
     </div>
   </div>

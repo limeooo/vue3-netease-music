@@ -1,3 +1,6 @@
+/**
+ * 播放音乐 存储数据仓库
+ */
 import { defineStore } from 'pinia'
 import type { ISong } from '@/service/latest/types'
 

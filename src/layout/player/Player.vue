@@ -32,6 +32,9 @@ import PlayerProgress from './components/PlayerProgress.vue'
 
 import { ref, computed } from 'vue'
 import { usePlayerStore } from '@/store'
+/**
+ * @vueuse/core包引入，使用媒体控制功能，官网 https://vueuse.org/
+ */
 import { useMediaControls } from '@vueuse/core'
 
 const playerStore = usePlayerStore()

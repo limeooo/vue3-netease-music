@@ -1,7 +1,11 @@
 <template>
+  <!-- 顶部 -->
   <Header />
+  <!-- 左边菜单 -->
   <Menu />
+  <!-- 底部播放 -->
   <Player />
+  <!-- 主内容 -->
   <div class="page-content">
     <router-view v-slot="{ Component }">
       <keep-alive>

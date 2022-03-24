@@ -49,11 +49,13 @@ body {
   /* width: 100vw; */
 }
 
+/* a标签初始化 */
 a {
   color: var(--color-text);
   text-decoration: none;
 }
 
+/* 清除浮动 */
 .clear-fix::after {
   clear: both;
   content: '';
@@ -62,11 +64,11 @@ a {
   height: 0;
   visibility: hidden;
 }
-
 .clear-fix {
   zoom: 1;
 }
 
+/* 空间不足文本省略 */
 .text-ellipsis{
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,4 +1,5 @@
 <template>
+  <!-- 歌曲列表展示封装组件 -->
   <div class="song-list">
     <template v-for="item in songList" :key="item.id">
       <SongListItems :song-item="item" />

@@ -1,3 +1,6 @@
+/**
+ * axios请求封装
+ */
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import type { requestInterceptors, requestConfig } from './type'

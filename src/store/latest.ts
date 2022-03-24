@@ -1,3 +1,6 @@
+/**
+ * 最新音乐页面 请求存储数据仓库
+ */
 import { defineStore } from 'pinia'
 import { requestTopSongList } from '@/service/latest'
 import type { ISong } from '@/service/latest/types'

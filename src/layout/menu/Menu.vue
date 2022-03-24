@@ -1,6 +1,8 @@
 <template>
   <div class="menu">
+    <!-- 菜单 -- 用户 -->
     <MenuUser />
+    <!-- 菜单 -- 跳转列表 -->
     <MenuList />
   </div>
 </template>

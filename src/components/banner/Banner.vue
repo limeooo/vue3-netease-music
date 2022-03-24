@@ -1,4 +1,5 @@
 <template>
+  <!-- 首页轮播图组件 -->
   <div class="banner">
     <el-carousel :interval="4000" type="card" height="200px">
       <el-carousel-item v-for="item in bannerList" :key="item.encodeId">

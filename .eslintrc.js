@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   env: {
     node: true,
+    // 解决直接使用 defineProps defineEmits eslint报错
     'vue/setup-compiler-macros': true
   },
   extends: [
