@@ -1,4 +1,6 @@
-export const tabsConfig = [
+import { ITabsConfig } from '@/global/types'
+
+export const tabsConfig: ITabsConfig[] = [
   {
     label: '全部',
     value: 0
