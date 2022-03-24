@@ -2,7 +2,7 @@ import type { AxiosResponse } from 'axios'
 import type { ISong } from './types'
 
 /**
- * 转化新歌速递，标准化字段、数据平级、转换字段格式
+ * 转换歌曲列表，标准化字段、数据平级、转换字段格式
  */
 export const translateTopSong = (res: AxiosResponse): ISong[] => {
   const { data } = res.data

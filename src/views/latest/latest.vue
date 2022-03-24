@@ -1,18 +1,23 @@
 <template>
   <div class="latest">
-    <LatestTabs />
+    <Tabs :tabsConfig="tabsConfig" @handleTabClick="handleTabClick" />
     <SongList :song-list="topSongList" />
   </div>
 </template>
 
 <script setup lang="ts">
-import LatestTabs from './components/LatestTabs.vue'
+import Tabs from '@/components/tabs/Tabs.vue'
 import SongList from '@/components/song-list/SongList.vue'
 
 import { storeToRefs } from 'pinia'
 import { useLatestStore } from '@/store'
+import { tabsConfig } from './config/tabs-config'
 
 const latestStore = useLatestStore()
 const { topSongList } = storeToRefs(latestStore)
 latestStore.getLatestData()
+
+const handleTabClick = (value: number) => {
+  latestStore.getTopSongList({ type: value })
+}
 </script>

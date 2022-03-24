@@ -9,7 +9,7 @@ const usePlayerStore = defineStore('player', {
   state: () => {
     return {
       currentPlayerSong: {} as ISong,
-      currenLyric: '' as string
+      currentLyric: '' as string
     }
   },
   getters: {},
@@ -18,7 +18,7 @@ const usePlayerStore = defineStore('player', {
       const lyric = await requestSongLyric({ id: song.id })
       this.$patch((state) => {
         state.currentPlayerSong = song
-        state.currenLyric = lyric
+        state.currentLyric = lyric
       })
     }
   }
