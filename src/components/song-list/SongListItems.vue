@@ -4,7 +4,12 @@
     <div class="item-image">
       <img v-lazy="thumbnail(songItem.picUrl, 60)" />
     </div>
-    <div class="item-text text-ellipsis">{{ songItem.name }}</div>
+    <div
+      class="item-text text-ellipsis"
+      :class="{ isActive: playerSong.id === songItem.id }"
+    >
+      {{ songItem.name }}
+    </div>
     <div class="item-text text-ellipsis">{{ songItem.artists }}</div>
     <div class="item-text text-ellipsis">{{ songItem.album }}</div>
     <div class="item-time">{{ formatDuration(songItem.duration) }}</div>
@@ -12,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { withDefaults } from 'vue'
+import { withDefaults, computed } from 'vue'
 import { padZero, formatDuration, thumbnail } from '@/utils'
 import { usePlayerStore } from '@/store'
 import type { ISong } from '@/service/latest/types'
@@ -25,6 +30,7 @@ withDefaults(
 )
 
 const playerStore = usePlayerStore()
+const playerSong = computed(() => playerStore.currentPlayerSong)
 const handleSongClick = (song: ISong) => {
   playerStore.setCurrentPlayerSong(song)
 }
@@ -63,6 +69,9 @@ const handleSongClick = (song: ISong) => {
     margin-left: 20px;
     font-size: 12px;
     color: var(--color-text);
+    &.isActive {
+      color: red;
+    }
   }
 }
 </style>

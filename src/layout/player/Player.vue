@@ -3,8 +3,8 @@
     <!-- 歌曲详情 -->
     <div class="player-left">
       <PlayerInfo
-        v-if="playSong.id"
-        :play-song="playSong"
+        v-if="playerSong.id"
+        :play-song="playerSong"
         :current-time="currentTime"
         :duration="duration"
       />
@@ -38,10 +38,10 @@ import { usePlayerStore } from '@/store'
 import { useMediaControls } from '@vueuse/core'
 
 const playerStore = usePlayerStore()
-const playSong = computed(() => playerStore.currentPlayerSong)
+const playerSong = computed(() => playerStore.currentPlayerSong)
 const playerSongSrc = computed(() => {
-  return playSong.value.id
-    ? `https://music.163.com/song/media/outer/url?id=${playSong.value.id}.mp3`
+  return playerSong.value.id
+    ? `https://music.163.com/song/media/outer/url?id=${playerSong.value.id}.mp3`
     : ''
 })
 
