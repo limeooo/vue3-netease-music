@@ -42,7 +42,7 @@ const tabsConfig = [
 const latestStore = useLatestStore()
 const handleTabClick = (type: number) => {
   currentType.value = type
-  latestStore.getTopSongList(type)
+  latestStore.getTopSongList({ type })
 }
 </script>
 

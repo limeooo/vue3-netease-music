@@ -13,10 +13,10 @@ const useLatestStore = defineStore('latest', {
   },
   actions: {
     getLatestData() {
-      this.getTopSongList(0)
+      this.getTopSongList({ type: 0 })
     },
-    async getTopSongList(type: number) {
-      const topSongList = await requestTopSongList(type)
+    async getTopSongList(params: { type: number }) {
+      const topSongList = await requestTopSongList(params)
       this.$patch((state) => {
         state.topSongList = topSongList
       })

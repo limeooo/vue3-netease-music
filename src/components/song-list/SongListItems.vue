@@ -70,7 +70,7 @@ const handleSongClick = (song: ISong) => {
     font-size: 12px;
     color: var(--color-text);
     &.isActive {
-      color: red;
+      color: var(--color-main);
     }
   }
 }

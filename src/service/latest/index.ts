@@ -3,13 +3,15 @@ import { translateTopSong } from './translate'
 import type { ISong } from './types'
 
 enum REQUEST_URL {
-  SongList = '/top/song?type='
+  SongList = '/top/song',
+  Lyric = '/lyric'
 }
 
 // 最新音乐
-function requestTopSongList(type: number) {
+function requestTopSongList(params: { type: number }) {
   return requset.get<ISong[]>({
-    url: REQUEST_URL.SongList + type,
+    url: REQUEST_URL.SongList,
+    params: params,
     interceptors: {
       responseInterceptor(res: any): ISong[] {
         return translateTopSong(res)
@@ -18,4 +20,17 @@ function requestTopSongList(type: number) {
   })
 }
 
-export { requestTopSongList }
+// 歌词
+function requestSongLyric(params: { id: number }) {
+  return requset.get<string>({
+    url: REQUEST_URL.Lyric,
+    params: params,
+    interceptors: {
+      responseInterceptor(res: any): string {
+        return res.data.lrc.lyric
+      }
+    }
+  })
+}
+
+export { requestTopSongList, requestSongLyric }
