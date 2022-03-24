@@ -1,6 +1,8 @@
 <template>
   <div class="latest">
+    <!-- Tabs页面 -->
     <Tabs :tabsConfig="tabsConfig" @handleTabClick="handleTabClick" />
+    <!-- 歌曲列表 -->
     <SongList :song-list="topSongList" />
   </div>
 </template>

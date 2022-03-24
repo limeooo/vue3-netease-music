@@ -1,4 +1,5 @@
 <template>
+  <!-- 公用Tabs组件 -->
   <div class="tabs">
     <template v-for="item in tabsConfig" :key="item.value">
       <li
