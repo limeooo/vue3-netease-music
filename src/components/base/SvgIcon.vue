@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon" aria-hidden="true" :style="getStyle">
+  <svg :class="className" aria-hidden="true" :style="getStyle">
     <use :xlink:href="symbolId" />
   </svg>
 </template>
@@ -20,6 +20,7 @@ const props = withDefaults(
   }
 )
 
+const className = computed(() => `${props.prefix}-${props.name}`)
 const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 const getStyle = computed((): CSSProperties => {
   const { size } = props

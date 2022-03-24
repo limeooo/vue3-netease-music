@@ -11,7 +11,14 @@ export function padZero(value: number) {
  * 时间戳转换为音乐时长 mm:ss
  */
 export function formatDuration(value: number) {
-  return dayjs(value).format('mm:ss')
+  return dayjs.duration(value).format('mm:ss')
+}
+
+/**
+ * 秒钟转换为音乐时长 mm:ss
+ */
+export function formatSecondsDuration(value: number) {
+  return dayjs.duration(value, 'seconds').format('mm:ss')
 }
 
 /**

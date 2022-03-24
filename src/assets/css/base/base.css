@@ -2,6 +2,7 @@
 :root {
   /* 全局样式 */
   --color-text: #4a4a4a;
+  --color-text-title:#333;
   --color-text-light: #bebebe;
   --color-main: #54b780;
   --color-background: #fff;
