@@ -1,6 +1,6 @@
 import requset from '../index'
-import { IBanner } from './types'
 import { translateBanner } from './translate'
+import type { IBanner } from './types'
 
 enum REQUEST_URL {
   Banner = '/banner'

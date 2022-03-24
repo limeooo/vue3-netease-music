@@ -1,5 +1,5 @@
 <template>
-  <div class="song-list-item" @click="setCurrentPlayerSong(songItem)">
+  <div class="song-list-item" @click="handleSongClick(songItem)">
     <div class="item-order">{{ padZero(songItem.order) }}</div>
     <div class="item-image">
       <img v-lazy="thumbnail(songItem.picUrl, 60)" />
@@ -15,7 +15,6 @@
 import { withDefaults, defineProps } from 'vue'
 import { padZero, formatDuration, thumbnail } from '@/utils'
 import { usePlayerStore } from '@/store'
-
 import type { ISong } from '@/service/latest/types'
 
 withDefaults(
@@ -26,7 +25,7 @@ withDefaults(
 )
 
 const playerStore = usePlayerStore()
-const setCurrentPlayerSong = (song: ISong) => {
+const handleSongClick = (song: ISong) => {
   playerStore.setCurrentPlayerSong(song)
 }
 </script>

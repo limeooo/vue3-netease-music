@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import Banner from '@/components/banner/Banner.vue'
+
 import { useDiscoveryStore } from '@/store'
 
 const discoveryStore = useDiscoveryStore()

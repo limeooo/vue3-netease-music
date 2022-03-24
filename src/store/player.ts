@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ISong } from '@/service/latest/types'
+import type { ISong } from '@/service/latest/types'
 
 const usePlayerStore = defineStore('player', {
   state: () => {

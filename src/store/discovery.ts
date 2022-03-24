@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { requestBanner } from '@/service/discovery'
-import { IBanner } from '@/service/discovery/types'
+import type { IBanner } from '@/service/discovery/types'
 
 const useDiscoveryStore = defineStore('discovery', {
   state: () => {

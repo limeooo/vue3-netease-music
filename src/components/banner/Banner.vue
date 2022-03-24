@@ -15,5 +15,3 @@ import { useDiscoveryStore } from '@/store'
 const discoveryStore = useDiscoveryStore()
 const { bannerList } = storeToRefs(discoveryStore)
 </script>
-
-<style scoped></style>

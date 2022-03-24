@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { requestTopSongList } from '@/service/latest'
-import { ISong } from '@/service/latest/types'
+import type { ISong } from '@/service/latest/types'
 
 const useLatestStore = defineStore('latest', {
   state: () => {

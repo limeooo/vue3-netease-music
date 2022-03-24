@@ -1,6 +1,6 @@
 import requset from '../index'
-import { ISong } from './types'
 import { translateTopSong } from './translate'
+import type { ISong } from './types'
 
 enum REQUEST_URL {
   SongList = '/top/song?type='
