@@ -1,3 +1,6 @@
+/**
+ * 歌曲
+ */
 export interface ISong {
   id: number
   name: string

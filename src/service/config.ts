@@ -1,3 +1,6 @@
+/**
+ * 请求对象配置
+ */
 let BASE_URL = ''
 const TIME_OUT = 5000
 
