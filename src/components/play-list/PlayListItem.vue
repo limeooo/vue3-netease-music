@@ -1,5 +1,5 @@
 <template>
-  <div class="play-list-item">
+  <div class="play-list-item" @click="handlePlaylistClick()">
     <div class="card-inner">
       <img v-lazy="thumbnail(playlistItem.picUrl, 480)" />
       <div class="count">
@@ -19,15 +19,21 @@
 import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { withDefaults } from 'vue'
+import { useRouter } from 'vue-router'
 import { thumbnail, formatCount } from '@/utils'
-import type { IPlaylist } from '@/service/recommend/types'
+import type { IPlaylist } from '@/service/playlist/types'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     playlistItem: IPlaylist
   }>(),
   {}
 )
+
+const router = useRouter()
+const handlePlaylistClick = () => {
+  router.push({ path: `/playlist/${props.playlistItem.id}` })
+}
 </script>
 
 <style lang="less" scoped>
