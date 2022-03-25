@@ -10,9 +10,13 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { useDiscoveryStore } from '@/store'
+import { withDefaults } from 'vue'
+import { IBanner } from '@/service/discovery/types'
 
-const discoveryStore = useDiscoveryStore()
-const { bannerList } = storeToRefs(discoveryStore)
+withDefaults(
+  defineProps<{
+    bannerList: IBanner[]
+  }>(),
+  {}
+)
 </script>
