@@ -1,7 +1,13 @@
 // Tabs 类型
-interface ITabsConfig {
+export interface ITabsConfig {
   label: string
   value: string | number
 }
 
-export { ITabsConfig }
+/**
+ * 分页查询
+ */
+export interface IMultiPageConfig {
+  limit?: string | number
+  offset?: string | number
+}
