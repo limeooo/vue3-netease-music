@@ -1,5 +1,6 @@
 <template>
   <div class="discovery">
+    <!-- 轮播图 -->
     <Banner :bannerList="bannerList" />
   </div>
 </template>
