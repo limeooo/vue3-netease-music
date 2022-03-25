@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { withDefaults, computed } from 'vue'
 import { thumbnail } from '@/utils'
-import type { IPlaylistAll } from '@/service/recommend/types'
+import type { IPlaylistAll } from '@/service/playlist/types'
 
 const props = withDefaults(
   defineProps<{

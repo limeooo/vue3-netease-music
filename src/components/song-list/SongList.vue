@@ -11,7 +11,7 @@
 import SongListItem from './SongListItem.vue'
 
 import { withDefaults } from 'vue'
-import type { ISong } from '@/service/latest/types'
+import type { ISong } from '@/service/song/types'
 
 withDefaults(
   defineProps<{

@@ -5,8 +5,8 @@ import { defineStore } from 'pinia'
 import {
   requestTopPlaylistHighquality,
   requestTopPlaylist
-} from '@/service/recommend'
-import type { IPlaylistAll } from '@/service/recommend/types'
+} from '@/service/playlist'
+import type { IPlaylistAll } from '@/service/playlist/types'
 
 const useRecommendStore = defineStore('recommend', {
   state: () => {

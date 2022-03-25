@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { withDefaults } from 'vue'
 import { thumbnail, formatSecondsDuration } from '@/utils'
-import type { ISong } from '@/service/latest/types'
+import type { ISong } from '@/service/song/types'
 
 withDefaults(
   defineProps<{

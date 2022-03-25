@@ -1,4 +1,4 @@
-import type { ISong } from '@/service/latest/types'
+import type { ISong } from '@/service/song/types'
 
 /**
  * 歌单列表信息

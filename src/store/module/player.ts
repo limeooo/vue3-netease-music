@@ -2,8 +2,8 @@
  * 播放音乐 存储数据仓库
  */
 import { defineStore } from 'pinia'
-import { requestSongLyric } from '@/service/latest'
-import type { ISong } from '@/service/latest/types'
+import { requestSongLyric } from '@/service/song'
+import type { ISong } from '@/service/song/types'
 
 const usePlayerStore = defineStore('player', {
   state: () => {

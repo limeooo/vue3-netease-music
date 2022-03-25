@@ -5,6 +5,7 @@ import type { IPlaylistAll } from './types'
 enum REQUEST_URL {
   TopPlaylist = '/top/playlist',
   TopPlaylistHighquality = '/top/playlist/highquality'
+  // PlaylistDetail
 }
 
 // 网友精选碟歌单 精品歌单推荐

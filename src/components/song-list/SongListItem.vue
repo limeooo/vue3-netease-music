@@ -20,7 +20,7 @@
 import { withDefaults, computed } from 'vue'
 import { padZero, formatDuration, thumbnail } from '@/utils'
 import { usePlayerStore } from '@/store'
-import type { ISong } from '@/service/latest/types'
+import type { ISong } from '@/service/song/types'
 
 withDefaults(
   defineProps<{

@@ -11,7 +11,7 @@
 import PlayListItem from './PlayListItem.vue'
 
 import { withDefaults } from 'vue'
-import type { IPlaylist } from '@/service/recommend/types'
+import type { IPlaylist } from '@/service/playlist/types'
 
 withDefaults(
   defineProps<{

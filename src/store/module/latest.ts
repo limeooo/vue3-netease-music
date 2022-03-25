@@ -2,8 +2,8 @@
  * 最新音乐页面 请求存储数据仓库
  */
 import { defineStore } from 'pinia'
-import { requestTopSongList } from '@/service/latest'
-import type { ISong } from '@/service/latest/types'
+import { requestTopSongList } from '@/service/song'
+import type { ISong } from '@/service/song/types'
 
 const useLatestStore = defineStore('latest', {
   state: () => {
