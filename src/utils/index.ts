@@ -10,6 +10,13 @@ export function padZero(value: number) {
 /**
  * 时间戳转换为音乐时长 mm:ss
  */
+export function formatTime(value: number, format?: string) {
+  return dayjs(value).format(format ?? 'YYYY-MM-DD HH:mm:ss')
+}
+
+/**
+ * 时间戳转换为音乐时长 mm:ss
+ */
 export function formatDuration(value: number) {
   return dayjs.duration(value).format('mm:ss')
 }
@@ -51,13 +58,10 @@ export function debounce(
   const delay = t || 500
   return function (this: any, ...args: any) {
     if (timer) {
-      console.log(1)
-
       clearTimeout(timer)
     }
 
     timer = setTimeout(() => {
-      console.log(2)
       timer = null
       fn.apply(this, args)
     }, delay)

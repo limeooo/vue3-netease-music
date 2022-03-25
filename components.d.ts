@@ -5,6 +5,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Banner: typeof import('./src/components/banner/Banner.vue')['default']
+    CommentList: typeof import('./src/components/comment-list/CommentList.vue')['default']
+    CommentListItem: typeof import('./src/components/comment-list/CommentListItem.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
