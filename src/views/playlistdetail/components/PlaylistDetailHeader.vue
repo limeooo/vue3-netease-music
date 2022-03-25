@@ -1,5 +1,5 @@
 <template>
-  <div class="playlist-detail-header" v-if="playlistDetail.id">
+  <div class="playlist-detail-header">
     <img v-lazy="thumbnail(playlistDetail.coverImgUrl, 200)" />
     <div class="detail-info">
       <div class="top">

@@ -1,8 +1,15 @@
 <template>
   <!-- 歌单顶部详情 -->
-  <PlaylistDetailHeader :playlistDetail="playlistDetail" />
+  <PlaylistDetailHeader
+    :playlistDetail="playlistDetail"
+    v-if="playlistDetail.id"
+  />
   <!-- tabs 歌曲列表  评论列表 -->
-  <el-tabs v-model="tabsActiveName" @tab-click="handleTabsClick()">
+  <el-tabs
+    v-model="tabsActiveName"
+    @tab-click="handleTabsClick()"
+    v-if="playlistDetail.id"
+  >
     <el-tab-pane label="歌曲列表" name="song">
       <SongList :song-list="songList" />
     </el-tab-pane>

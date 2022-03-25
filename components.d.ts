@@ -6,7 +6,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     Banner: typeof import('./src/components/banner/Banner.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
-    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
@@ -21,7 +20,6 @@ declare module 'vue' {
     PlayListItem: typeof import('./src/components/play-list/PlayListItem.vue')['default']
     SongList: typeof import('./src/components/song-list/SongList.vue')['default']
     SongListItem: typeof import('./src/components/song-list/SongListItem.vue')['default']
-    SongListItems: typeof import('./src/components/song-list/SongListItems.vue')['default']
     SvgIcon: typeof import('./src/components/base/SvgIcon.vue')['default']
     Tabs: typeof import('./src/components/tabs/Tabs.vue')['default']
   }
