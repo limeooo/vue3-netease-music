@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend-intro">
+  <div class="recommend-intro" @click="handlePlaylistClick()">
     <div class="intro-image">
       <img v-lazy="thumbnail(playlistInfo.picUrl, 140)" />
     </div>
@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import { withDefaults, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { thumbnail } from '@/utils'
 import type { IPlaylistAll } from '@/service/playlist/types'
 
@@ -33,6 +34,12 @@ const props = withDefaults(
 const playlistInfo = computed<any>(() =>
   props.topPlaylist.playlists ? props.topPlaylist.playlists[0] : {}
 )
+
+const router = useRouter()
+const handlePlaylistClick = () => {
+  if (playlistInfo.value.id)
+    router.push({ path: `/playlist/${playlistInfo.value.id}` })
+}
 </script>
 
 <style lang="less" scoped>
