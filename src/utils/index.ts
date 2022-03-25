@@ -39,3 +39,27 @@ export function thumbnail(url: string, w: number, h: number = w) {
 export function formatCount(value: number) {
   return value > 100000 ? `${Math.round(value / 10000)} 万` : value
 }
+
+/**
+ * 防抖函数
+ */
+export function debounce(
+  fn: { apply: (arg0: any, arg1: any) => void },
+  t: number
+) {
+  let timer: any = null
+  const delay = t || 500
+  return function (this: any, ...args: any) {
+    if (timer) {
+      console.log(1)
+
+      clearTimeout(timer)
+    }
+
+    timer = setTimeout(() => {
+      console.log(2)
+      timer = null
+      fn.apply(this, args)
+    }, delay)
+  }
+}

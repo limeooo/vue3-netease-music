@@ -2,6 +2,7 @@
  * axios请求封装
  */
 import axios from 'axios'
+import { debounce } from '@/utils'
 import type { AxiosInstance } from 'axios'
 import type { requestInterceptors, requestConfig } from './type'
 
@@ -24,6 +25,10 @@ class requset {
     // 保存基本信息
     this.interceptors = config.interceptors
     this.showLoading = config.showLoading ?? DEAFULT_LOADING
+    const closeLoding = debounce(() => {
+      this.loading?.close()
+      this.loading = undefined
+    }, 1000)
 
     // 使用拦截器
     // 1.从config中取出的拦截器是对应的实例的拦截器
@@ -39,7 +44,7 @@ class requset {
     // 2.添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        if (this.showLoading) {
+        if (this.showLoading && !this.loading) {
           this.loading = ElLoading.service({
             lock: true,
             text: '正在加载中...',
@@ -54,10 +59,7 @@ class requset {
     )
     this.instance.interceptors.response.use(
       (res) => {
-        setTimeout(() => {
-          // 将loading移除
-          this.loading?.close()
-        }, 500)
+        closeLoding()
         return res
       },
       (err) => {
