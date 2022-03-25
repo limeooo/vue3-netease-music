@@ -13,7 +13,7 @@
       </div>
       <div class="bottom">
         <div class="tags">{{ '标签：' + playlistDetail.tags }}</div>
-        <div class="introduction">
+        <div class="introduction text-ellipsis">
           {{ '简介：' + playlistDetail.description }}
         </div>
       </div>
@@ -44,6 +44,7 @@ withDefaults(
     height: 200px;
   }
   .detail-info {
+    width: calc(100% - 200px);
     padding-left: 24px;
     display: flex;
     flex-direction: column;
