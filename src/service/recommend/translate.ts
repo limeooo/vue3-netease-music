@@ -1,10 +1,10 @@
 import type { AxiosResponse } from 'axios'
-import type { IPlaylist } from './types'
+import type { IPlaylist, IPlaylistAll } from './types'
 
 /**
  * 转化网友精选碟歌单，标准化字段、数据平级、转换字段格式
  */
-export const translateTopPlaylist = (res: AxiosResponse) => {
+export const translateTopPlaylist = (res: AxiosResponse): IPlaylistAll => {
   const { playlists, total, more } = res.data
 
   const transPlaylists: IPlaylist[] = playlists.map(

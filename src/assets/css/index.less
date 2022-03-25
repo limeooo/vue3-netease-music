@@ -1,2 +1,43 @@
 @import './base/normalize.css';
 @import './base/base.css';
+
+/*:root获取根元素html*/
+:root {
+  /* 全局样式 */
+  --color-text: #4a4a4a;
+  --color-text-title:#333;
+  --color-text-light: #bebebe;
+  --color-text-white: #ffffff;
+  --color-text-description:rgba(255, 255, 255, 0.5);
+  --color-main: #54b780;
+  --color-background: #fff;
+  --color-avtive-background:#e3e3e3;
+  --color-avtive-background-light:#f5f5f5;
+  --color-avtive-background-white:rgba(255, 255, 255, 0.4);
+  --color-avtive-background-dark:rgba(0, 0, 0, 0.4);
+  /* Header样式 */
+  --color-header-background:#f8f8f8;
+  --color-mac-button-red:#e65b51;
+  --color-mac-button-yellow:#e9c522;
+  --color-mac-button-green:#44d02a;
+  /* Menu样式 */
+  --color-menu-background:#eaeaea;
+  /* Playlist 样式 */
+  --color-playlist-tag:#e7aa5a;
+}
+
+.el-pagination {
+  display: flex;
+  justify-content: flex-end;
+  .el-pager{
+    .number{
+      &:hover{
+        color: var(--color-main);
+      }
+    }
+    .is-active{
+      color: var(--color-main);
+    }
+  }
+}
+

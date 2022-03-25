@@ -32,3 +32,10 @@ export function thumbnail(url: string, w: number, h: number = w) {
     return `https://p2.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg?param=${w}y${h}`
   }
 }
+
+/**
+ * 数量转换单位
+ */
+export function formatCount(value: number) {
+  return value > 100000 ? `${Math.round(value / 10000)} 万` : value
+}

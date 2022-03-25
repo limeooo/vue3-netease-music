@@ -20,4 +20,17 @@ function requestTopPlaylistHighquality(params: { limit: number }) {
   })
 }
 
-export { requestTopPlaylistHighquality }
+// 推荐歌单列表
+function requestTopPlaylist(params: { cat: string; offset: number }) {
+  return requset.get<IPlaylistAll>({
+    url: REQUEST_URL.TopPlaylist,
+    params: params,
+    interceptors: {
+      responseInterceptor(res: any): IPlaylistAll {
+        return translateTopPlaylist(res)
+      }
+    }
+  })
+}
+
+export { requestTopPlaylistHighquality, requestTopPlaylist }
