@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios'
-import type { IPlaylist, IPlaylistAll } from './types'
+import type { IPlaylist, IPlaylistAll, IPlaylistDetail } from './types'
 
 /**
  * 转化网友精选碟歌单，标准化字段、数据平级、转换字段格式
@@ -50,38 +50,23 @@ export const translatePersonalizedPlaylist = (
 /**
  * 转化歌单详情，处理歌单详情不能获取详情，再次调用歌曲查询
  */
-//  export const translatePlaylistDetail = async (res: AxiosResponse): Promise<IPlaylistDetail> => {
-//   const { playlist } = res.data
-//   const { tags, creator, trackIds } = playlist
-//   const ids = trackIds.map((track: any) => track.id).join(',')
+export const translatePlaylistDetail = (
+  res: AxiosResponse
+): IPlaylistDetail => {
+  const { playlist } = res.data
+  const { tags, creator, trackIds } = playlist
+  const ids = trackIds.map((track: any) => track.id).join(',')
 
-/**
- * 先请求歌单获取歌单下所有的 trackIds，再请求歌曲详情。
- * https://neteasecloudmusicapi.vercel.app/#/?id=获取歌单详情
- */
-//   const { data } = await getSongDetail({ ids })
-//   const transSongs: ISong[] = data.songs.map((song: any, index: number) => {
-//     return {
-//       id: song.id,
-//       name: song.name,
-//       order: index + 1,
-//       picUrl: song.al.picUrl,
-//       artists: song.ar.map((ar: any) => ar.name).join('/'),
-//       album: song.al.name,
-//       duration: song.dt,
-//     }
-//   })
-
-//   return {
-//     id: playlist.id,
-//     name: playlist.name,
-//     createTime: playlist.createTime,
-//     coverImgUrl: playlist.coverImgUrl,
-//     description: playlist.description,
-//     avatarUrl: creator.avatarUrl,
-//     nickname: creator.nickname,
-//     commentCount: playlist.commentCount,
-//     tags: tags.join('/'),
-//     songs: transSongs,
-//   }
-// }
+  return {
+    id: playlist.id,
+    name: playlist.name,
+    createTime: playlist.createTime,
+    coverImgUrl: playlist.coverImgUrl,
+    description: playlist.description,
+    avatarUrl: creator.avatarUrl,
+    nickname: creator.nickname,
+    commentCount: playlist.commentCount,
+    tags: tags.join('/'),
+    songIds: ids
+  }
+}

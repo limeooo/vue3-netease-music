@@ -1,5 +1,3 @@
-import type { ISong } from '@/service/song/types'
-
 /**
  * 歌单列表信息
  */
@@ -33,5 +31,5 @@ export interface IPlaylistDetail {
   nickname: string
   commentCount: number
   tags: string
-  songs: ISong[]
+  songIds: string
 }

@@ -14,6 +14,8 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     ElPagination: typeof import('element-plus/es')['ElPagination']
     ElSlider: typeof import('element-plus/es')['ElSlider']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     PlayList: typeof import('./src/components/play-list/PlayList.vue')['default']
     PlayListItem: typeof import('./src/components/play-list/PlayListItem.vue')['default']
