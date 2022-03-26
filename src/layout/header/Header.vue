@@ -26,6 +26,7 @@ import HeaderSearch from './components/HeaderSearch.vue'
   left: 0;
   right: 0;
   height: 50px;
+  z-index: var(--z-index-header);
   background-color: var(--color-header-background);
   display: flex;
   justify-content: space-between;

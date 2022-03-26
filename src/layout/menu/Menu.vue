@@ -19,6 +19,7 @@ import MenuList from './components/MenuList.vue'
   left: 0;
   bottom: 60px;
   width: 250px;
+  z-index: var(--z-index-menu);
   background-color: var(--color-menu-background);
 }
 </style>
