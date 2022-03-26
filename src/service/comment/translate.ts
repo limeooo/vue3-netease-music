@@ -16,14 +16,14 @@ export const translateComment = (
   let comments: any = []
 
   if (type === CommentTransType.Hot) {
-    total = data.total
-    cursor = data.cursor
-    comments = data.hotComments
+    total = data.total ?? 0
+    cursor = data.cursor ?? ''
+    comments = data.hotComments ?? []
   } else if (type === CommentTransType.New) {
-    data = data.data
-    total = data.totalCount
-    cursor = data.cursor
-    comments = data.comments
+    data = data.data ?? {}
+    total = data.totalCount ?? 0
+    cursor = data.cursor ?? ''
+    comments = data.comments ?? []
   }
 
   const transComments: IComment[] = comments.map((comment: any) => {

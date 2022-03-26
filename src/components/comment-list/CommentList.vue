@@ -1,6 +1,11 @@
 <template>
   <!-- 评论列表组件封装 -->
   <div class="comment-list">
+    <template
+      v-if="hotCommentList?.length === 0 && newCommentList?.length === 0"
+    >
+      <p class="title">暂无评论</p>
+    </template>
     <template v-if="hotCommentList?.length > 0 && currentPage === 1">
       <p class="title">最热评论</p>
       <template v-for="item in hotCommentList" :key="item.id">
