@@ -6,10 +6,14 @@
   />
   <!-- tabs 歌曲列表  评论列表 -->
   <el-tabs v-model="tabsActiveName" v-if="playlistDetail.id">
-    <el-tab-pane label="歌曲列表" name="song">
+    <el-tab-pane label="歌曲列表" name="song" lazy>
       <SongList :song-list="songList" />
     </el-tab-pane>
-    <el-tab-pane :label="`评论(${playlistDetail.commentCount})`" name="comment">
+    <el-tab-pane
+      :label="`评论(${playlistDetail.commentCount})`"
+      name="comment"
+      lazy
+    >
       <CommentList :id="playlistDetail.id" :type="CommentType.playlist" />
     </el-tab-pane>
   </el-tabs>
