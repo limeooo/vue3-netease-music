@@ -3,10 +3,12 @@
     <!-- 歌曲详情 -->
     <div class="player-left">
       <PlayerInfo
-        v-if="playerSong.id"
-        :play-song="playerSong"
+        v-if="currentPlayerSong.id"
+        :play-song="currentPlayerSong"
+        :is-open-lyric="isOpenLyric"
         :current-time="currentTime"
         :duration="duration"
+        @handle-lyric-click="handleLyricClick()"
       />
     </div>
     <!-- 歌曲控制器 -->
@@ -21,6 +23,14 @@
     <audio ref="audioRef" :loop="true" :autoplay="true" />
     <!-- 音乐进度条 -->
     <PlayerProgress v-model:current-time="currentTime" :duration="duration" />
+    <!-- 歌曲歌词 评论详情 -->
+    <PlayerLyric
+      v-model:currentTime="currentTime"
+      :is-open-lyric="isOpenLyric"
+      :current-player-song="currentPlayerSong"
+      :current-lyric="currentLyric"
+      :playing="playing"
+    />
   </div>
 </template>
 
@@ -29,8 +39,10 @@ import PlayerInfo from './components/PlayerInfo.vue'
 import PlayerControl from './components/PlayerControl.vue'
 import PlayerVolume from './components/PlayerVolume.vue'
 import PlayerProgress from './components/PlayerProgress.vue'
+import PlayerLyric from './components/PlayerLyric.vue'
 
 import { ref, computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
 /**
  * @vueuse/core包引入，使用媒体控制功能，官网 https://vueuse.org/
@@ -38,10 +50,11 @@ import { usePlayerStore } from '@/store'
 import { useMediaControls } from '@vueuse/core'
 
 const playerStore = usePlayerStore()
-const playerSong = computed(() => playerStore.currentPlayerSong)
-const playerSongSrc = computed(() => {
-  return playerSong.value.id
-    ? `https://music.163.com/song/media/outer/url?id=${playerSong.value.id}.mp3`
+const { isOpenLyric, currentPlayerSong, currentLyric } =
+  storeToRefs(playerStore)
+const currentPlayerSongSrc = computed(() => {
+  return currentPlayerSong.value.id
+    ? `https://music.163.com/song/media/outer/url?id=${currentPlayerSong.value.id}.mp3`
     : ''
 })
 
@@ -53,8 +66,12 @@ const playerSongSrc = computed(() => {
  */
 const audioRef = ref<HTMLVideoElement>()
 const { playing, currentTime, duration, volume } = useMediaControls(audioRef, {
-  src: playerSongSrc
+  src: currentPlayerSongSrc
 })
+
+const handleLyricClick = () => {
+  playerStore.setLyricOpenstatus()
+}
 </script>
 
 <style lang="less" scoped>
@@ -67,7 +84,7 @@ const { playing, currentTime, duration, volume } = useMediaControls(audioRef, {
   background-color: var(--color-background);
   padding: 5px 20px;
   display: flex;
-  z-index: 99;
+  z-index: var(--z-index-player);
   .player-left,
   .player-center,
   .player-right {

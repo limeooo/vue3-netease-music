@@ -8,6 +8,7 @@ import type { ISong } from '@/service/song/types'
 const usePlayerStore = defineStore('player', {
   state: () => {
     return {
+      isOpenLyric: false,
       currentPlayerSong: {} as ISong,
       currentLyric: '' as string
     }
@@ -19,6 +20,11 @@ const usePlayerStore = defineStore('player', {
       this.$patch((state) => {
         state.currentPlayerSong = song
         state.currentLyric = lyric
+      })
+    },
+    setLyricOpenstatus() {
+      this.$patch((state) => {
+        state.isOpenLyric = !state.isOpenLyric
       })
     }
   }
