@@ -31,7 +31,7 @@
           </div>
         </div>
         <CommentList
-          v-if="currentPlayerSong.id"
+          v-if="isLodingComment && currentPlayerSong.id"
           :id="currentPlayerSong.id"
           :type="CommentType.song"
         />
@@ -60,6 +60,7 @@ const props = withDefaults(
     currentLyric: string
     playing: boolean
     currentTime: number
+    isLodingComment: boolean
   }>(),
   {}
 )

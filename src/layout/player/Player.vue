@@ -30,6 +30,7 @@
       :current-player-song="currentPlayerSong"
       :current-lyric="currentLyric"
       :playing="playing"
+      :is-loding-comment="isLodingComment"
     />
   </div>
 </template>
@@ -50,7 +51,7 @@ import { usePlayerStore } from '@/store'
 import { useMediaControls } from '@vueuse/core'
 
 const playerStore = usePlayerStore()
-const { isOpenLyric, currentPlayerSong, currentLyric } =
+const { isOpenLyric, currentPlayerSong, currentLyric, isLodingComment } =
   storeToRefs(playerStore)
 const currentPlayerSongSrc = computed(() => {
   return currentPlayerSong.value.id
