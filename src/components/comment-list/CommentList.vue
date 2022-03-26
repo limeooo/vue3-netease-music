@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import CommentListItem from './CommentListItem.vue'
 
-import { ref, withDefaults } from 'vue'
+import { ref, watch, withDefaults } from 'vue'
 import { requestHotComment, requestNewComment } from '@/service/comment'
 import { CommentType } from '@/service/comment/types'
 import type { IComment } from '@/service/comment/types'
@@ -45,13 +45,15 @@ const total = ref(0)
 const hotCommentList = ref<IComment[]>([])
 const newCommentList = ref<IComment[]>([])
 
-requestHotComment({
-  id: props.id,
-  type: props.type,
-  limit: 10
-}).then((commentData) => {
-  hotCommentList.value = commentData.comments
-})
+const getHotComment = () => {
+  requestHotComment({
+    id: props.id,
+    type: props.type,
+    limit: 10
+  }).then((commentData) => {
+    hotCommentList.value = commentData.comments
+  })
+}
 
 const handleChangePage = () => {
   requestNewComment({
@@ -67,7 +69,17 @@ const handleChangePage = () => {
     total.value = commentData.total
   })
 }
-handleChangePage()
+
+watch(
+  () => props.id,
+  () => {
+    getHotComment()
+    handleChangePage()
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 
 <style lang="less" scoped>
