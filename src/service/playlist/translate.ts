@@ -5,7 +5,8 @@ import type { IPlaylist, IPlaylistAll, IPlaylistDetail } from './types'
  * 转化网友精选碟歌单，标准化字段、数据平级、转换字段格式
  */
 export const translateTopPlaylist = (res: AxiosResponse): IPlaylistAll => {
-  const { playlists, total, more } = res.data
+  const { total, more } = res.data
+  const playlists = res.data.playlists ?? []
 
   const transPlaylists: IPlaylist[] = playlists.map(
     (playlist: any, index: number) => {
@@ -33,7 +34,7 @@ export const translateTopPlaylist = (res: AxiosResponse): IPlaylistAll => {
 export const translatePersonalizedPlaylist = (
   res: AxiosResponse
 ): IPlaylist[] => {
-  const { result } = res.data
+  const result = res.data.result ?? []
 
   return result.map((playlist: any, index: number) => {
     return {
@@ -54,7 +55,8 @@ export const translatePlaylistDetail = (
   res: AxiosResponse
 ): IPlaylistDetail => {
   const { playlist } = res.data
-  const { tags, creator, trackIds } = playlist
+  const { tags, creator } = playlist
+  const trackIds = playlist.trackIds ?? []
   const ids = trackIds.map((track: any) => track.id).join(',')
 
   return {

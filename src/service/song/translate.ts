@@ -5,7 +5,7 @@ import type { ISong } from './types'
  * 转换最新歌曲列表，标准化字段、数据平级、转换字段格式
  */
 export const translateTopSong = (res: AxiosResponse): ISong[] => {
-  const { data } = res.data
+  const data = res.data.data ?? []
 
   return data.map((song: any, index: number) => {
     return {
@@ -24,7 +24,7 @@ export const translateTopSong = (res: AxiosResponse): ISong[] => {
  * 转换根据ids搜索歌曲列表，标准化字段、数据平级、转换字段格式
  */
 export const translateSong = (res: AxiosResponse): ISong[] => {
-  const { songs } = res.data
+  const songs = res.data.songs ?? []
 
   return songs.map((song: any, index: number) => {
     return {

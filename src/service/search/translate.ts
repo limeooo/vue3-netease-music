@@ -6,7 +6,8 @@ import type { IPlaylist, IPlaylistAll } from '@/service/playlist/types'
  * 转化最近热门搜索，标准化字段、数据平级、转换字段格式
  */
 export const translateSearchHot = (res: AxiosResponse): string[] => {
-  return res.data.result.hots.map((hot: any) => hot.first)
+  const hots = res.data.result.hots ?? []
+  return hots.map((hot: any) => hot.first)
 }
 
 /**
@@ -14,20 +15,19 @@ export const translateSearchHot = (res: AxiosResponse): string[] => {
  */
 export const translateSearchSong = (res: AxiosResponse): ISongAll => {
   const { result } = res.data
+  const songs = result.songs ?? []
 
-  const transSongLists: ISong[] = result.songs.map(
-    (song: any, index: number) => {
-      return {
-        id: song.id,
-        name: song.name,
-        order: index + 1,
-        picUrl: song.picUrl,
-        artists: song.artists.map((ar: any) => ar.name).join('/'),
-        album: song.album.name,
-        duration: song.duration
-      }
+  const transSongLists: ISong[] = songs.map((song: any, index: number) => {
+    return {
+      id: song.id,
+      name: song.name,
+      order: index + 1,
+      picUrl: song.picUrl,
+      artists: song.artists.map((ar: any) => ar.name).join('/'),
+      album: song.album.name,
+      duration: song.duration
     }
-  )
+  })
 
   return {
     songs: transSongLists,
@@ -41,8 +41,9 @@ export const translateSearchSong = (res: AxiosResponse): ISongAll => {
  */
 export const translateSearchPlaylist = (res: AxiosResponse): IPlaylistAll => {
   const { result } = res.data
+  const playlists = result.playlists ?? []
 
-  const transPlaylists: IPlaylist[] = result.playlists.map(
+  const transPlaylists: IPlaylist[] = playlists.map(
     (playlist: any, index: number) => {
       return {
         id: playlist.id,
