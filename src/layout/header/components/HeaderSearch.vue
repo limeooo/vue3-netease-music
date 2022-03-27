@@ -7,19 +7,36 @@
       :prefix-icon="Search"
       clearable
       @focus="isFocus = true"
+      @keyup.enter="handleInputSearch()"
     />
-    <HeaderSearchTags v-show="isFocus" />
+    <!-- vue-teleport 将内部内容嵌套到根标签中，
+  不受父组件z-index影响布局，导致此组件出现时覆盖了父组件 -->
+    <teleport to="#app">
+      <HeaderSearchTags
+        v-show="isFocus"
+        :searchHotList="searchHotList"
+        :searchHistory="searchHistory"
+        @handleTagClick="handleTagClick"
+      />
+    </teleport>
   </div>
 </template>
 
 <script setup lang="ts">
 import HeaderSearchTags from './HeaderSearchTags.vue'
-
-import { ref } from 'vue'
-import { onClickOutside } from '@vueuse/core'
 import { Search } from '@element-plus/icons-vue'
 
-const inputValue = ref('')
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useSearchStore, usePlayerStore } from '@/store'
+import { onClickOutside } from '@vueuse/core'
+
+const router = useRouter()
+const searchStore = useSearchStore()
+const playerStore = usePlayerStore()
+const { searchHotList, searchHistory } = storeToRefs(searchStore)
+
 const isFocus = ref(false)
 const headerSearchRef = ref<HTMLDivElement>()
 /**
@@ -28,6 +45,26 @@ const headerSearchRef = ref<HTMLDivElement>()
 onClickOutside(headerSearchRef, () => {
   isFocus.value = false
 })
+
+/**
+ * 1:关闭搜索建议框
+ * 2:若是输入搜索，存储这次搜索到本地存储
+ * 3:如果歌词正在打开，则关闭
+ * 4:路由跳转
+ */
+const inputValue = ref('')
+const handleTagClick = (tag: string) => {
+  isFocus.value = false
+  playerStore.isOpenLyric = false
+  router.push({ path: `/search/${tag}` })
+}
+const handleInputSearch = () => {
+  if (inputValue.value === '') return
+  isFocus.value = false
+  playerStore.isOpenLyric = false
+  searchStore.setSearchHistory(inputValue.value)
+  router.push({ path: `/search/${inputValue.value}` })
+}
 </script>
 
 <style lang="less" scoped>
