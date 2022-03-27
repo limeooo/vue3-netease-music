@@ -42,18 +42,3 @@ watchEffect(() => {
   }
 })
 </script>
-
-<style lang="less">
-.el-tabs {
-  .el-tabs__active-bar {
-    background-color: var(--color-main) !important;
-  }
-  .el-tabs__item {
-    color: var(--color-text);
-    font-weight: 400;
-    &.is-active {
-      color: var(--color-main);
-    }
-  }
-}
-</style>
