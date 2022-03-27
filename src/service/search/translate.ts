@@ -22,16 +22,15 @@ export const translateSearchSong = (res: AxiosResponse): ISongAll => {
       id: song.id,
       name: song.name,
       order: index + 1,
-      picUrl: song.picUrl,
-      artists: song.artists.map((ar: any) => ar.name).join('/'),
-      album: song.album.name,
-      duration: song.duration
+      picUrl: song.al.picUrl,
+      artists: song.ar.map((ar: any) => ar.name).join('/'),
+      album: song.al.name,
+      duration: song.dt
     }
   })
-
   return {
     songs: transSongLists,
-    more: result.hasMore,
+    more: songs.length < 30,
     total: result.songCount
   }
 }
@@ -57,7 +56,7 @@ export const translateSearchPlaylist = (res: AxiosResponse): IPlaylistAll => {
 
   return {
     playlists: transPlaylists,
-    more: result.hasMore,
+    more: playlists.length < 30,
     total: result.playlistCount
   }
 }

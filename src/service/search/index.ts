@@ -10,7 +10,7 @@ import type { ISongAll } from '@/service/song/types'
 import type { IPlaylistAll } from '@/service/playlist/types'
 
 enum REQUEST_URL {
-  Search = '/search',
+  Search = '/cloudsearch',
   SearchHot = '/search/hot'
 }
 
