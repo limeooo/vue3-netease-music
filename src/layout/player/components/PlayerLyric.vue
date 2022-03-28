@@ -19,7 +19,10 @@
             class="info"
             v-if="lyricData && lyricData.length > 0"
           >
-            <template v-for="(item, index) in lyricData" :key="item.timestamp">
+            <template
+              v-for="(item, index) in lyricData"
+              :key="item.timestamp + index"
+            >
               <p
                 class="lyric__line"
                 :class="{ 'is-playing': lyricInstance?.curIndex() === index }"
