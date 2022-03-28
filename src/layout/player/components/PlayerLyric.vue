@@ -17,7 +17,7 @@
           <div
             ref="scrollLyricRef"
             class="info"
-            v-if="lyricData && lyricData.length > 0"
+            v-if="lyricData && scrollLyricRef && lyricData.length > 0"
           >
             <template
               v-for="(item, index) in lyricData"
