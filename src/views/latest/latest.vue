@@ -13,7 +13,7 @@ import SongList from '@/components/song-list/SongList.vue'
 
 import { storeToRefs } from 'pinia'
 import { useLatestStore } from '@/store'
-import { tabsConfig } from './config/tabs-config'
+import { tabsConfig } from './config'
 
 const latestStore = useLatestStore()
 const { topSongList } = storeToRefs(latestStore)

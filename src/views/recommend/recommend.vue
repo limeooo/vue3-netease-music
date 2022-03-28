@@ -24,7 +24,7 @@ import PlayList from '@/components/play-list/PlayList.vue'
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRecommendStore } from '@/store'
-import { tabsConfig } from './config/tabs-config'
+import { tabsConfig } from './config'
 
 const recommendStore = useRecommendStore()
 recommendStore.getRecommendData()
