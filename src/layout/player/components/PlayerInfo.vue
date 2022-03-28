@@ -76,6 +76,8 @@ const handleLyricClick = () => {
     flex-direction: column;
     justify-content: space-between;
     .title {
+      overflow: hidden;
+      height: 18px;
       .album {
         font-size: 13px;
         font-weight: 500;
