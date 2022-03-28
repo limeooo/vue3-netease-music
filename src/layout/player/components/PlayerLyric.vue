@@ -90,9 +90,10 @@ const scrollLineRefs = ref<HTMLElement[]>() //  每一行歌词dom对象数组
 /**
  * 监听歌词点击 更换进度
  */
-const emit = defineEmits(['update:currentTime'])
+const emit = defineEmits(['update:currentTime', 'update:playing'])
 const handleLyricLineClick = (time: number) => {
   emit('update:currentTime', time)
+  emit('update:playing', true)
 }
 /**
  * 监听歌词变换更新数据

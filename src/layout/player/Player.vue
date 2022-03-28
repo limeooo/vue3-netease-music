@@ -26,10 +26,10 @@
     <!-- 歌曲歌词 评论详情 -->
     <PlayerLyric
       v-model:currentTime="currentTime"
+      v-model:playing="playing"
       :is-open-lyric="isOpenLyric"
       :current-player-song="currentPlayerSong"
       :current-lyric="currentLyric"
-      :playing="playing"
       :is-loding-comment="isLodingComment"
     />
   </div>
