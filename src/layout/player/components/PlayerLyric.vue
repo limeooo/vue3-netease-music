@@ -17,7 +17,7 @@
           <div
             ref="scrollLyricRef"
             class="info"
-            v-if="lyricData && scrollLyricRef && lyricData.length > 0"
+            v-if="lyricData && lyricData.length > 0"
           >
             <template
               v-for="(item, index) in lyricData"
@@ -129,7 +129,11 @@ watch(
  * 监听当前歌词行数更换位置
  */
 watch(lyricCurrentIndex, (index) => {
-  if (scrollLineRefs.value && scrollLyricRef.value) {
+  if (
+    scrollLineRefs.value &&
+    scrollLyricRef.value &&
+    scrollLyricRef.value.scrollTop
+  ) {
     const currentDom = scrollLineRefs.value[index]
     scrollLyricRef.value.scrollTop =
       currentDom.offsetTop - 200 + currentDom.offsetHeight / 2
@@ -165,7 +169,7 @@ watch(lyricCurrentIndex, (index) => {
       justify-content: center;
       align-items: center;
       .cd {
-        margin-right: 50px;
+        // margin-right: 50px;
         width: 350px;
         height: 350px;
         border-radius: 50%;
@@ -193,6 +197,7 @@ watch(lyricCurrentIndex, (index) => {
         }
       }
       .info {
+        padding: 0 30px;
         width: 400px;
         height: 100%;
         overflow: hidden;
