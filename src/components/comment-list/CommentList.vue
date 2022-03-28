@@ -4,7 +4,7 @@
     <template
       v-if="hotCommentList?.length === 0 && newCommentList?.length === 0"
     >
-      <p class="title">暂无评论</p>
+      <el-empty description="暂时没有评论哦" />
     </template>
     <template v-if="hotCommentList?.length > 0 && currentPage === 1">
       <p class="title">最热评论</p>

@@ -8,17 +8,15 @@
       </span>
     </div>
     <!-- 歌曲列表 歌单列表切换 -->
-    <el-tabs v-model="tabsActiveName">
+    <el-tabs v-model="tabsActiveName" v-if="keywords">
       <el-tab-pane label="歌曲" :name="SearchType.song" lazy>
         <SearchSong
-          v-if="keywords"
           :keywords="keywords"
           @searchTotalCallback="searchTotalCallback"
         />
       </el-tab-pane>
       <el-tab-pane label="歌单" :name="SearchType.playlist" lazy>
         <SearchPlaylist
-          v-if="keywords"
           :keywords="keywords"
           @searchTotalCallback="searchTotalCallback"
         />

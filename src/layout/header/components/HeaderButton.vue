@@ -1,8 +1,14 @@
 <template>
   <div class="header-button">
-    <span class="mac-icon mac-icon--red"></span>
-    <span class="mac-icon mac-icon--yellow"></span>
-    <span class="mac-icon mac-icon--green"></span>
+    <el-tooltip effect="light" content="你" placement="bottom">
+      <span class="mac-icon mac-icon--red"></span>
+    </el-tooltip>
+    <el-tooltip effect="light" content="好" placement="bottom">
+      <span class="mac-icon mac-icon--yellow"></span>
+    </el-tooltip>
+    <el-tooltip effect="light" content="啊" placement="bottom">
+      <span class="mac-icon mac-icon--green"></span>
+    </el-tooltip>
   </div>
 </template>
 
