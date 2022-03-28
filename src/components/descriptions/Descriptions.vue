@@ -31,5 +31,8 @@ withDefaults(
 <style lang="less" scoped>
 .description {
   margin-bottom: 20px;
+  :deep(.el-descriptions__title) {
+    font-size: 14px;
+  }
 }
 </style>
