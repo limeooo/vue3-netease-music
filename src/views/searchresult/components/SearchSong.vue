@@ -42,7 +42,10 @@ const requestSearchSong = () => {
 watch(
   () => props.keywords,
   () => {
-    requestSearchSong()
+    if (props.keywords) {
+      currentPage.value = 1
+      requestSearchSong()
+    }
   },
   {
     immediate: true
