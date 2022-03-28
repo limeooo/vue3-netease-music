@@ -9,7 +9,7 @@
     </div>
     <div class="info-text">
       <div class="title">
-        <span class="album">{{ playSong.album }}</span>
+        <span class="album">{{ playSong.name }}</span>
         <span class="separator">-</span>
         <span class="artists">{{ playSong.artists }}</span>
       </div>
