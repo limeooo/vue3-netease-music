@@ -36,6 +36,7 @@ const playlistDetailStore = usePlaylistDetailStore()
 const { playlistDetail, songList } = storeToRefs(playlistDetailStore)
 watchEffect(() => {
   if (route.params.id) {
+    tabsActiveName.value = 'song'
     playlistDetailStore.getPlaylistDetailPageData({
       id: route.params.id as string
     })
