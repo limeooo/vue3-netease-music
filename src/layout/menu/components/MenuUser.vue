@@ -13,7 +13,7 @@
 import { ref } from 'vue'
 import { Avatar } from '@element-plus/icons-vue'
 
-const userName = ref('请登录...')
+const userName = ref('你好啊 李银河')
 </script>
 
 <style lang="less" scoped>

@@ -18,11 +18,17 @@
       </el-icon>
       <span class="title">最新音乐</span>
     </router-link>
+    <router-link class="menu-list-item" to="/about">
+      <el-icon :size="16">
+        <Apple />
+      </el-icon>
+      <span class="title">关于项目</span>
+    </router-link>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Sunny, Moon, Star } from '@element-plus/icons-vue'
+import { Sunny, Moon, Star, Apple } from '@element-plus/icons-vue'
 </script>
 
 <style lang="less" scoped>
