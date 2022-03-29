@@ -1,8 +1,6 @@
 <template>
   <div class="player-control">
-    <el-tooltip content="暂未开发" placement="top">
-      <SvgIcon name="player-prev" size="26" />
-    </el-tooltip>
+    <SvgIcon name="player-prev" size="26" @click="handleToggleSong(-1)" />
     <SvgIcon
       v-if="playing"
       name="player-pause"
@@ -17,9 +15,7 @@
       class="center"
       @click="handleSongStatusClick()"
     />
-    <el-tooltip content="暂未开发" placement="top">
-      <SvgIcon name="player-next" size="26" />
-    </el-tooltip>
+    <SvgIcon name="player-next" size="26" @click="handleToggleSong(1)" />
   </div>
 </template>
 
@@ -27,16 +23,24 @@
 import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { withDefaults } from 'vue'
+import { ISong } from '@/service/song/types'
 
 const props = withDefaults(
   defineProps<{
     playing: boolean
+    currentPlayerSong: ISong
   }>(),
   {}
 )
-const emit = defineEmits(['update:playing'])
+
+const emit = defineEmits(['update:playing', 'handleToggleSong'])
 const handleSongStatusClick = () => {
-  emit('update:playing', !props.playing)
+  if (Object.keys(props.currentPlayerSong).length > 1)
+    emit('update:playing', !props.playing)
+}
+const handleToggleSong = (order: 1 | -1) => {
+  if (Object.keys(props.currentPlayerSong).length > 1)
+    emit('handleToggleSong', order)
 }
 </script>
 

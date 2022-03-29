@@ -31,8 +31,9 @@ withDefaults(
 
 const playerStore = usePlayerStore()
 const playerSong = computed(() => playerStore.currentPlayerSong)
+// 监听歌曲点击将歌曲添加到播放列表
 const handleSongClick = (song: ISong) => {
-  playerStore.setCurrentPlayerSong(song)
+  playerStore.pushPlayerSong(song)
 }
 </script>
 
