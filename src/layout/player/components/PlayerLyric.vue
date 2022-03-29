@@ -207,7 +207,7 @@ watch(lyricCurrentIndex, (index) => {
         }
         .lyric__line {
           text-align: center;
-          font-size: 13px;
+          font-size: 14px;
           line-height: 15px;
           color: var(--color-text);
           cursor: pointer;

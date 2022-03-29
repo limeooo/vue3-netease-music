@@ -48,12 +48,12 @@ const handleAllSongClick = () => {
   .player-all-button {
     display: flex;
     justify-content: flex-end;
-    margin: 0px 5px 5px;
+    margin: 5px 5px 10px;
     span {
       display: inline-block;
       padding: 7px 12px;
       background-color: var(--color-main);
-      font-size: 13px;
+      font-size: 14px;
       color: var(--color-text-white);
       border-radius: 5px;
       cursor: pointer;

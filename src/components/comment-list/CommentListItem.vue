@@ -53,7 +53,7 @@ withDefaults(
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 14px;
     .top {
       .nickname {
         color: var(--color-text-nickname);

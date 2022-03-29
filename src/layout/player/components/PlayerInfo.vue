@@ -81,7 +81,7 @@ const handleLyricClick = () => {
       overflow: hidden;
       height: 18px;
       .album {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 500;
         color: var(--color-text-title);
       }
@@ -93,11 +93,11 @@ const handleLyricClick = () => {
         padding: 0 4px;
       }
       .artists {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
     .time {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--color-text);
       .separator {
         padding: 8px;

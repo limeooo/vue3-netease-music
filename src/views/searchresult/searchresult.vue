@@ -55,7 +55,7 @@ const searchTotalCallback = (totalParams: {
       font-weight: 700;
     }
     .total {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--color-text-light);
       letter-spacing: 3px;
     }

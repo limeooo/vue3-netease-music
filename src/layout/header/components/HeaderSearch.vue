@@ -71,7 +71,7 @@ const handleInputSearch = () => {
 .header-search {
   padding-right: 30px;
   :deep(.el-input) {
-    font-size: 12px;
+    font-size: 13px;
   }
   :deep(.el-input__inner) {
     width: 172px;

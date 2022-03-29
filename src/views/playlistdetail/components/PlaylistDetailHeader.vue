@@ -57,7 +57,7 @@ withDefaults(
       }
       .user {
         color: var(--color-text);
-        font-size: 12px;
+        font-size: 13px;
         display: flex;
         align-items: center;
         img {

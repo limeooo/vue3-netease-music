@@ -55,7 +55,7 @@ const handlePlaylistClick = () => {
       left: 0;
       padding: 10px 6px;
       background-color: var(--color-avtive-background-dark);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--color-text-white);
       transition: all 0.3s;
       transform: translateY(-100%);
@@ -77,7 +77,7 @@ const handlePlaylistClick = () => {
   }
   .card-outside {
     margin: 4px 4px 0;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--color-text);
   }
   &:hover {

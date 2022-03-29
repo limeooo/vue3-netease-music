@@ -34,5 +34,8 @@ withDefaults(
   :deep(.el-descriptions__title) {
     font-size: 14px;
   }
+  :deep(.el-tag__content) {
+    font-size: 13px;
+  }
 }
 </style>

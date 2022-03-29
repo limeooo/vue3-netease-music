@@ -36,10 +36,10 @@
               :href="`https://music.163.com/song/media/outer/url?id=${item.id}.mp3`"
               target="_blank"
             >
-              <SvgIcon name="download" size="20" />
+              <SvgIcon name="download" size="25" />
             </a>
             <div class="list-item__icon" @click="handleDeletePlayerSong(index)">
-              <SvgIcon name="delete" size="18" style="margin-bottom: 2px" />
+              <SvgIcon name="delete" size="22" style="margin: 0 0 5.5px 3px" />
             </div>
           </div>
         </template>
@@ -88,10 +88,10 @@ const handleClosePlayerList = () => {
 
 <style lang="less" scoped>
 .player-list {
-  width: 350px;
-  height: calc(100vh - 50px - 62px);
+  width: 450px;
+  height: calc(100vh - 50px - 162px);
   position: fixed;
-  top: 50px;
+  // top: 50px;
   right: 0;
   bottom: 62px;
   z-index: var(--z-index-player-list);
@@ -135,13 +135,13 @@ const handleClosePlayerList = () => {
         align-items: center;
       }
       .list-item__info {
-        width: calc(100% - 40px);
-        padding: 5px 0;
+        width: calc(100% - 50px);
+        padding: 8px 0;
         display: flex;
         justify-content: space-between;
         cursor: pointer;
         .text {
-          font-size: 12px;
+          font-size: 13px;
           color: var(--color-text);
         }
         .order,

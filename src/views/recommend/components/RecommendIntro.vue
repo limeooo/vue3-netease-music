@@ -81,7 +81,7 @@ const handlePlaylistClick = () => {
     .description {
       height: 70px;
       color: var(--color-text-description);
-      font-size: 12px;
+      font-size: 13px;
       line-height: 14px;
       overflow: hidden;
       text-overflow: ellipsis;

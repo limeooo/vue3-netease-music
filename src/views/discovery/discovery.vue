@@ -29,7 +29,8 @@ discoveryStore.getDiscoveryData()
   .title {
     padding: 10px 0;
     font-size: 18px;
-    color: var(--color-text-title);
+    color: var(--color-text);
+    font-weight: bold;
   }
 }
 </style>
