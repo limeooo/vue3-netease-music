@@ -21,8 +21,8 @@ const props = withDefaults(
   }>(),
   {}
 )
-const emit = defineEmits(['update:currentTime'])
 
+// 监听当前音乐播放进度改变进度条进度
 const currentTime = ref(0)
 watch(
   () => props.currentTime,
@@ -30,6 +30,9 @@ watch(
     currentTime.value = newVal
   }
 )
+
+// 监听进度条点击更新进度时间
+const emit = defineEmits(['update:currentTime'])
 const handelChangeProgress = () => {
   if (currentTime.value) emit('update:currentTime', currentTime.value)
 }

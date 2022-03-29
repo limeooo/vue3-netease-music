@@ -1,7 +1,7 @@
 <template>
   <div class="player-info">
     <div class="info-image" @click="handleLyricClick()">
-      <img :src="thumbnail(playSong.picUrl, 40)" />
+      <img :src="thumbnail(currentPlayerSong.picUrl, 40)" />
       <div class="background-mask">
         <SvgIcon v-if="isOpenLyric" name="shrink" size="22" />
         <SvgIcon v-else name="expand" size="22" />
@@ -9,9 +9,9 @@
     </div>
     <div class="info-text">
       <div class="title">
-        <span class="album">{{ playSong.name }}</span>
+        <span class="album">{{ currentPlayerSong.name }}</span>
         <span class="separator">-</span>
-        <span class="artists">{{ playSong.artists }}</span>
+        <span class="artists">{{ currentPlayerSong.artists }}</span>
       </div>
       <div class="time">
         <span>{{ formatSecondsDuration(currentTime) }}</span>
@@ -26,22 +26,24 @@
 import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { withDefaults } from 'vue'
+import { storeToRefs } from 'pinia'
+import { usePlayerStore } from '@/store'
 import { thumbnail, formatSecondsDuration } from '@/utils'
-import type { ISong } from '@/service/song/types'
 
 withDefaults(
   defineProps<{
-    playSong: ISong
     currentTime: number
     duration: number
-    isOpenLyric: boolean
   }>(),
   {}
 )
 
-const emit = defineEmits(['handleLyricClick'])
+const playerStore = usePlayerStore()
+const { currentPlayerSong, isOpenLyric } = storeToRefs(playerStore)
+
+// 监听点击图片打开歌词
 const handleLyricClick = () => {
-  emit('handleLyricClick')
+  playerStore.setLyricOpenstatus()
 }
 </script>
 

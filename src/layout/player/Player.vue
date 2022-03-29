@@ -4,20 +4,13 @@
     <div class="player-left">
       <PlayerInfo
         v-if="currentPlayerSong.id"
-        :play-song="currentPlayerSong"
-        :is-open-lyric="isOpenLyric"
         :current-time="currentTime"
         :duration="duration"
-        @handle-lyric-click="handleLyricClick()"
       />
     </div>
     <!-- 歌曲控制器 -->
     <div class="player-center">
-      <PlayerControl
-        v-model:playing="playing"
-        :current-player-song="currentPlayerSong"
-        @handleToggleSong="handleToggleSong"
-      />
+      <PlayerControl v-model:playing="playing" />
     </div>
     <!-- 音量控制器 -->
     <div class="player-right">
@@ -28,14 +21,9 @@
     <!-- 音乐进度条 -->
     <PlayerProgress v-model:current-time="currentTime" :duration="duration" />
     <!-- 歌曲歌词 评论详情 -->
-    <PlayerLyric
-      v-model:currentTime="currentTime"
-      v-model:playing="playing"
-      :is-open-lyric="isOpenLyric"
-      :current-player-song="currentPlayerSong"
-      :current-lyric="currentLyric"
-      :is-loding-comment="isLodingComment"
-    />
+    <PlayerLyric v-model:currentTime="currentTime" v-model:playing="playing" />
+    <!-- 歌曲播放列表 -->
+    <PlayerList />
   </div>
 </template>
 
@@ -45,6 +33,7 @@ import PlayerControl from './components/PlayerControl.vue'
 import PlayerVolume from './components/PlayerVolume.vue'
 import PlayerProgress from './components/PlayerProgress.vue'
 import PlayerLyric from './components/PlayerLyric.vue'
+import PlayerList from './components/PlayerList.vue'
 
 import { ref, computed, watch } from 'vue'
 import { storeToRefs } from 'pinia'
@@ -55,9 +44,7 @@ import { usePlayerStore } from '@/store'
 import { useMediaControls } from '@vueuse/core'
 
 const playerStore = usePlayerStore()
-const { isOpenLyric, currentPlayerSong, currentLyric, isLodingComment } =
-  storeToRefs(playerStore)
-
+const { currentPlayerSong } = storeToRefs(playerStore)
 // 设置当前播放音乐src地址
 const currentPlayerSongSrc = computed(() => {
   return currentPlayerSong.value.id
@@ -80,11 +67,6 @@ const { playing, currentTime, duration, volume, ended } = useMediaControls(
   }
 )
 
-// 监听点击图片打开歌词
-const handleLyricClick = () => {
-  playerStore.setLyricOpenstatus()
-}
-
 // 监听歌曲播放完毕切换下一首
 watch(ended, (isEnd) => {
   if (isEnd) {
@@ -96,23 +78,6 @@ watch(ended, (isEnd) => {
     playing.value = true
   }
 })
-
-// 监听当前播放音乐变化、重置是否播放和播放时间
-watch(
-  currentPlayerSong,
-  () => {
-    currentTime.value = 0
-    playing.value = true
-  },
-  {
-    deep: true
-  }
-)
-
-// 监听切换按钮 切换歌曲
-const handleToggleSong = (order: 1 | -1) => {
-  playerStore.togglePlayerSong(order)
-}
 </script>
 
 <style lang="less" scoped>

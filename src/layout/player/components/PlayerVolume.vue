@@ -1,5 +1,8 @@
 <template>
   <div class="player-volume">
+    <el-badge :is-dot="currentPlayerSongList?.length > 0">
+      <SvgIcon name="player-list" size="20" @click="handleOpenPlayerList()" />
+    </el-badge>
     <SvgIcon
       v-if="volume === 0"
       name="player-volume-close"
@@ -28,6 +31,8 @@
 import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { ref, withDefaults } from 'vue'
+import { storeToRefs } from 'pinia'
+import { usePlayerStore } from '@/store'
 
 withDefaults(
   defineProps<{
@@ -35,9 +40,10 @@ withDefaults(
   }>(),
   {}
 )
-const emit = defineEmits(['update:volume'])
 
+// 监听声音改变更新当前音量
 const currentVolume = ref(1)
+const emit = defineEmits(['update:volume'])
 const handleSongVolumeClick = () => {
   emit('update:volume', currentVolume.value)
 }
@@ -47,6 +53,13 @@ const handleOpenVolume = () => {
 const handleCloseVolume = () => {
   emit('update:volume', 0)
 }
+
+// 监听播放列表打开事件
+const playerStore = usePlayerStore()
+const { currentPlayerSongList, isOpenPlayerList } = storeToRefs(playerStore)
+const handleOpenPlayerList = () => {
+  isOpenPlayerList.value = !isOpenPlayerList.value
+}
 </script>
 
 <style lang="less" scoped>
@@ -54,7 +67,10 @@ const handleCloseVolume = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 190px;
+  width: 220px;
+  .icon {
+    cursor: pointer;
+  }
   .player-volume-slider {
     width: 150px;
     padding-right: 20px;

@@ -47,10 +47,10 @@
 import CommentList from '@/components/comment-list/CommentList.vue'
 
 import { ref, watch, withDefaults, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
+import { usePlayerStore } from '@/store'
 import { thumbnail } from '@/utils'
 import { CommentType } from '@/service/comment/types'
-import type { ISong } from '@/service/song/types'
-
 /**
  * 引入lrc-kit 歌词解析器 https://github.com/weirongxu/lrc-kit
  */
@@ -58,15 +58,15 @@ import { Lrc, Runner, Lyric } from 'lrc-kit'
 
 const props = withDefaults(
   defineProps<{
-    isOpenLyric: boolean
-    currentPlayerSong: ISong
-    currentLyric: string
     playing: boolean
     currentTime: number
-    isLodingComment: boolean
   }>(),
   {}
 )
+
+const playerStore = usePlayerStore()
+const { currentPlayerSong, currentLyric, isOpenLyric, isLodingComment } =
+  storeToRefs(playerStore)
 
 const lyricData = ref<Lyric[]>() //歌词数据
 const lyricInstance = ref<Runner>() //歌词实例
@@ -74,6 +74,7 @@ const lyricCurrentIndex = ref<number>(0) //歌词当前播放的行数
 
 const scrollLyricRef = ref<HTMLDivElement>() //  歌词dom对象
 const scrollLineRefs = ref<HTMLElement[]>() //  每一行歌词dom对象数组
+
 /**
  * 不知道是否是因为lyricData是动态值的问题
  * 导致此处参照vue官网用lyricData去for循环获取的ref对象有各种莫名其妙的问题
@@ -101,18 +102,15 @@ const handleLyricLineClick = (time: number) => {
 /**
  * 监听歌词变换更新数据
  */
-watch(
-  () => props.currentLyric,
-  (lyric) => {
-    lyricInstance.value = new Runner(Lrc.parse(lyric))
-    lyricData.value = lyricInstance.value.getLyrics()
-    nextTick(() => {
-      scrollLineRefs.value = document.querySelectorAll(
-        '.lyric__line'
-      ) as any as HTMLElement[]
-    })
-  }
-)
+watch(currentLyric, (lyric) => {
+  lyricInstance.value = new Runner(Lrc.parse(lyric))
+  lyricData.value = lyricInstance.value.getLyrics()
+  nextTick(() => {
+    scrollLineRefs.value = document.querySelectorAll(
+      '.lyric__line'
+    ) as any as HTMLElement[]
+  })
+})
 /**
  * 监听当前播放时间更新当前歌词进度
  */
