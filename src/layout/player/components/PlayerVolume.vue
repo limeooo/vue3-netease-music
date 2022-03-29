@@ -56,9 +56,9 @@ const handleCloseVolume = () => {
 
 // 监听播放列表打开事件
 const playerStore = usePlayerStore()
-const { currentPlayerSongList, isOpenPlayerList } = storeToRefs(playerStore)
+const { currentPlayerSongList } = storeToRefs(playerStore)
 const handleOpenPlayerList = () => {
-  isOpenPlayerList.value = !isOpenPlayerList.value
+  playerStore.isOpenPlayerList = !playerStore.isOpenPlayerList
 }
 </script>
 
