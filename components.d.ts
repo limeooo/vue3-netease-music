@@ -9,7 +9,7 @@ declare module 'vue' {
     CommentListItem: typeof import('./src/components/comment-list/CommentListItem.vue')['default']
     Descriptions: typeof import('./src/components/descriptions/Descriptions.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
-    ElButton: typeof import('element-plus/es')['ElButton']
+    ElBadge: typeof import('element-plus/es')['ElBadge']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']

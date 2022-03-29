@@ -12,6 +12,8 @@ const usePlayerStore = defineStore('player', {
       isLodingComment: false,
       // 歌词是否打开状态
       isOpenLyric: false,
+      // 歌曲列表是否打开状态
+      isOpenPlayerList: false,
       // 当前播放音乐
       currentPlayerSong: {} as ISong,
       // 当前音乐歌词
@@ -72,6 +74,23 @@ const usePlayerStore = defineStore('player', {
       })
       // 设置当前播放音乐
       this.setCurrentPlayerSong()
+    },
+    // 播放列表删除音乐
+    deletePlayerSong(index: number) {
+      this.$patch((state) => {
+        // 删除的是最后一首
+        if (state.currentPlayerSongList.length === 1 || index === -1) {
+          state.currentPlayerSongList = []
+          state.currentPlayerSongIndex = -1
+          return
+        }
+        // 当删除的下标值比当前播放音乐的下标值小、则需要将当前播放音乐下标值-1
+        if (state.currentPlayerSongIndex > index) {
+          state.currentPlayerSongIndex--
+        }
+        state.currentPlayerSongList.splice(index, 1)
+        this.setCurrentPlayerSong()
+      })
     },
     // 设置当前播放音乐
     async setCurrentPlayerSong() {
