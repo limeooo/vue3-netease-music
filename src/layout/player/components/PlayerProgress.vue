@@ -31,7 +31,7 @@ watch(
   }
 )
 const handelChangeProgress = () => {
-  emit('update:currentTime', currentTime.value)
+  if (currentTime.value) emit('update:currentTime', currentTime.value)
 }
 </script>
 
