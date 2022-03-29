@@ -24,10 +24,14 @@ export const directoryConfig = `
 │   │   └── svg
 │   │       ├── arrow-back.svg
 │   │       ├── arrow-forward.svg
+│   │       ├── close.svg
+│   │       ├── delete.svg
+│   │       ├── download.svg
 │   │       ├── expand.svg
 │   │       ├── great.svg
 │   │       ├── loading-audio.svg
 │   │       ├── loading-error.svg
+│   │       ├── player-list.svg
 │   │       ├── player-next.svg
 │   │       ├── player-pause.svg
 │   │       ├── player-play-empty.svg
@@ -35,6 +39,7 @@ export const directoryConfig = `
 │   │       ├── player-prev.svg
 │   │       ├── player-volume-close.svg
 │   │       ├── player-volume.svg
+│   │       ├── rubbish.svg
 │   │       └── shrink.svg
 │   ├── components
 │   │   ├── banner
@@ -76,6 +81,7 @@ export const directoryConfig = `
 │   │       └── components
 │   │           ├── PlayerControl.vue
 │   │           ├── PlayerInfo.vue
+│   │           ├── PlayerList.vue
 │   │           ├── PlayerLyric.vue
 │   │           ├── PlayerProgress.vue
 │   │           └── PlayerVolume.vue
@@ -83,6 +89,8 @@ export const directoryConfig = `
 │   ├── modules
 │   │   ├── dayjs.ts
 │   │   ├── loading-hot-search.ts
+│   │   ├── notification.ts
+│   │   ├── svg-icons-register.ts
 │   │   └── vue-lazyload-next.ts
 │   ├── router
 │   │   └── index.ts
