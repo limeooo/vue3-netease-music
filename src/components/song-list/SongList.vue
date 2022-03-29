@@ -39,7 +39,7 @@ const handleSongClick = (song: ISong) => {
 
 // 监听按钮点击将所有歌曲添加到播放列表
 const handleAllSongClick = () => {
-  playerStore.pushPlayerAllSong(props.songList)
+  playerStore.pushPlayerAllSong([...props.songList])
 }
 </script>
 
