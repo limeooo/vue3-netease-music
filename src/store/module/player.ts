@@ -42,6 +42,15 @@ const usePlayerStore = defineStore('player', {
       // 设置当前播放音乐
       this.setCurrentPlayerSong()
     },
+    // 将所有歌曲添加到播放列表、从第一首开始播放
+    pushPlayerAllSong(songList: ISong[]) {
+      this.$patch((state) => {
+        state.currentPlayerSongList = songList
+        state.currentPlayerSongIndex = 0
+      })
+      // 设置当前播放音乐
+      this.setCurrentPlayerSong()
+    },
     // 歌曲列表点击单首歌曲处理事件、添加歌曲到播放列表
     pushPlayerSong(song: ISong) {
       this.$patch((state) => {

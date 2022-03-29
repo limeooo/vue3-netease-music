@@ -1,12 +1,12 @@
 <template>
-  <div class="song-list-item" @click="handleSongClick(songItem)">
+  <div class="song-list-item">
     <div class="item-order">{{ padZero(songItem.order) }}</div>
     <div class="item-image">
       <img v-lazy="thumbnail(songItem.picUrl, 60)" />
     </div>
     <div
       class="item-text text-ellipsis"
-      :class="{ isActive: playerSong.id === songItem.id }"
+      :class="{ isActive: currentPlayerSong.id === songItem.id }"
     >
       {{ songItem.name }}
     </div>
@@ -17,24 +17,17 @@
 </template>
 
 <script setup lang="ts">
-import { withDefaults, computed } from 'vue'
+import { withDefaults } from 'vue'
 import { padZero, formatDuration, thumbnail } from '@/utils'
-import { usePlayerStore } from '@/store'
 import type { ISong } from '@/service/song/types'
 
 withDefaults(
   defineProps<{
     songItem: ISong
+    currentPlayerSong: ISong
   }>(),
   {}
 )
-
-const playerStore = usePlayerStore()
-const playerSong = computed(() => playerStore.currentPlayerSong)
-// 监听歌曲点击将歌曲添加到播放列表
-const handleSongClick = (song: ISong) => {
-  playerStore.pushPlayerSong(song)
-}
 </script>
 
 <style lang="less" scoped>
