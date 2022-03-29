@@ -97,6 +97,18 @@ watch(ended, (isEnd) => {
   }
 })
 
+// 监听当前播放音乐变化、重置是否播放和播放时间
+watch(
+  currentPlayerSong,
+  () => {
+    currentTime.value = 0
+    playing.value = true
+  },
+  {
+    deep: true
+  }
+)
+
 // 监听切换按钮 切换歌曲
 const handleToggleSong = (order: 1 | -1) => {
   playerStore.togglePlayerSong(order)

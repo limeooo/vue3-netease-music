@@ -76,6 +76,12 @@ const usePlayerStore = defineStore('player', {
     // 设置当前播放音乐
     async setCurrentPlayerSong() {
       const song = this.currentPlayerSongList[this.currentPlayerSongIndex]
+      // 当设置的音乐和当前播放音乐为同一首时，不请求数据
+      // 此操作用以令watch监听来重置音乐是否播放和播放进度
+      if (song.id === this.currentPlayerSong.id) {
+        song.isRestart = !song.isRestart
+        return
+      }
       const lyric = await requestSongLyric({ id: song.id })
       this.$patch((state) => {
         state.currentPlayerSong = song

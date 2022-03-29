@@ -9,6 +9,8 @@ export interface ISong {
   artists: string
   album: string
   duration: number
+  // 此属性的true和false无意义、设置此值用以深度监听当前播放音乐的变化、来重置播放进度和是否播放
+  isRestart?: boolean
 }
 
 /**
