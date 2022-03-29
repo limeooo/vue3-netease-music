@@ -2,11 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
-
-// 引入公共样式
 import './assets/css/index.less'
-// 引入vite-plugin-svg-icons包 生成 svg 雪碧图
-import 'virtual:svg-icons-register'
 
 const app = createApp(App)
 app.use(router)
