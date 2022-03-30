@@ -1,19 +1,12 @@
 <template>
-  <div class="player-volume">
+  <div ref="playVolumeRef" class="player-volume">
     <el-badge :is-dot="currentPlayerSongList?.length > 0">
       <SvgIcon name="player-list" size="20" @click="handleOpenPlayerList()" />
     </el-badge>
     <SvgIcon
-      v-if="volume === 0"
-      name="player-volume-close"
+      :name="volume === 0 ? 'player-volume-close' : 'player-volume'"
       size="20"
-      @click="handleOpenVolume()"
-    />
-    <SvgIcon
-      v-else
-      name="player-volume"
-      size="20"
-      @click="handleCloseVolume()"
+      @click="handleChangeVolume()"
     />
     <el-slider
       v-model="currentVolume"
@@ -24,17 +17,24 @@
       class="player-volume-slider"
       @input="handleSongVolumeClick()"
     />
+    <!-- 歌曲播放列表 -->
+    <!-- vue-teleport 将内部内容嵌套到根标签中，
+  不受父组件z-index影响布局，导致此组件出现时覆盖了父组件 -->
+    <teleport to="#app">
+      <PlayerList v-click-outside:[playVolumeRef]="handleClickOutside" />
+    </teleport>
   </div>
 </template>
 
 <script setup lang="ts">
+import PlayerList from './PlayerList.vue'
 import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { ref, withDefaults } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     volume: number
   }>(),
@@ -47,11 +47,8 @@ const emit = defineEmits(['update:volume'])
 const handleSongVolumeClick = () => {
   emit('update:volume', currentVolume.value)
 }
-const handleOpenVolume = () => {
-  emit('update:volume', currentVolume.value)
-}
-const handleCloseVolume = () => {
-  emit('update:volume', 0)
+const handleChangeVolume = () => {
+  emit('update:volume', props.volume === 0 ? currentVolume.value : 0)
 }
 
 // 监听播放列表打开事件
@@ -59,6 +56,12 @@ const playerStore = usePlayerStore()
 const { currentPlayerSongList } = storeToRefs(playerStore)
 const handleOpenPlayerList = () => {
   playerStore.isOpenPlayerList = !playerStore.isOpenPlayerList
+}
+
+// handleClickOutside 监听元素外的点击事件
+const playVolumeRef = ref<HTMLDivElement>()
+const handleClickOutside = () => {
+  playerStore.isOpenPlayerList = false
 }
 </script>
 

@@ -14,6 +14,7 @@
     <teleport to="#app">
       <HeaderSearchTags
         v-show="isFocus"
+        v-click-outside:[headerSearchRef]="handleClickOutside"
         :searchHotList="searchHotList"
         :searchHistory="searchHistory"
         @handleTagClick="handleTagClick"
@@ -30,7 +31,6 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useSearchStore, usePlayerStore } from '@/store'
-import { onClickOutside } from '@vueuse/core'
 
 const router = useRouter()
 const searchStore = useSearchStore()
@@ -42,10 +42,9 @@ const headerSearchRef = ref<HTMLDivElement>()
 /**
  * "onClickOutside" 监听元素外的点击事件
  */
-onClickOutside(headerSearchRef, () => {
+const handleClickOutside = () => {
   isFocus.value = false
-})
-
+}
 /**
  * 1:关闭搜索建议框
  * 2:若是输入搜索，存储这次搜索到本地存储
@@ -69,7 +68,6 @@ const handleInputSearch = () => {
 
 <style lang="less" scoped>
 .header-search {
-  padding-right: 30px;
   :deep(.el-input) {
     font-size: 13px;
   }

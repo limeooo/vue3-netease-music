@@ -1,13 +1,6 @@
 <template>
-  <!-- vue-teleport 将内部内容嵌套到根标签中，
-  不受父组件z-index影响布局，导致此组件出现时覆盖了父组件 -->
-  <teleport to="#app">
-    <div
-      ref="playerListRef"
-      class="player-list"
-      :class="{ 'is-hidden': !isOpenPlayerList }"
-    >
-      <!-- <div class="header">
+  <div class="player-list" :class="{ 'is-hidden': !isOpenPlayerList }">
+    <!-- <div class="header">
         <div class="close" @click="handleClosePlayerList()">
           <SvgIcon name="close" size="16" />
         </div>
@@ -16,23 +9,23 @@
           <span>清除</span>
         </div>
       </div> -->
-      <div class="list">
-        <template v-if="currentPlayerSongList.length === 0">
-          <el-empty description="列表为空～" />
-        </template>
-        <template v-for="(item, index) in currentPlayerSongList" :key="item.id">
-          <div class="list-item">
-            <div
-              class="list-item__info"
-              :class="{ isActive: currentPlayerSong.id === item.id }"
-              @click="handlePlayListItemClick(index)"
-            >
-              <span class="text order">{{ padZero(index + 1) }}</span>
-              <span class="text name text-ellipsis">{{ item.name }}</span>
-              <span class="text artists text-ellipsis">{{ item.artists }}</span>
-              <span class="text time">{{ formatDuration(item.duration) }}</span>
-            </div>
-            <!-- <a
+    <div class="list">
+      <template v-if="currentPlayerSongList.length === 0">
+        <el-empty description="列表为空～" />
+      </template>
+      <template v-for="(item, index) in currentPlayerSongList" :key="item.id">
+        <div class="list-item">
+          <div
+            class="list-item__info"
+            :class="{ isActive: currentPlayerSong.id === item.id }"
+            @click="handlePlayListItemClick(index)"
+          >
+            <span class="text order">{{ padZero(index + 1) }}</span>
+            <span class="text name text-ellipsis">{{ item.name }}</span>
+            <span class="text artists text-ellipsis">{{ item.artists }}</span>
+            <span class="text time">{{ formatDuration(item.duration) }}</span>
+          </div>
+          <!-- <a
               :href="`https://music.163.com/song/media/outer/url?id=${item.id}.mp3`"
               target="_blank"
             >
@@ -41,33 +34,20 @@
             <div class="list-item__icon" @click="handleDeletePlayerSong(index)">
               <SvgIcon name="delete" size="22" style="margin: 0 0 5.5px 3px" />
             </div> -->
-          </div>
-        </template>
-      </div>
+        </div>
+      </template>
     </div>
-  </teleport>
+  </div>
 </template>
 
 <script setup lang="ts">
-// import SvgIcon from '@/components/base/SvgIcon.vue'
-
-import { ref } from 'vue'
 import { formatDuration, padZero } from '@/utils'
 import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
-import { onClickOutside } from '@vueuse/core'
 
 const playerStore = usePlayerStore()
 const { isOpenPlayerList, currentPlayerSong, currentPlayerSongList } =
   storeToRefs(playerStore)
-
-/**
- * "onClickOutside" 监听元素外的点击事件
- */
-const playerListRef = ref<HTMLDivElement>()
-onClickOutside(playerListRef, () => {
-  playerStore.isOpenPlayerList = false
-})
 
 // 监听播放列表点击切换音乐
 const handlePlayListItemClick = (index: number) => {
@@ -79,19 +59,14 @@ const handlePlayListItemClick = (index: number) => {
 // const handleDeletePlayerSong = (index: number) => {
 //   playerStore.deletePlayerSong(index)
 // }
-
-// // 监听关闭按钮
-// const handleClosePlayerList = () => {
-//   playerStore.isOpenPlayerList = false
-// }
 </script>
 
 <style lang="less" scoped>
 .player-list {
-  width: 350px;
-  height: calc(100vh - 50px - 62px);
+  width: 450px;
+  height: calc(100vh - 62px);
   position: fixed;
-  // top: 50px;
+  top: 0px;
   right: 0;
   bottom: 62px;
   z-index: var(--z-index-player-list);

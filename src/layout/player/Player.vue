@@ -22,8 +22,6 @@
     <PlayerProgress v-model:current-time="currentTime" :duration="duration" />
     <!-- 歌曲歌词 评论详情 -->
     <PlayerLyric v-model:currentTime="currentTime" v-model:playing="playing" />
-    <!-- 歌曲播放列表 -->
-    <PlayerList />
   </div>
 </template>
 
@@ -33,7 +31,6 @@ import PlayerControl from './components/PlayerControl.vue'
 import PlayerVolume from './components/PlayerVolume.vue'
 import PlayerProgress from './components/PlayerProgress.vue'
 import PlayerLyric from './components/PlayerLyric.vue'
-import PlayerList from './components/PlayerList.vue'
 
 import { ref, computed, watch } from 'vue'
 import { storeToRefs } from 'pinia'
