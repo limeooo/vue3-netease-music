@@ -40,6 +40,10 @@ export const dependencies: IDescription[] = [
   {
     name: '@element-plus/icons-vue',
     value: '^1.1.4'
+  },
+  {
+    name: 'amfe-flexible',
+    value: '^2.2.1'
   }
 ]
 
@@ -71,6 +75,10 @@ export const devDependencies: IDescription[] = [
   {
     name: 'vite-plugin-svg-icons',
     value: '^2.0.1'
+  },
+  {
+    name: 'postcss-pxtorem',
+    value: '^6.0.0'
   },
   {
     name: '@commitlint/cli',
