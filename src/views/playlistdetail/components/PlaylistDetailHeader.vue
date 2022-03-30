@@ -52,12 +52,12 @@ withDefaults(
     .top {
       .title {
         color: var(--color-text-title);
-        font-size: 16px;
+        font-size: 15px;
         padding-bottom: 12px;
       }
       .user {
         color: var(--color-text);
-        font-size: 13px;
+        font-size: 12px;
         display: flex;
         align-items: center;
         img {
@@ -75,7 +75,7 @@ withDefaults(
       .introduction {
         padding-top: 8px;
         color: var(--color-text);
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }

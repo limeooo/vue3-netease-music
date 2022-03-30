@@ -7,7 +7,7 @@
       class="player-list"
       :class="{ 'is-hidden': !isOpenPlayerList }"
     >
-      <div class="header">
+      <!-- <div class="header">
         <div class="close" @click="handleClosePlayerList()">
           <SvgIcon name="close" size="16" />
         </div>
@@ -15,7 +15,7 @@
           <SvgIcon name="rubbish" />
           <span>清除</span>
         </div>
-      </div>
+      </div> -->
       <div class="list">
         <template v-if="currentPlayerSongList.length === 0">
           <el-empty description="列表为空～" />
@@ -32,7 +32,7 @@
               <span class="text artists text-ellipsis">{{ item.artists }}</span>
               <span class="text time">{{ formatDuration(item.duration) }}</span>
             </div>
-            <a
+            <!-- <a
               :href="`https://music.163.com/song/media/outer/url?id=${item.id}.mp3`"
               target="_blank"
             >
@@ -40,7 +40,7 @@
             </a>
             <div class="list-item__icon" @click="handleDeletePlayerSong(index)">
               <SvgIcon name="delete" size="22" style="margin: 0 0 5.5px 3px" />
-            </div>
+            </div> -->
           </div>
         </template>
       </div>
@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import SvgIcon from '@/components/base/SvgIcon.vue'
+// import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { ref } from 'vue'
 import { formatDuration, padZero } from '@/utils'
@@ -75,21 +75,21 @@ const handlePlayListItemClick = (index: number) => {
   playerStore.setCurrentPlayerSong()
 }
 
-// 监听删除播放列表歌曲
-const handleDeletePlayerSong = (index: number) => {
-  playerStore.deletePlayerSong(index)
-}
+// // 监听删除播放列表歌曲
+// const handleDeletePlayerSong = (index: number) => {
+//   playerStore.deletePlayerSong(index)
+// }
 
-// 监听关闭按钮
-const handleClosePlayerList = () => {
-  playerStore.isOpenPlayerList = false
-}
+// // 监听关闭按钮
+// const handleClosePlayerList = () => {
+//   playerStore.isOpenPlayerList = false
+// }
 </script>
 
 <style lang="less" scoped>
 .player-list {
-  width: 450px;
-  height: calc(100vh - 50px - 162px);
+  width: 350px;
+  height: calc(100vh - 50px - 62px);
   position: fixed;
   // top: 50px;
   right: 0;
@@ -135,13 +135,13 @@ const handleClosePlayerList = () => {
         align-items: center;
       }
       .list-item__info {
-        width: calc(100% - 50px);
+        width: calc(100%);
         padding: 8px 0;
         display: flex;
         justify-content: space-between;
         cursor: pointer;
         .text {
-          font-size: 13px;
+          font-size: 12px;
           color: var(--color-text);
         }
         .order,

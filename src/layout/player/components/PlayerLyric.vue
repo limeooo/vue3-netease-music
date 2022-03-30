@@ -207,12 +207,13 @@ watch(lyricCurrentIndex, (index) => {
         }
         .lyric__line {
           text-align: center;
-          font-size: 14px;
+          font-size: 12px;
           line-height: 15px;
           color: var(--color-text);
           cursor: pointer;
           margin-bottom: 20px;
           &.is-playing {
+            font-size: 14px;
             font-weight: bold;
             color: var(--color-text-title);
           }

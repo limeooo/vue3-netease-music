@@ -50,7 +50,7 @@ import { Sunny, Moon, Star, Apple } from '@element-plus/icons-vue'
     }
     .title {
       padding: 3px 0 0 10px;
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 }

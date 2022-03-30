@@ -1,0 +1,55 @@
+/* 空间不足文本省略 */
+.text-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.el-pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  .el-pager{
+    .number{
+      &:hover{
+        color: var(--color-main);
+      }
+    }
+    .is-active{
+      color: var(--color-main);
+    }
+  }
+}
+
+
+.el-tabs {
+  .el-tabs__active-bar {
+    background-color: var(--color-main) !important;
+  }
+  .el-tabs__item {
+    color: var(--color-text);
+    font-weight: 400;
+    &:hover{
+      color: var(--color-main);
+    }
+    &.is-active {
+      color: var(--color-main);
+    }
+  }
+}
+
+.el-loading-spinner{
+  .el-loading-text{
+    color: var(--color-main);
+  }
+  .path{
+    stroke: var(--color-main);
+  }
+}
+
+.el-card {
+  margin-bottom: 20px;
+  .el-card__header{
+    font-weight: 700;
+  }
+}

@@ -46,7 +46,7 @@ const handleTabClick = (value: string | number) => {
   .tabs-item {
     width: 48px;
     list-style: none;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     cursor: pointer;
     &.isActive {

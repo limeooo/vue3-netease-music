@@ -46,7 +46,7 @@ const handleTagClick = (tag: string) => {
   box-shadow: 5px 5px 5px 2px rgb(0, 0, 0, 0.2);
   padding: 15px 20px;
   .search-title {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--color-text-title-2);
     padding-bottom: 15px;
   }
@@ -55,7 +55,7 @@ const handleTagClick = (tag: string) => {
     flex-wrap: wrap;
     padding-bottom: 30px;
     .tag {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--color-text);
       padding: 6px 18px;
       margin: 0 5px 10px 0;

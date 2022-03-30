@@ -1,8 +1,8 @@
 <template>
   <div class="menu-user">
-    <div class="user-avatar">
+    <!-- <div class="user-avatar">
       <el-avatar :icon="Avatar" />
-    </div>
+    </div> -->
     <div class="user-name">
       <span>{{ userName }}</span>
     </div>
@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Avatar } from '@element-plus/icons-vue'
+// import { Avatar } from '@element-plus/icons-vue'
 
 const userName = ref('你好啊 李银河')
 </script>

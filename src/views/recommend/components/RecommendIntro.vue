@@ -75,13 +75,13 @@ const handlePlaylistClick = () => {
       border: 1px solid var(--color-playlist-tag);
     }
     .title {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--color-text-white);
     }
     .description {
       height: 70px;
       color: var(--color-text-description);
-      font-size: 13px;
+      font-size: 12px;
       line-height: 14px;
       overflow: hidden;
       text-overflow: ellipsis;

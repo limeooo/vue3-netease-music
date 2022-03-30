@@ -77,7 +77,7 @@ const handlePlaylistClick = () => {
   }
   .card-outside {
     margin: 4px 4px 0;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--color-text);
   }
   &:hover {

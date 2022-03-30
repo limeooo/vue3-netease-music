@@ -43,7 +43,7 @@ withDefaults(
   .item-order,
   .item-time {
     width: 60px;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
   }
   .item-order {
@@ -61,7 +61,7 @@ withDefaults(
   .item-text {
     flex: 1;
     margin-left: 20px;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--color-text);
     &.isActive {
       color: var(--color-main);

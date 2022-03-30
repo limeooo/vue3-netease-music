@@ -53,7 +53,7 @@ const handleAllSongClick = () => {
       display: inline-block;
       padding: 7px 12px;
       background-color: var(--color-main);
-      font-size: 14px;
+      font-size: 12px;
       color: var(--color-text-white);
       border-radius: 5px;
       cursor: pointer;

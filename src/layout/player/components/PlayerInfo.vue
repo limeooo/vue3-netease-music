@@ -79,10 +79,9 @@ const handleLyricClick = () => {
     justify-content: space-between;
     .title {
       overflow: hidden;
-      height: 18px;
+      height: 14px;
       .album {
         font-size: 14px;
-        font-weight: 500;
         color: var(--color-text-title);
       }
       .separator,
@@ -93,11 +92,11 @@ const handleLyricClick = () => {
         padding: 0 4px;
       }
       .artists {
-        font-size: 13px;
+        font-size: 12px;
       }
     }
     .time {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--color-text);
       .separator {
         padding: 8px;
