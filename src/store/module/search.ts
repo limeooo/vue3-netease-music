@@ -47,7 +47,8 @@ const useSearchStore = defineStore('search', {
     },
     setSearchHistory(value: string) {
       this.$patch((state) => {
-        state.searchHistory.push(value)
+        if (state.searchHistory.findIndex((item) => item === value) < 0)
+          state.searchHistory.push(value)
       })
       useLocalStorage(SEARCH_KEY, this.searchHistory)
     }
