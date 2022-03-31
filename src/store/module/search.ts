@@ -42,7 +42,7 @@ const useSearchStore = defineStore('search', {
     },
     getSearchHistory() {
       this.$patch((state) => {
-        state.searchHistory = useLocalStorage(SEARCH_KEY, []) as any as string[]
+        state.searchHistory = useLocalStorage(SEARCH_KEY, []).value
       })
     },
     setSearchHistory(value: string) {
