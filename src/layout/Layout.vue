@@ -23,13 +23,9 @@ import Player from './player/Player.vue'
 
 <style lang="less" scoped>
 .page-content {
-  position: fixed;
-  top: 50px;
-  right: 0;
-  left: 250px;
-  bottom: 60px;
+  .position(50px, 0, 60px, 250px);
+  background: var(--layout-content-bgcolor);
   padding: 20px 30px;
   overflow-y: auto;
-  background: var(--color-background);
 }
 </style>

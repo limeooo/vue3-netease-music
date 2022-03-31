@@ -1,55 +1,73 @@
-/* 空间不足文本省略 */
-.text-ellipsis{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+/**
+* 全局样式
+**/
 
 .el-pagination {
+  .display-flex(flex-end);
   margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
   .el-pager{
     .number{
       &:hover{
-        color: var(--color-main);
+        color: @color-main;
       }
     }
     .is-active{
-      color: var(--color-main);
+      color: @color-main;
     }
+  }
+  .number,.btn-next,.btn-prev,.more{
+    color: var(--font-color);
+    background-color: var(--layout-bgcolor) !important;
   }
 }
 
 
 .el-tabs {
   .el-tabs__active-bar {
-    background-color: var(--color-main) !important;
+    background-color: @color-main !important;
   }
   .el-tabs__item {
-    color: var(--color-text);
-    font-weight: 400;
+    color: var(--font-color);
+    font-weight: @font-weight-thin;
     &:hover{
-      color: var(--color-main);
+      color: @color-main;
     }
     &.is-active {
-      color: var(--color-main);
+      color: @color-main;
     }
   }
 }
 
 .el-loading-spinner{
   .el-loading-text{
-    color: var(--color-main);
+    color: @color-main;
   }
   .path{
-    stroke: var(--color-main);
+    stroke: @color-main;
   }
 }
 
 .el-card {
   margin-bottom: 20px;
   .el-card__header{
-    font-weight: 700;
+    background-color: var(--layout-header-bgcolor);
+    color: var(--font-color-title);
+    font-weight: @font-weight-bold;
+  }
+  .el-card__body {
+    background-color: var(--layout-content-bgcolor);
+  }
+}
+
+.el-descriptions{
+  .el-descriptions__title{
+    color: var(--font-color-title) !important;
+  }
+  .el-descriptions__label{
+    color: var(--font-color) !important;
+    background-color: var(--layout-header-bgcolor) !important;
+  }
+  .el-descriptions__content {
+    background-color: var(--layout-content-bgcolor);
   }
 }

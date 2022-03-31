@@ -55,5 +55,18 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        modifyVars: {
+          hack: `true; @import (reference) "${join(
+            __dirname,
+            'src/assets/css/mixin.less'
+          )}";`
+        },
+        javascriptEnabled: true
+      }
+    }
   }
 })

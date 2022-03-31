@@ -40,23 +40,21 @@ const handelChangeProgress = () => {
 
 <style lang="less" scoped>
 .player-progress {
-  position: absolute;
+  .position(-13px, auto, auto, 0, absolute);
   width: 100%;
-  left: 0;
-  top: -13px;
   :deep(.el-slider) {
     .el-slider__runway {
       height: 3px;
       .el-slider__bar {
-        background-color: var(--color-main);
+        background-color: @color-main;
         height: 3px;
       }
       .el-slider__button {
+        background-color: @color-main;
         opacity: 0;
         height: 15px;
         width: 15px;
         border: 0;
-        background-color: var(--color-main);
       }
     }
     &:hover .el-slider__runway .el-slider__button {

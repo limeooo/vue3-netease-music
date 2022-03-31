@@ -32,13 +32,13 @@ withDefaults(
 .description {
   margin-bottom: 20px;
   :deep(.el-descriptions__title) {
-    font-size: 14px;
+    font-size: @font-size;
   }
   :deep(.el-descriptions__label) {
-    font-size: 13px;
+    font-size: @font-size-sm-medium;
   }
   :deep(.el-tag__content) {
-    font-size: 12px;
+    font-size: @font-size-sm;
   }
 }
 </style>

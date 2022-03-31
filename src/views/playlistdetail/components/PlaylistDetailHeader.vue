@@ -1,6 +1,8 @@
 <template>
   <div class="playlist-detail-header">
-    <img v-lazy="thumbnail(playlistDetail.coverImgUrl, 200)" />
+    <div class="detail-image">
+      <img v-lazy="thumbnail(playlistDetail.coverImgUrl, 200)" />
+    </div>
     <div class="detail-info">
       <div class="top">
         <div class="title">{{ playlistDetail.name }}</div>
@@ -13,7 +15,7 @@
       </div>
       <div class="bottom">
         <div class="tags">{{ '标签：' + playlistDetail.tags }}</div>
-        <div class="introduction text-ellipsis">
+        <div class="introduction">
           {{ '简介：' + playlistDetail.description }}
         </div>
       </div>
@@ -39,31 +41,25 @@ withDefaults(
   height: 236px;
   padding-bottom: 36px;
   display: flex;
-  img {
-    width: 200px;
-    height: 200px;
+  .detail-image {
+    .image-size(200px);
   }
   .detail-info {
+    .display-flex(space-between,@flex-direction: column);
     width: calc(100% - 200px);
     padding-left: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     .top {
       .title {
-        color: var(--color-text-title);
-        font-size: 15px;
+        color: var(--font-color-title);
+        font-size: @font-size-lg-medium;
         padding-bottom: 12px;
       }
       .user {
-        color: var(--color-text);
-        font-size: 12px;
-        display: flex;
-        align-items: center;
+        .display-flex(@align-items: center);
+        color: var(--font-color);
+        font-size: @font-size-sm;
         img {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
+          .border-radius(30px);
         }
         span {
           padding-left: 10px;
@@ -73,9 +69,10 @@ withDefaults(
     .bottom {
       .tags,
       .introduction {
+        .text-ellipsis();
+        color: var(--font-color);
+        font-size: @font-size-sm;
         padding-top: 8px;
-        color: var(--color-text);
-        font-size: 12px;
       }
     }
   }

@@ -57,12 +57,12 @@ import {
 <style lang="less" scoped>
 .about {
   :deep(.el-card__header) {
-    font-size: 16px;
+    font-size: @font-size-lg;
   }
   .directory-content {
+    color: var(--font-color);
+    font-size: @font-size;
     white-space: pre-wrap;
-    font-size: 14px;
-    color: var(--color-text);
   }
 }
 </style>

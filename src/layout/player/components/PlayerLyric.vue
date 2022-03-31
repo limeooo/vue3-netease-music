@@ -141,14 +141,10 @@ watch(lyricCurrentIndex, (index) => {
 
 <style lang="less" scoped>
 .player-lyric {
+  .position(50px, 0, 62px, 0);
+  z-index: @z-index-player-lyric;
+  background-color: var(--layout-playerlyric-bgcolor);
   height: calc(100vh - 50px - 62px);
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 62px;
-  background-color: var(--color-avtive-background-lyric);
-  z-index: var(--z-index-player-lyric);
   transform: translateY(0);
   transition: all 0.5s;
   overflow: hidden;
@@ -161,32 +157,19 @@ watch(lyricCurrentIndex, (index) => {
     max-width: 870px;
     margin: 0 auto;
     .lyric {
+      .display-flex(center,center);
       height: 400px;
       margin: 60px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       .cd {
-        // margin-right: 50px;
-        width: 350px;
-        height: 350px;
-        border-radius: 50%;
+        .display-flex(center,center);
+        .border-radius(350px);
         background-color: #e6e5e6;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         .cd-inner {
-          width: 330px;
-          height: 330px;
+          .display-flex(center,center);
+          .border-radius(330px);
           background: linear-gradient(-45deg, #333540, #070708, #333540);
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
           .cd-image {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
+            .border-radius(220px);
             animation: rotate 20s linear infinite;
             &.is-pause {
               animation-play-state: paused;
@@ -206,16 +189,16 @@ watch(lyricCurrentIndex, (index) => {
           display: none; /* Chrome Safari */
         }
         .lyric__line {
+          color: var(--font-color);
+          font-size: @font-size-sm;
           text-align: center;
-          font-size: 12px;
-          line-height: 15px;
-          color: var(--color-text);
           cursor: pointer;
+          line-height: 15px;
           margin-bottom: 20px;
           &.is-playing {
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--color-text-title);
+            color: var(--font-color-title);
+            font-size: @font-size;
+            font-weight: @font-weight-bold;
           }
         }
       }
@@ -225,7 +208,7 @@ watch(lyricCurrentIndex, (index) => {
       .btn-next,
       .number,
       .more {
-        background-color: var(--color-avtive-background-lyric);
+        background-color: var(--layout-playerlyric-bgcolor);
       }
     }
   }

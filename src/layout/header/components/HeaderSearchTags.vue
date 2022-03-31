@@ -36,20 +36,17 @@ const handleTagClick = (tag: string) => {
 
 <style lang="less" scoped>
 .header-search-tags {
-  position: fixed;
-  top: 50px;
-  right: 0;
-  bottom: 60px;
+  .position(50px, 0, 60px, auto);
+  background: var(--layout-content-bgcolor);
+  z-index: @z-index-search;
   width: 350px;
   overflow: hidden;
   overflow-y: auto;
-  z-index: var(--z-index-search);
-  background: var(--color-background);
   box-shadow: 5px 5px 5px 2px rgb(0, 0, 0, 0.2);
   padding: 15px 20px;
   .search-title {
-    font-size: 12px;
-    color: var(--color-text-title-2);
+    color: var(--font-color-title-light);
+    font-size: @font-size-sm;
     padding-bottom: 15px;
   }
   .search-tags {
@@ -57,14 +54,14 @@ const handleTagClick = (tag: string) => {
     flex-wrap: wrap;
     padding-bottom: 30px;
     .tag {
-      font-size: 12px;
-      color: var(--color-text);
+      color: var(--font-color);
+      font-size: @font-size-sm;
       padding: 6px 18px;
       margin: 0 5px 10px 0;
       border: 1px solid var(--color-border);
       cursor: pointer;
       &:hover {
-        background-color: var(--color-avtive-background-light);
+        background-color: var(--color-active-bgcolor);
       }
     }
   }

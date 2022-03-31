@@ -46,15 +46,14 @@ const handleAllSongClick = () => {
 <style lang="less" scoped>
 .song-list {
   .player-all-button {
-    display: flex;
-    justify-content: flex-end;
+    .display-flex(flex-end);
     margin: 5px 5px 10px;
     span {
+      color: var(--font-color);
+      background-color: var(--color-active-bgcolor);
+      font-size: @font-size-sm;
       display: inline-block;
       padding: 7px 12px;
-      background-color: var(--color-main);
-      font-size: 12px;
-      color: var(--color-text-white);
       border-radius: 5px;
       cursor: pointer;
       &:hover {

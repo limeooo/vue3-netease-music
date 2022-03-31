@@ -23,10 +23,9 @@ const hendleRouterForward = () => {
 
 <style lang="less" scoped>
 .header-navgitor {
+  .display-flex(space-between);
   width: 85px;
   padding-right: 25px;
-  display: flex;
-  justify-content: space-between;
   .icon {
     cursor: pointer;
   }

@@ -39,18 +39,16 @@ const handleTabClick = (value: string | number) => {
 
 <style lang="less" scoped>
 .tabs {
+  .display-flex(flex-end, center);
   height: 41px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   .tabs-item {
+    font-size: @font-size-sm;
     width: 48px;
     list-style: none;
-    font-size: 12px;
     text-align: center;
     cursor: pointer;
     &.isActive {
-      color: var(--color-main);
+      color: @color-main;
     }
   }
 }

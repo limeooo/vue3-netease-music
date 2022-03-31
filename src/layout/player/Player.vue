@@ -14,7 +14,7 @@
     </div>
     <!-- 音量控制器 -->
     <div class="player-right">
-      <PlayerVolume v-model:volume="volume" />
+      <PlayerSetting v-model:volume="volume" />
     </div>
     <!-- 播放标签 -->
     <audio ref="audioRef" :loop="false" :autoplay="true" />
@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import PlayerInfo from './components/PlayerInfo.vue'
 import PlayerControl from './components/PlayerControl.vue'
-import PlayerVolume from './components/PlayerVolume.vue'
+import PlayerSetting from './components/PlayerSetting.vue'
 import PlayerProgress from './components/PlayerProgress.vue'
 import PlayerLyric from './components/PlayerLyric.vue'
 
@@ -79,21 +79,17 @@ watch(ended, (isEnd) => {
 
 <style lang="less" scoped>
 .player {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  .position(auto, 0, 0, 0);
+  background-color: var(--layout-content-bgcolor);
+  z-index: @z-index-player;
   height: 60px;
-  background-color: var(--color-background);
   padding: 5px 20px;
   display: flex;
-  z-index: var(--z-index-player);
   .player-left,
   .player-center,
   .player-right {
-    display: flex;
+    .display-flex(@align-items: center);
     flex: 1;
-    align-items: center;
     height: 50px;
   }
   .player-left {

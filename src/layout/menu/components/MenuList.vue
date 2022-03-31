@@ -1,56 +1,49 @@
 <template>
   <div class="menu-list">
     <router-link class="menu-list-item" to="/discovery">
-      <el-icon :size="16">
-        <Sunny />
-      </el-icon>
+      <SvgIcon name="menu-icon-1" size="20" />
       <span class="title">发现音乐</span>
     </router-link>
     <router-link class="menu-list-item" to="/recommend">
-      <el-icon :size="16">
-        <Moon />
-      </el-icon>
+      <SvgIcon name="menu-icon-2" size="20" />
       <span class="title">推荐歌单</span>
     </router-link>
     <router-link class="menu-list-item" to="/latest">
-      <el-icon :size="16">
-        <Star />
-      </el-icon>
+      <SvgIcon name="menu-icon-3" size="20" />
       <span class="title">最新音乐</span>
     </router-link>
     <router-link class="menu-list-item" to="/about">
-      <el-icon :size="16">
-        <Apple />
-      </el-icon>
+      <SvgIcon name="menu-icon-4" size="20" />
       <span class="title">关于项目</span>
     </router-link>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Sunny, Moon, Star, Apple } from '@element-plus/icons-vue'
+import SvgIcon from '@/components/base/SvgIcon.vue'
 </script>
 
 <style lang="less" scoped>
 .menu-list {
+  .display-flex(@flex-direction:column);
   padding-top: 20px;
-  display: flex;
-  flex-direction: column;
   .menu-list-item {
+    .display-flex(@align-items: center);
+    width: 100%;
     height: 42px;
     padding: 12px 15px;
-    display: flex;
-    align-items: center;
+    .icon {
+      margin: 0 7px 2.5px 0;
+    }
     &:hover {
-      background-color: var(--color-avtive-background);
+      background-color: var(--color-active-bgcolor);
     }
     &.router-link-active {
-      color: var(--color-main);
-      background-color: var(--color-avtive-background);
+      background-color: var(--color-active-bgcolor);
+      color: @color-main;
     }
     .title {
-      padding: 3px 0 0 10px;
-      font-size: 13px;
+      font-size: @font-size-sm-medium;
     }
   }
 }

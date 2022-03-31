@@ -44,44 +44,33 @@ const handlePlaylistClick = () => {
 
 <style lang="less" scoped>
 .recommend-intro {
+  .border-radius(100%,172px,5px);
   position: relative;
-  width: 100%;
-  height: 172px;
   padding: 16px;
-  border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
   display: flex;
   .intro-image {
-    img {
-      width: 140px;
-      height: 140px;
-    }
+    .image-size(140px);
   }
   .intro-info {
+    .display-flex(space-between,@flex-direction: column);
     padding-left: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     .tag {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 84px;
-      height: 28px;
-      border-radius: 5px;
-      font-size: 13px;
-      color: var(--color-playlist-tag);
-      border: 1px solid var(--color-playlist-tag);
+      .display-flex(center,center);
+      .border-radius(84px,28px,5px);
+      color: @color--playlist-tag;
+      border: 1px solid @color--playlist-tag;
+      font-size: @font-size-sm-medium;
     }
     .title {
-      font-size: 15px;
-      color: var(--color-text-white);
+      color: #fff;
+      font-size: @font-size-lg-medium;
     }
     .description {
+      color: @color-description;
+      font-size: @font-size-sm;
       height: 70px;
-      color: var(--color-text-description);
-      font-size: 12px;
       line-height: 14px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -89,9 +78,7 @@ const handlePlaylistClick = () => {
   }
   .intro-background-image,
   .intro-background-grey {
-    position: absolute;
-    top: 0;
-    left: 0;
+    .position(0, auto, auto, 0, absolute);
     width: 100%;
     height: 172px;
     z-index: -1;

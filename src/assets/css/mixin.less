@@ -1,0 +1,63 @@
+/* 全局样式 */
+@font-size-sm: 12px;
+@font-size-sm-medium: 13px;
+@font-size: 14px;
+@font-size-lg-medium: 15px;
+@font-size-lg: 16px;
+@font-size-lg-title: 24px;
+@font-weight-thin: 400;
+@font-weight-bold: 700;
+@color-nickname: #517eaf;
+@color-description: #a09073;
+@color-main: #f63535;
+@color-avtive-background-white:rgba(255, 255, 255, 0.4);
+@color-avtive-background-dark:rgba(0, 0, 0, 0.4);
+/* Header样式 */
+@color-mac-button-red: #e65b51;
+@color-mac-button-yellow: #e9c522;
+@color-mac-button-green: #44d02a;
+/* Playlist 样式 */
+@color--playlist-tag: #e7aa5a;
+/* 层级样式 */
+@z-index-header: 250;
+@z-index-menu: 100;
+@z-index-search: 888;
+@z-index-player: 999;
+@z-index-player-lyric: 200;
+@z-index-player-list: 300;
+
+.display-flex(@justify-content:flex-start,@align-items:flex-start,@flex-direction:row) {
+  display: flex;
+  justify-content: @justify-content;
+  align-items: @align-items;
+  flex-direction: @flex-direction;
+}
+
+.border-radius(@width: 20px, @height:@width, @radius:50%){
+  width: @width;
+  height: @height;
+  border-radius: @radius;
+}
+
+.position(@top:auto, @right:auto, @bottom:auto, @left:auto, @position: fixed){
+  position: @position;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+
+.image-size(@width:50px, @height:@width) {
+  width: @width;
+  height: @height;
+  img{
+    width: @width;
+    height: @height;
+  }
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

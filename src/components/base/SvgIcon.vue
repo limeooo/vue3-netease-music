@@ -19,7 +19,7 @@ const props = withDefaults(
   {
     prefix: 'icon',
     size: 16,
-    color: '#333'
+    color: document.documentElement.style.getPropertyValue('--font-color')
   }
 )
 
@@ -56,6 +56,6 @@ const getStyle = computed((): CSSProperties => {
   display: inline-block;
   overflow: hidden;
   vertical-align: -0.3em;
-  fill: currentcolor;
+  fill: currentColor;
 }
 </style>

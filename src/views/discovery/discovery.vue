@@ -27,10 +27,10 @@ discoveryStore.getDiscoveryData()
 <style lang="less" scoped>
 .discovery {
   .title {
+    color: var(--font-color);
+    font-size: @font-size-lg;
+    font-weight: @font-weight-bold;
     padding: 10px 0;
-    font-size: 18px;
-    color: var(--color-text);
-    font-weight: bold;
   }
 }
 </style>

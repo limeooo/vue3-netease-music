@@ -38,6 +38,10 @@ export const technologyStacks: IDescription[] = [
     value: 'Less'
   },
   {
+    name: '适配方案',
+    value: 'lib-flexible + postcss-pxtorem'
+  },
+  {
     name: 'HTTP 工具',
     value: 'Axios'
   },

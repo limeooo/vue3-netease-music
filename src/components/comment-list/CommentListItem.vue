@@ -36,36 +36,31 @@ withDefaults(
 
 <style lang="less" scoped>
 .comment-list-item {
-  padding-top: 20px;
   display: flex;
+  padding-top: 20px;
   img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    .border-radius(40px);
     margin-right: 12px;
   }
   .comment-info {
+    .display-flex(space-between,@flex-direction: column);
+    font-size: @font-size-sm;
     width: 100%;
     min-height: 60px;
-    // box-sizing: content-box;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 12px;
     .top {
       .nickname {
-        color: var(--color-text-nickname);
+        color: @color-nickname;
       }
       .content {
-        color: var(--color-text);
+        color: var(--font-color);
       }
     }
     .bottom {
-      display: flex;
-      justify-content: space-between;
-      color: var(--color-text-light);
+      .display-flex(space-between,flex-end,center);
+      color: var(--font-color-title-morelight);
+      width: 100%;
       .count {
         padding-left: 5px;
       }

@@ -14,12 +14,9 @@ import MenuList from './components/MenuList.vue'
 
 <style lang="less" scoped>
 .menu {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  bottom: 60px;
+  .position(50px, auto, 60px, 0);
+  background-color: var(--layout-menu-bgcolor);
+  z-index: @z-index-menu;
   width: 250px;
-  z-index: var(--z-index-menu);
-  background-color: var(--color-menu-background);
 }
 </style>

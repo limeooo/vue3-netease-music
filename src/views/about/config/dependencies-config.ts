@@ -36,14 +36,6 @@ export const dependencies: IDescription[] = [
   {
     name: 'lrc-kit',
     value: '^1.1.1'
-  },
-  {
-    name: '@element-plus/icons-vue',
-    value: '^1.1.4'
-  },
-  {
-    name: 'amfe-flexible',
-    value: '^2.2.1'
   }
 ]
 

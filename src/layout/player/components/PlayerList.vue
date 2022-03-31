@@ -21,8 +21,8 @@
             @click="handlePlayListItemClick(index)"
           >
             <span class="text order">{{ padZero(index + 1) }}</span>
-            <span class="text name text-ellipsis">{{ item.name }}</span>
-            <span class="text artists text-ellipsis">{{ item.artists }}</span>
+            <span class="text name">{{ item.name }}</span>
+            <span class="text artists">{{ item.artists }}</span>
             <span class="text time">{{ formatDuration(item.duration) }}</span>
           </div>
           <!-- <a
@@ -63,14 +63,11 @@ const handlePlayListItemClick = (index: number) => {
 
 <style lang="less" scoped>
 .player-list {
+  .position(0, 0, 62px, auto);
+  z-index: @z-index-player-list;
+  background: var(--layout-content-bgcolor);
   width: 450px;
   height: calc(100vh - 62px);
-  position: fixed;
-  top: 0px;
-  right: 0;
-  bottom: 62px;
-  z-index: var(--z-index-player-list);
-  background: var(--color-background);
   box-shadow: 5px 5px 5px 2px rgb(0, 0, 0, 0.2);
   padding: 15px 20px;
   transform: translateY(0);
@@ -81,17 +78,15 @@ const handlePlayListItemClick = (index: number) => {
     transform: translateY(150%);
   }
   .header {
+    .display-flex(space-between);
     padding-bottom: 10px;
     border-bottom: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
     .close {
       cursor: pointer;
     }
     .delete-all {
-      font-size: 14px;
-      display: flex;
-      align-items: center;
+      .display-flex(@align-items: center);
+      font-size: @font-size;
       cursor: pointer;
       span {
         padding-left: 3px;
@@ -102,22 +97,20 @@ const handlePlayListItemClick = (index: number) => {
   .list {
     padding-top: 8px;
     .list-item {
-      display: flex;
-      justify-content: space-between;
+      .display-flex(space-between);
       .list-item__icon {
+        .display-flex(@align-items: center);
         cursor: pointer;
-        display: flex;
-        align-items: center;
       }
       .list-item__info {
+        .display-flex(space-between);
         width: calc(100%);
         padding: 8px 0;
-        display: flex;
-        justify-content: space-between;
         cursor: pointer;
         .text {
-          font-size: 12px;
-          color: var(--color-text);
+          .text-ellipsis();
+          color: var(--font-color);
+          font-size: @font-size-sm;
         }
         .order,
         .time {
@@ -129,11 +122,11 @@ const handlePlayListItemClick = (index: number) => {
           padding-right: 20px;
         }
         &:hover {
-          background-color: var(--color-avtive-background-light);
+          background-color: var(--color-active-bgcolor);
         }
         &.isActive {
           .text {
-            color: var(--color-main);
+            color: @color-main;
           }
         }
       }

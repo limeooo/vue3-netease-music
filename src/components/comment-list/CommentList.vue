@@ -90,9 +90,9 @@ watch(
 <style lang="less" scoped>
 .comment-list {
   .title {
-    color: var(--color-text);
-    font-weight: 700;
-    font-size: 16px;
+    color: var(--font-color);
+    font-size: @font-size-lg;
+    font-weight: @font-weight-bold;
     margin: 20px 0 4px;
   }
 }

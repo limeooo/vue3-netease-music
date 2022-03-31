@@ -5,13 +5,13 @@
       <img v-lazy="thumbnail(songItem.picUrl, 60)" />
     </div>
     <div
-      class="item-text text-ellipsis"
+      class="item-text"
       :class="{ isActive: currentPlayerSong.id === songItem.id }"
     >
       {{ songItem.name }}
     </div>
-    <div class="item-text text-ellipsis">{{ songItem.artists }}</div>
-    <div class="item-text text-ellipsis">{{ songItem.album }}</div>
+    <div class="item-text">{{ songItem.artists }}</div>
+    <div class="item-text">{{ songItem.album }}</div>
     <div class="item-time">{{ formatDuration(songItem.duration) }}</div>
   </div>
 </template>
@@ -32,39 +32,34 @@ withDefaults(
 
 <style lang="less" scoped>
 .song-list-item {
+  .display-flex(@align-items: center);
   height: 76px;
   padding: 8px 0;
-  display: flex;
-  align-items: center;
   cursor: pointer;
   &:hover {
-    background-color: var(--color-avtive-background-light);
+    background-color: var(--color-active-bgcolor);
   }
   .item-order,
   .item-time {
+    font-size: @font-size-sm;
     width: 60px;
-    font-size: 12px;
     text-align: center;
   }
   .item-order {
-    color: var(--color-text-light);
+    color: var(--font-color-title-morelight);
   }
   .item-image {
-    width: 60px;
-    height: 60px;
+    .image-size(60px);
     margin-right: 8px;
-    img {
-      width: 60px;
-      height: 60px;
-    }
   }
   .item-text {
+    .text-ellipsis();
+    color: var(--font-color);
+    font-size: @font-size-sm;
     flex: 1;
     margin-left: 20px;
-    font-size: 12px;
-    color: var(--color-text);
     &.isActive {
-      color: var(--color-main);
+      color: @color-main;
     }
   }
 }

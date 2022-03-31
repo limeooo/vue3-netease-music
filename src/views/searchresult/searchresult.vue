@@ -50,13 +50,13 @@ const searchTotalCallback = (totalParams: {
   .search-title {
     padding: 20px 0;
     .keywords {
+      font-size: @font-size-lg-title;
+      font-weight: @font-weight-bold;
       margin-right: 4px;
-      font-size: 24px;
-      font-weight: 700;
     }
     .total {
-      font-size: 12px;
-      color: var(--color-text-light);
+      color: var(--font-color-title-morelight);
+      font-size: @font-size-sm;
       letter-spacing: 3px;
     }
   }

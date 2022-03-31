@@ -3,8 +3,8 @@
     <div class="info-image" @click="handleLyricClick()">
       <img :src="thumbnail(currentPlayerSong.picUrl, 40)" />
       <div class="background-mask">
-        <SvgIcon v-if="isOpenLyric" name="shrink" size="22" />
-        <SvgIcon v-else name="expand" size="22" />
+        <SvgIcon v-if="isOpenLyric" name="shrink" size="22" color="#fff" />
+        <SvgIcon v-else name="expand" size="22" color="#fff" />
       </div>
     </div>
     <div class="info-text">
@@ -49,55 +49,42 @@ const handleLyricClick = () => {
 
 <style lang="less" scoped>
 .player-info {
-  display: flex;
-  align-items: center;
+  .display-flex(@align-items: center);
   .info-image {
+    .image-size(40px);
     position: relative;
-    width: 40px;
-    height: 40px;
     cursor: pointer;
     .background-mask {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background-color: var(--color-avtive-background-dark);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .icon {
-        color: #fff;
-      }
+      .position(0, 0, 0, 0, absolute);
+      .display-flex(center,center);
+      background-color: @color-avtive-background-dark;
     }
   }
   .info-text {
+    .display-flex(space-between,@flex-direction: column);
     height: 44px;
     padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     .title {
       overflow: hidden;
       height: 14px;
       .album {
-        font-size: 14px;
-        color: var(--color-text-title);
+        color: var(--font-color-title);
+        font-size: @font-size;
       }
       .separator,
       .artists {
-        color: var(--color-text);
+        color: var(--font-color);
       }
       .separator {
         padding: 0 4px;
       }
       .artists {
-        font-size: 12px;
+        font-size: @font-size-sm;
       }
     }
     .time {
-      font-size: 12px;
-      color: var(--color-text);
+      color: var(--font-color);
+      font-size: @font-size-sm;
       .separator {
         padding: 8px;
       }

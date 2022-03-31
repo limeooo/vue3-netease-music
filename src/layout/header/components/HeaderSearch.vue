@@ -4,12 +4,17 @@
       v-model="inputValue"
       size="default"
       placeholder="搜索"
-      :prefix-icon="Search"
       :maxlength="10"
       clearable
       @focus="isFocus = true"
       @keyup.enter="handleInputSearch()"
-    />
+    >
+      <template #prefix>
+        <div class="pre-icon">
+          <SvgIcon name="search" size="14" />
+        </div>
+      </template>
+    </el-input>
     <!-- vue-teleport 将内部内容嵌套到根标签中，
   不受父组件z-index影响布局，导致此组件出现时覆盖了父组件 -->
     <teleport to="#app">
@@ -25,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
+import SvgIcon from '@/components/base/SvgIcon.vue'
 import HeaderSearchTags from './HeaderSearchTags.vue'
-import { Search } from '@element-plus/icons-vue'
 
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -70,20 +75,21 @@ const handleInputSearch = () => {
 
 <style lang="less" scoped>
 .header-search {
+  .pre-icon {
+    .icon-search {
+      margin-bottom: 4px;
+    }
+  }
   :deep(.el-input) {
-    font-size: 13px;
+    font-size: @font-size-sm-medium;
   }
   :deep(.el-input__inner) {
     width: 172px;
     height: 28px;
     transition: 0.5s;
     &:focus {
-      box-shadow: 0 0 0 1px var(--color-main) inset;
+      box-shadow: 0 0 0 1px @color-main inset;
     }
-  }
-  :deep(.el-input__prefix-inner) {
-    display: flex;
-    align-items: center;
   }
 }
 </style>

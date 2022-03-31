@@ -1,21 +1,21 @@
 <template>
   <div class="player-control">
-    <SvgIcon name="player-prev" size="26" @click="handleToggleSong(-1)" />
+    <SvgIcon name="player-prev" size="34" @click="handleToggleSong(-1)" />
     <SvgIcon
       v-if="playing"
       name="player-pause"
-      size="42"
+      size="50"
       class="center"
       @click="handleSongStatusClick()"
     />
     <SvgIcon
       v-else
       name="player-play"
-      size="42"
+      size="50"
       class="center"
       @click="handleSongStatusClick()"
     />
-    <SvgIcon name="player-next" size="26" @click="handleToggleSong(1)" />
+    <SvgIcon name="player-next" size="34" @click="handleToggleSong(1)" />
   </div>
 </template>
 
@@ -52,8 +52,7 @@ const handleToggleSong = (order: 1 | -1) => {
 
 <style lang="less" scoped>
 .player-control {
-  display: flex;
-  align-items: center;
+  .display-flex(@align-items: center);
   cursor: pointer;
   .center {
     margin: 0 10px;

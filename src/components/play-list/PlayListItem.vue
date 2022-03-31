@@ -6,10 +6,10 @@
         {{ '播放量：' + formatCount(playlistItem.playCount) }}
       </div>
       <div class="play">
-        <SvgIcon name="player-play-empty" size="20" />
+        <SvgIcon name="player-play-empty" size="20" color="#f63434" />
       </div>
     </div>
-    <div class="card-outside text-ellipsis">
+    <div class="card-outside">
       {{ playlistItem.name }}
     </div>
   </div>
@@ -49,36 +49,29 @@ const handlePlaylistClick = () => {
       width: 100%;
     }
     .count {
+      .position(0, auto, auto, 0, absolute);
+      color: #fff;
+      background-color: @color-avtive-background-dark;
+      font-size: @font-size;
       width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
       padding: 10px 6px;
-      background-color: var(--color-avtive-background-dark);
-      font-size: 14px;
-      color: var(--color-text-white);
       transition: all 0.3s;
       transform: translateY(-100%);
     }
     .play {
-      position: absolute;
-      right: 8px;
-      bottom: 8px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: var(--color-avtive-background-white);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .position(auto, 8px, 8px, auto, absolute);
+      .display-flex(center,center);
+      .border-radius(36px);
+      background-color: @color-avtive-background-white;
       transition: all 0.3s;
       opacity: 0;
     }
   }
   .card-outside {
+    .text-ellipsis();
+    color: var(--font-color);
+    font-size: @font-size-sm;
     margin: 4px 4px 0;
-    font-size: 12px;
-    color: var(--color-text);
   }
   &:hover {
     .card-inner {

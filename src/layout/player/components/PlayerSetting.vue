@@ -1,11 +1,11 @@
 <template>
   <div ref="playVolumeRef" class="player-volume">
     <el-badge :is-dot="currentPlayerSongList?.length > 0">
-      <SvgIcon name="player-list" size="20" @click="handleOpenPlayerList()" />
+      <SvgIcon name="player-list" size="18" @click="handleOpenPlayerList()" />
     </el-badge>
     <SvgIcon
       :name="volume === 0 ? 'player-volume-close' : 'player-volume'"
-      size="20"
+      size="24"
       @click="handleChangeVolume()"
     />
     <el-slider
@@ -17,6 +17,9 @@
       class="player-volume-slider"
       @input="handleSongVolumeClick()"
     />
+    <a href="https://github.com/limeooo" target="_blank">
+      <SvgIcon name="github" size="24" />
+    </a>
     <!-- 歌曲播放列表 -->
     <!-- vue-teleport 将内部内容嵌套到根标签中，
   不受父组件z-index影响布局，导致此组件出现时覆盖了父组件 -->
@@ -67,27 +70,25 @@ const handleClickOutside = () => {
 
 <style lang="less" scoped>
 .player-volume {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 220px;
+  .display-flex(space-between,center);
+  width: 250px;
   .icon {
     cursor: pointer;
   }
   .player-volume-slider {
     width: 150px;
-    padding-right: 20px;
+    padding-right: 10px;
     :deep(.el-slider__runway) {
       height: 3px;
       .el-slider__bar {
-        background-color: var(--color-main);
+        background-color: @color-main;
         height: 3px;
       }
       .el-slider__button {
+        background-color: @color-main;
         height: 15px;
         width: 15px;
         border: 0;
-        background-color: var(--color-main);
       }
     }
   }

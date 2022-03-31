@@ -14,24 +14,20 @@
 
 <style lang="less" scoped>
 .header-button {
+  .display-flex(space-between,center);
   width: 79px;
   padding: 0 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   .mac-icon {
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
+    .border-radius(13px);
     cursor: pointer;
     &.mac-icon--red {
-      background-color: var(--color-mac-button-red);
+      background-color: @color-mac-button-red;
     }
     &.mac-icon--yellow {
-      background-color: var(--color-mac-button-yellow);
+      background-color: @color-mac-button-yellow;
     }
     &.mac-icon--green {
-      background-color: var(--color-mac-button-green);
+      background-color: @color-mac-button-green;
     }
   }
 }

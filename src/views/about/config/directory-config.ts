@@ -14,10 +14,18 @@ export const directoryConfig = `
 │   ├── App.vue
 │   ├── assets
 │   │   ├── css
+│   │   │   ├── animation.less
 │   │   │   ├── base
-│   │   │   │   ├── base.css
-│   │   │   │   └── normalize.css
-│   │   │   └── index.less
+│   │   │   │   ├── initialization.less
+│   │   │   │   └── normalize.less
+│   │   │   ├── common.less
+│   │   │   ├── index.less
+│   │   │   ├── mixin.less
+│   │   │   └── theme
+│   │   │       ├── types.ts
+│   │   │       ├── variables-dark.ts
+│   │   │       ├── variables-red.ts
+│   │   │       └── variables-white.ts
 │   │   ├── img
 │   │   │   ├── 404.png
 │   │   │   └── 404_cloud.png
@@ -28,9 +36,15 @@ export const directoryConfig = `
 │   │       ├── delete.svg
 │   │       ├── download.svg
 │   │       ├── expand.svg
+│   │       ├── github.svg
 │   │       ├── great.svg
 │   │       ├── loading-audio.svg
 │   │       ├── loading-error.svg
+│   │       ├── menu-icon-1.svg
+│   │       ├── menu-icon-2.svg
+│   │       ├── menu-icon-3.svg
+│   │       ├── menu-icon-4.svg
+│   │       ├── menu-icon.svg
 │   │       ├── player-list.svg
 │   │       ├── player-next.svg
 │   │       ├── player-pause.svg
@@ -40,7 +54,9 @@ export const directoryConfig = `
 │   │       ├── player-volume-close.svg
 │   │       ├── player-volume.svg
 │   │       ├── rubbish.svg
-│   │       └── shrink.svg
+│   │       ├── search.svg
+│   │       ├── shrink.svg
+│   │       └── theme-skin.svg
 │   ├── components
 │   │   ├── banner
 │   │   │   └── Banner.vue
@@ -70,7 +86,8 @@ export const directoryConfig = `
 │   │   │       ├── HeaderButton.vue
 │   │   │       ├── HeaderNavgitor.vue
 │   │   │       ├── HeaderSearch.vue
-│   │   │       └── HeaderSearchTags.vue
+│   │   │       ├── HeaderSearchTags.vue
+│   │   │       └── HeaderTheme.vue
 │   │   ├── menu
 │   │   │   ├── Menu.vue
 │   │   │   └── components
@@ -84,12 +101,14 @@ export const directoryConfig = `
 │   │           ├── PlayerList.vue
 │   │           ├── PlayerLyric.vue
 │   │           ├── PlayerProgress.vue
-│   │           └── PlayerVolume.vue
+│   │           └── PlayerSetting.vue
 │   ├── main.ts
 │   ├── modules
 │   │   ├── dayjs.ts
+│   │   ├── flexable.ts
 │   │   ├── loading-hot-search.ts
 │   │   ├── notification.ts
+│   │   ├── register-direnctive.ts
 │   │   ├── svg-icons-register.ts
 │   │   └── vue-lazyload-next.ts
 │   ├── router
