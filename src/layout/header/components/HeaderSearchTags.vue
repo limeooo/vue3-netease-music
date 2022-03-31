@@ -41,6 +41,8 @@ const handleTagClick = (tag: string) => {
   right: 0;
   bottom: 60px;
   width: 350px;
+  overflow: hidden;
+  overflow-y: auto;
   z-index: var(--z-index-search);
   background: var(--color-background);
   box-shadow: 5px 5px 5px 2px rgb(0, 0, 0, 0.2);
