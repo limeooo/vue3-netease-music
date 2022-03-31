@@ -17,7 +17,10 @@
       class="player-volume-slider"
       @input="handleSongVolumeClick()"
     />
-    <a href="https://github.com/limeooo" target="_blank">
+    <a
+      href="https://github.com/limeooo/limeooo_netease_cloud_music"
+      target="_blank"
+    >
       <SvgIcon name="github" size="24" />
     </a>
     <!-- 歌曲播放列表 -->
