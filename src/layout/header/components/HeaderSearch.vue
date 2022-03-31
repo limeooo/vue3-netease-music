@@ -5,6 +5,7 @@
       size="default"
       placeholder="搜索"
       :prefix-icon="Search"
+      :maxlength="10"
       clearable
       @focus="isFocus = true"
       @keyup.enter="handleInputSearch()"
@@ -55,6 +56,7 @@ const inputValue = ref('')
 const handleTagClick = (tag: string) => {
   isFocus.value = false
   playerStore.isOpenLyric = false
+  searchStore.setSearchHistory(tag)
   router.push({ path: `/search/${tag}` })
 }
 const handleInputSearch = () => {
