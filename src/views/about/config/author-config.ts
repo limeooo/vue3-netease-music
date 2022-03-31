@@ -1,9 +1,9 @@
 import { IDescription } from '@/global/types'
 
 export const authorInfo: IDescription[] = [
-  { name: '姓名', value: '肖玉航' },
-  { name: '英文名', value: 'limeooo' },
-  { name: '来自', value: '桂林电子科技大学北海校区2019级网络工程学生' },
+  { name: '姓名', value: 'limeooo' },
+  { name: '邮箱', value: '2978582971@qq.com' },
+  { name: '来自', value: '桂林电子科技大学北海校区网络工程专业2021届学生' },
   { name: 'Github', value: 'https://github.com/limeooo' },
   {
     name: '自我介绍',
