@@ -6,11 +6,11 @@
 
 [🌟🌟🌟预览地址](https://github.com/limeooo/limeooo_netease_cloud_music)
 
-![image-20220331192317761](/Users/limeooo/Library/Application Support/typora-user-images/image-20220331192317761.png)
+![首页](https://s1.ax1x.com/2022/03/31/qfuJMj.png)
 
-![image-20220331192343434](/Users/limeooo/Library/Application Support/typora-user-images/image-20220331192343434.png)
+![最新音乐](https://s1.ax1x.com/2022/03/31/qfuYss.png)
 
-![image-20220331192401507](/Users/limeooo/Library/Application Support/typora-user-images/image-20220331192401507.png)
+![歌词页面](https://s1.ax1x.com/2022/03/31/qfu8zQ.png)
 
 后端接口：http://175.178.164.2:3000
 
