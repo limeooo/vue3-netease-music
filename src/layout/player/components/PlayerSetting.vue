@@ -76,6 +76,7 @@ const handleClickOutside = () => {
   .display-flex(space-between,center);
   width: 250px;
   .icon {
+    .display-flex(center,center);
     cursor: pointer;
   }
   .player-volume-slider {
@@ -87,11 +88,14 @@ const handleClickOutside = () => {
         background-color: @color-main;
         height: 3px;
       }
-      .el-slider__button {
-        background-color: @color-main;
-        height: 15px;
-        width: 15px;
-        border: 0;
+      .el-slider__button-wrapper {
+        .display-flex(center,center);
+        .el-slider__button {
+          background-color: @color-main;
+          height: 15px;
+          width: 15px;
+          border: 0;
+        }
       }
     }
   }

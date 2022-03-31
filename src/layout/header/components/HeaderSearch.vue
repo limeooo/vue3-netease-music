@@ -75,6 +75,7 @@ const handleInputSearch = () => {
 
 <style lang="less" scoped>
 .header-search {
+  .display-flex(@align-items:center);
   .pre-icon {
     .icon-search {
       margin-bottom: 4px;

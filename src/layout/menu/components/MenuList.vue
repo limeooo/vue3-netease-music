@@ -1,19 +1,19 @@
 <template>
   <div class="menu-list">
     <router-link class="menu-list-item" to="/discovery">
-      <SvgIcon name="menu-icon-1" size="20" />
+      <SvgIcon name="menu-icon-1" />
       <span class="title">发现音乐</span>
     </router-link>
     <router-link class="menu-list-item" to="/recommend">
-      <SvgIcon name="menu-icon-2" size="20" />
+      <SvgIcon name="menu-icon-2" />
       <span class="title">推荐歌单</span>
     </router-link>
     <router-link class="menu-list-item" to="/latest">
-      <SvgIcon name="menu-icon-3" size="20" />
+      <SvgIcon name="menu-icon-3" />
       <span class="title">最新音乐</span>
     </router-link>
     <router-link class="menu-list-item" to="/about">
-      <SvgIcon name="menu-icon-4" size="20" />
+      <SvgIcon name="menu-icon-4" />
       <span class="title">关于项目</span>
     </router-link>
   </div>
@@ -33,7 +33,7 @@ import SvgIcon from '@/components/base/SvgIcon.vue'
     height: 42px;
     padding: 12px 15px;
     .icon {
-      margin: 0 7px 2.5px 0;
+      margin: 0 10px 2.5px 0;
     }
     &:hover {
       background-color: var(--color-active-bgcolor);
