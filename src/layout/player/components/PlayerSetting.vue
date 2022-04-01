@@ -17,6 +17,16 @@
       class="player-volume-slider"
       @input="handleSongVolumeClick()"
     />
+    <el-popover
+      placement="top"
+      trigger="click"
+      :teleported="false"
+      content="链接已复制成功，快去分享给你的朋友吧～"
+    >
+      <template #reference>
+        <SvgIcon name="share" size="21" @click="copy()" />
+      </template>
+    </el-popover>
     <a
       href="https://github.com/limeooo/limeooo_netease_cloud_music"
       target="_blank"
@@ -39,6 +49,7 @@ import SvgIcon from '@/components/base/SvgIcon.vue'
 import { ref, withDefaults } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
+import { useClipboard } from '@vueuse/core'
 
 const props = withDefaults(
   defineProps<{
@@ -69,12 +80,16 @@ const playVolumeRef = ref<HTMLDivElement>()
 const handleClickOutside = () => {
   playerStore.isOpenPlayerList = false
 }
+
+// 监听分享事件
+const source = ref('http://175.178.164.2/')
+const { copy } = useClipboard({ source })
 </script>
 
 <style lang="less" scoped>
 .player-volume {
   .display-flex(space-between,center);
-  width: 250px;
+  width: 320px;
   .icon {
     .display-flex(center,center);
     cursor: pointer;
