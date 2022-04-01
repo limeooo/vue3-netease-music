@@ -110,6 +110,7 @@ const handleLogoutClick = () => {
   padding: 16px;
   cursor: pointer;
   .user-avatar {
+    .display-flex(@align-items: center);
     .image-size(40px);
     img {
       border-radius: 50%;

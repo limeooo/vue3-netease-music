@@ -127,6 +127,7 @@ const { copy } = useClipboard({ source })
           height: 15px;
           width: 15px;
           border: 0;
+          margin-bottom: 3px;
         }
       }
     }
