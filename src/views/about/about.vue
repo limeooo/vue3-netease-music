@@ -56,13 +56,35 @@ import {
 
 <style lang="less" scoped>
 .about {
-  :deep(.el-card__header) {
-    font-size: @font-size-lg;
-  }
   .directory-content {
     color: var(--font-color);
     font-size: @font-size;
     white-space: pre-wrap;
+  }
+  :deep(.el-card) {
+    margin-bottom: 20px;
+    .el-card__header {
+      background-color: var(--layout-header-bgcolor);
+      color: var(--font-color-title);
+      font-size: @font-size-lg;
+      font-weight: @font-weight-bold;
+    }
+    .el-card__body {
+      background-color: var(--layout-content-bgcolor);
+    }
+  }
+
+  :deep(.el-descriptions) {
+    .el-descriptions__title {
+      color: var(--font-color-title) !important;
+    }
+    .el-descriptions__label {
+      color: var(--font-color) !important;
+      background-color: var(--layout-header-bgcolor) !important;
+    }
+    .el-descriptions__content {
+      background-color: var(--layout-content-bgcolor);
+    }
   }
 }
 </style>

@@ -131,5 +131,8 @@ const { copy } = useClipboard({ source })
       }
     }
   }
+  :deep(.el-badge__content) {
+    transform: translateY(-90%) translateX(110%);
+  }
 }
 </style>
