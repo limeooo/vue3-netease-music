@@ -1,6 +1,10 @@
 <template>
   <div class="player-control">
-    <SvgIcon name="player-prev" size="34" @click="handleToggleSong(-1)" />
+    <SvgIcon
+      name="player-prev"
+      size="34"
+      @click="handleToggleSong(ToggleOrder.pre)"
+    />
     <SvgIcon
       v-if="playing"
       name="player-pause"
@@ -15,7 +19,11 @@
       class="center"
       @click="handleSongStatusClick()"
     />
-    <SvgIcon name="player-next" size="34" @click="handleToggleSong(1)" />
+    <SvgIcon
+      name="player-next"
+      size="34"
+      @click="handleToggleSong(ToggleOrder.next)"
+    />
   </div>
 </template>
 
@@ -25,6 +33,7 @@ import SvgIcon from '@/components/base/SvgIcon.vue'
 import { withDefaults } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
+import { ToggleOrder } from '@/global/config'
 
 const props = withDefaults(
   defineProps<{
@@ -34,18 +43,18 @@ const props = withDefaults(
 )
 
 const playerStore = usePlayerStore()
-const { currentPlayerSong } = storeToRefs(playerStore)
+const { currentPlayerSongList } = storeToRefs(playerStore)
 
 // 监听切换播放状态
 const emit = defineEmits(['update:playing'])
 const handleSongStatusClick = () => {
-  if (Object.keys(currentPlayerSong).length > 1)
+  if (currentPlayerSongList.value.length > 0)
     emit('update:playing', !props.playing)
 }
 
 // 监听切换按钮 切换歌曲
-const handleToggleSong = (order: 1 | -1) => {
-  if (Object.keys(currentPlayerSong).length > 1)
+const handleToggleSong = (order: ToggleOrder) => {
+  if (currentPlayerSongList.value.length > 0)
     playerStore.togglePlayerSong(order)
 }
 </script>

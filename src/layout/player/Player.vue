@@ -35,6 +35,7 @@ import PlayerLyric from './components/PlayerLyric.vue'
 import { ref, computed, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
+import { ToggleOrder } from '@/global/config'
 /**
  * @vueuse/core包引入，使用媒体控制功能，官网 https://vueuse.org/
  */
@@ -68,13 +69,24 @@ const { playing, currentTime, duration, volume, ended } = useMediaControls(
 watch(ended, (isEnd) => {
   if (isEnd) {
     // 切换当前播放歌曲
-    playerStore.togglePlayerSong(1)
+    playerStore.togglePlayerSong(ToggleOrder.next)
     // 是否已播放完毕重置为false
     ended.value = false
     // 是否播放重置为ture
     playing.value = true
   }
 })
+
+// 监听歌曲列表为同一首时或为单曲循环时是否重置歌曲状态
+watch(
+  () => currentPlayerSong.value.isRestart,
+  () => {
+    // 监听到当前音乐变化时重置播放时间
+    currentTime.value = 0
+    // 是否播放重置为ture
+    playing.value = true
+  }
+)
 </script>
 
 <style lang="less" scoped>

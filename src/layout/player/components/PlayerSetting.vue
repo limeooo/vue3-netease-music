@@ -6,7 +6,18 @@
     >
       <SvgIcon name="player-list" size="18" @click="handleOpenPlayerList()" />
     </el-badge>
-    <SvgIcon name="player-order" size="26" />
+    <el-popover placement="top" trigger="hover">
+      <template #reference>
+        <SvgIcon
+          :name="ToggleTypeInfo[currentPlayerType].icon"
+          size="26"
+          @click="playerStore.setCurrentPlayerType"
+        />
+      </template>
+      <div style="text-align: center">
+        {{ ToggleTypeInfo[currentPlayerType].text }}
+      </div>
+    </el-popover>
     <SvgIcon
       :name="volume === 0 ? 'player-volume-close' : 'player-volume'"
       size="24"
@@ -54,6 +65,7 @@ import { ref, withDefaults } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
 import { useClipboard } from '@vueuse/core'
+import { ToggleTypeInfo } from '@/global/config'
 
 const props = withDefaults(
   defineProps<{
@@ -72,9 +84,10 @@ const handleChangeVolume = () => {
   emit('update:volume', props.volume === 0 ? currentVolume.value : 0)
 }
 
-// 监听播放列表打开事件
 const playerStore = usePlayerStore()
-const { currentPlayerSongList } = storeToRefs(playerStore)
+const { currentPlayerSongList, currentPlayerType } = storeToRefs(playerStore)
+
+// 监听播放列表打开事件
 const handleOpenPlayerList = () => {
   playerStore.isOpenPlayerList = !playerStore.isOpenPlayerList
 }

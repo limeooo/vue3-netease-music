@@ -3,6 +3,7 @@
  */
 import { defineStore } from 'pinia'
 import { requestSongLyric } from '@/service/song'
+import { ToggleOrder, ToggleType } from '@/global/config'
 import type { ISong } from '@/service/song/types'
 
 const usePlayerStore = defineStore('player', {
@@ -21,25 +22,35 @@ const usePlayerStore = defineStore('player', {
       // 当前音乐播放列表
       currentPlayerSongList: [] as ISong[],
       // 当前音乐在播放列表的Index下标值
-      currentPlayerSongIndex: -1 as number
+      currentPlayerSongIndex: -1 as number,
+      // 当前音乐切换类型
+      currentPlayerType: 0 as ToggleType
     }
   },
-  getters: {},
   actions: {
     // 歌曲切换方法
-    togglePlayerSong(order: 1 | -1) {
-      // 播放列表只有一首歌曲时不进行切换操作
-      if (this.currentPlayerSongList.length === 1) return
+    togglePlayerSong(order: ToggleOrder) {
       this.$patch((state) => {
-        // 若为切换上一首歌曲并且当前为播放序列第一首、则切换到最后一首歌曲
-        if (order === -1 && state.currentPlayerSongIndex === 0) {
-          state.currentPlayerSongIndex = state.currentPlayerSongList.length - 1
-        } else {
-          // 其他情况为直接切换、当为最后一首时、%取余切换第一首
-          state.currentPlayerSongIndex =
-            (state.currentPlayerSongIndex + order) %
-            state.currentPlayerSongList.length
+        if (state.currentPlayerType === ToggleType.sequential) {
+          // 顺序播放的处理方式
+          // 若为切换上一首歌曲并且当前为播放序列第一首、则切换到最后一首歌曲
+          if (order === ToggleOrder.pre && state.currentPlayerSongIndex === 0) {
+            state.currentPlayerSongIndex =
+              state.currentPlayerSongList.length - 1
+          } else {
+            // 其他情况为直接切换、当为最后一首时、%取余切换第一首
+            state.currentPlayerSongIndex =
+              (state.currentPlayerSongIndex + order) %
+              state.currentPlayerSongList.length
+          }
+        } else if (state.currentPlayerType === ToggleType.random) {
+          // 随机播放的处理方式
+          // 向下取整获取 0 到 当前播放列表长度-1 之间的随机数
+          state.currentPlayerSongIndex = Math.floor(
+            Math.random() * state.currentPlayerSongList.length
+          )
         }
+        // 单曲循环时不处理
       })
       // 设置当前播放音乐
       this.setCurrentPlayerSong()
@@ -96,9 +107,9 @@ const usePlayerStore = defineStore('player', {
     async setCurrentPlayerSong() {
       const song = this.currentPlayerSongList[this.currentPlayerSongIndex]
       // 当设置的音乐和当前播放音乐为同一首时，不请求数据
-      // 此操作用以令watch监听来重置音乐是否播放和播放进度
+      // 此操作用以在页面中watch监听isRestart属性的变化来重置音乐是否播放和播放进度
       if (song.id === this.currentPlayerSong.id) {
-        song.isRestart = !song.isRestart
+        this.currentPlayerSong.isRestart = !this.currentPlayerSong.isRestart
         return
       }
       const lyric = await requestSongLyric({ id: song.id })
@@ -114,6 +125,12 @@ const usePlayerStore = defineStore('player', {
       this.$patch((state) => {
         state.isOpenLyric = !state.isOpenLyric
         state.isLodingComment = true
+      })
+    },
+    // 设置当前音乐播放类型
+    setCurrentPlayerType() {
+      this.$patch((state) => {
+        state.currentPlayerType = (state.currentPlayerType + 1) % 3
       })
     }
   }
