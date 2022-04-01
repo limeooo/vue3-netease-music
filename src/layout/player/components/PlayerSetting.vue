@@ -1,8 +1,12 @@
 <template>
   <div ref="playVolumeRef" class="player-volume">
-    <el-badge :is-dot="currentPlayerSongList?.length > 0">
+    <el-badge
+      :hidden="currentPlayerSongList?.length === 0"
+      :value="currentPlayerSongList?.length"
+    >
       <SvgIcon name="player-list" size="18" @click="handleOpenPlayerList()" />
     </el-badge>
+    <SvgIcon name="player-order" size="26" />
     <SvgIcon
       :name="volume === 0 ? 'player-volume-close' : 'player-volume'"
       size="24"
