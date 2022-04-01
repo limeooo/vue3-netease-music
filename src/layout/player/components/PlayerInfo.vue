@@ -8,16 +8,16 @@
       </div>
     </div>
     <div class="info-text">
-      <div class="title">
+      <span class="title">
         <span class="album">{{ currentPlayerSong.name }}</span>
         <span class="separator">-</span>
         <span class="artists">{{ currentPlayerSong.artists }}</span>
-      </div>
-      <div class="time">
+      </span>
+      <span class="time">
         <span>{{ formatSecondsDuration(currentTime) }}</span>
         <span class="separator">/</span>
         <span>{{ formatSecondsDuration(duration) }}</span>
-      </div>
+      </span>
     </div>
   </div>
 </template>
@@ -50,23 +50,28 @@ const handleLyricClick = () => {
 <style lang="less" scoped>
 .player-info {
   .display-flex(@align-items: center);
+  height: 40px;
   .info-image {
+    .display-flex(center, center);
     .image-size(40px);
     position: relative;
     cursor: pointer;
     .background-mask {
       .position(0, 0, 0, 0, absolute);
-      .display-flex(center,center);
+      .display-flex(center, center);
       background-color: @color-avtive-background-dark;
     }
   }
   .info-text {
     .display-flex(space-between,@flex-direction: column);
-    height: 44px;
+    width: 300px;
+    height: 100%;
     padding-left: 10px;
     .title {
-      overflow: hidden;
-      height: 14px;
+      .display-flex(flex-start, flex-end);
+      .text-ellipsis();
+      width: 100%;
+      line-height: @font-size;
       .album {
         color: var(--font-color-title);
         font-size: @font-size;
@@ -74,19 +79,18 @@ const handleLyricClick = () => {
       .separator,
       .artists {
         color: var(--font-color);
+        font-size: @font-size-sm;
       }
       .separator {
         padding: 0 4px;
       }
-      .artists {
-        font-size: @font-size-sm;
-      }
     }
     .time {
+      .display-flex(flex-start, flex-end);
       color: var(--font-color);
       font-size: @font-size-sm;
       .separator {
-        padding: 8px;
+        padding: 0 8px;
       }
     }
   }
