@@ -16,24 +16,58 @@
       <SvgIcon name="menu-icon-4" />
       <span class="title">关于项目</span>
     </router-link>
+    <template v-if="createPlaylist.length > 0">
+      <p class="menu-title">创建的歌单</p>
+      <template v-for="item in createPlaylist" :key="item.id">
+        <router-link
+          class="menu-list-item"
+          :to="{ path: `/userplaylist/${item.id}` }"
+        >
+          <SvgIcon name="menu-icon-0" />
+          <span class="title">{{ item.name }}</span>
+        </router-link>
+      </template>
+    </template>
+    <template v-if="collectPlaylist.length > 0">
+      <p class="menu-title">收藏的歌单</p>
+      <template v-for="item in collectPlaylist" :key="item.id">
+        <router-link
+          class="menu-list-item"
+          :to="{ path: `/userplaylist/${item.id}` }"
+        >
+          <SvgIcon name="menu-icon-0" />
+          <span class="title">{{ item.name }}</span>
+        </router-link>
+      </template>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
 import SvgIcon from '@/components/base/SvgIcon.vue'
+
+import { useUserStore } from '@/store'
+import { storeToRefs } from 'pinia'
+
+const userStore = useUserStore()
+const { createPlaylist, collectPlaylist } = storeToRefs(userStore)
 </script>
 
 <style lang="less" scoped>
 .menu-list {
   .display-flex(@flex-direction:column);
-  padding-top: 20px;
+  height: 100%;
+  padding-bottom: 100px;
+  overflow: hidden;
+  overflow-y: auto;
   .menu-list-item {
     .display-flex(@align-items: center);
     width: 100%;
     height: 42px;
     padding: 12px 15px;
     .icon {
-      margin: 0 10px 2.5px 0;
+      .display-flex(center,center);
+      margin-right: 10px;
     }
     &:hover {
       background-color: var(--color-active-bgcolor);
@@ -43,8 +77,15 @@ import SvgIcon from '@/components/base/SvgIcon.vue'
       color: @color-main;
     }
     .title {
+      .text-ellipsis();
       font-size: @font-size-sm-medium;
     }
+  }
+  .menu-title {
+    color: var(--font-color);
+    font-size: @font-size-sm;
+    margin: 16px 0 8px 16px;
+    opacity: 0.7;
   }
 }
 </style>

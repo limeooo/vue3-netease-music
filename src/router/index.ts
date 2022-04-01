@@ -42,6 +42,11 @@ const routes: RouteRecordRaw[] = [
         path: '/search/:keywords',
         name: 'search',
         component: () => import('@/views/searchresult/searchresult.vue')
+      },
+      {
+        path: '/userplaylist/:id',
+        name: 'userplaylist',
+        component: () => import('@/views/userplaylist/userplaylist.vue')
       }
     ]
   },

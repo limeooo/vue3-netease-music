@@ -4,6 +4,7 @@ import useLatestStore from './module/latest'
 import useRecommendStore from './module/recommend'
 import usePlaylistDetailStore from './module/playlistdetail'
 import useSearchStore from './module/search'
+import useUserStore from './module/user'
 
 export {
   usePlayerStore,
@@ -11,5 +12,6 @@ export {
   useLatestStore,
   useRecommendStore,
   usePlaylistDetailStore,
-  useSearchStore
+  useSearchStore,
+  useUserStore
 }
