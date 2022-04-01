@@ -6,8 +6,9 @@ import { debounce } from '@/utils'
 import type { AxiosInstance } from 'axios'
 import type { requestInterceptors, requestConfig } from './type'
 
-import { ElLoading } from 'element-plus'
+import { ElLoading, ElNotification } from 'element-plus'
 import 'element-plus/es/components/loading/style/css'
+import 'element-plus/es/components/notification/style/css'
 import type { LoadingInstance } from 'element-plus/lib/components/loading/src/loading'
 
 const DEAFULT_LOADING = true
@@ -63,6 +64,13 @@ class requset {
         return res
       },
       (err) => {
+        ElNotification({
+          title: '错误',
+          message: '这次请求失败啦～',
+          type: 'error',
+          offset: 50
+        })
+        closeLoding()
         // if (err.response.status === 404) {
         //   console.log('404错误')
         // }
@@ -97,6 +105,9 @@ class requset {
           resolve(res)
         })
         .catch((err) => {
+          if (config.interceptors?.responseInterceptorCatch) {
+            err = config.interceptors.responseInterceptorCatch(err)
+          }
           // 将showLoading设置true, 这样不会影响下一个请求
           // this.showLoading = DEAFULT_LOADING
 
