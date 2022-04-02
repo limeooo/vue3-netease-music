@@ -30,7 +30,8 @@ function requestSongLyric(params: { id: number }) {
       responseInterceptor(res: any): string {
         return res.data.lrc.lyric
       }
-    }
+    },
+    showLoading: false
   })
 }
 
