@@ -1,7 +1,7 @@
 <template>
   <div class="play-list-item" @click="handlePlaylistClick()">
     <div class="card-inner">
-      <img v-lazy="thumbnail(playlistItem.picUrl, 480)" />
+      <img v-lazy="thumbnail(playlistItem.picUrl, 400)" />
       <div class="count">
         {{ '播放量：' + formatCount(playlistItem.playCount) }}
       </div>

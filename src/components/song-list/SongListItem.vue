@@ -2,7 +2,7 @@
   <div class="song-list-item">
     <div class="item-order">{{ padZero(songItem.order) }}</div>
     <div class="item-image">
-      <img v-lazy="thumbnail(songItem.picUrl, 60)" />
+      <img v-lazy="thumbnail(songItem.picUrl, 120)" />
     </div>
     <div
       class="item-text"
