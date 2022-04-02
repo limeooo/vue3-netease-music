@@ -9,9 +9,9 @@ const variables: IVariables = {
   ['--layout-content-bgcolor']: '#ffffff',
 
   ['--font-color']: '#4a4a4a',
+  ['--font-color-tab']: '#7f7f81',
   ['--font-color-title']: '#333333',
-  ['--font-color-title-light']: '#5c5c5c',
-  ['--font-color-title-morelight']: '#bebebe',
+  ['--font-color-describe']: '#bebebe',
 
   ['--color-border']: '#f2f2f1',
   ['--color-scrollbar']: '#D0D0D0',

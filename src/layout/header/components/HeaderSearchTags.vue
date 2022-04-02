@@ -45,7 +45,7 @@ const handleTagClick = (tag: string) => {
   box-shadow: 5px 5px 5px 2px rgb(0, 0, 0, 0.2);
   padding: 15px 20px;
   .search-title {
-    color: var(--font-color-title-light);
+    color: var(--font-color-tab);
     font-size: @font-size-sm;
     padding-bottom: 15px;
   }

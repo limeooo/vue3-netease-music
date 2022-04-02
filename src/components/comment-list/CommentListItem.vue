@@ -59,7 +59,7 @@ withDefaults(
     }
     .bottom {
       .display-flex(space-between,flex-end,center);
-      color: var(--font-color-title-morelight);
+      color: var(--font-color-describe);
       width: 100%;
       .count {
         padding-left: 5px;

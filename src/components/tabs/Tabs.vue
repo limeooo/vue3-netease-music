@@ -42,6 +42,7 @@ const handleTabClick = (value: string | number) => {
   .display-flex(flex-end, center);
   height: 41px;
   .tabs-item {
+    color: var(--font-color-tab);
     font-size: @font-size-sm;
     width: 48px;
     list-style: none;

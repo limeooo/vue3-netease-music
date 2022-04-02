@@ -46,7 +46,7 @@ withDefaults(
     text-align: center;
   }
   .item-order {
-    color: var(--font-color-title-morelight);
+    color: var(--font-color-describe);
   }
   .item-image {
     .image-size(60px);
