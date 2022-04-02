@@ -12,6 +12,10 @@
       <SvgIcon name="menu-icon-3" />
       <span class="title">最新音乐</span>
     </router-link>
+    <router-link class="menu-list-item" to="/mvs">
+      <SvgIcon name="menu-icon-4" />
+      <span class="title">最新MV</span>
+    </router-link>
     <router-link class="menu-list-item" to="/about">
       <SvgIcon name="menu-icon-5" />
       <span class="title">关于项目</span>
