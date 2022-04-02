@@ -1,7 +1,68 @@
 <template>
-  <div>mvs</div>
+  <div class="mvs">
+    <!-- Tabs -->
+    <Tabs
+      :tabs-config="areaTabsConfig"
+      v-model="area"
+      title="地区"
+      isDividing
+    />
+    <Tabs
+      :tabs-config="typeTabsConfig"
+      v-model="type"
+      title="类型"
+      isDividing
+    />
+    <Tabs
+      :tabs-config="orderTabsConfig"
+      v-model="order"
+      title="排序"
+      isDividing
+    />
+    <!-- Mv列表 -->
+    {{ mvObj }}
+    <!-- 分页器 -->
+    <el-pagination
+      v-model:currentPage="currentPage"
+      layout="prev, pager, next"
+      :total="mvObj.total / 4"
+      @current-change="getMvsData()"
+    />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Tabs from '@/components/tabs/Tabs.vue'
 
-<style scoped></style>
+import { ref, computed, watch } from 'vue'
+import { areaTabsConfig, typeTabsConfig, orderTabsConfig } from './config'
+import { storeToRefs } from 'pinia'
+import { useMvsStore } from '@/store'
+
+const area = ref('全部')
+const type = ref('全部')
+const order = ref('上升最快')
+const currentPage = ref(1)
+const requestParams = computed(() => ({
+  area: area.value,
+  type: type.value,
+  order: order.value
+}))
+
+const mvsStore = useMvsStore()
+const { mvObj } = storeToRefs(mvsStore)
+
+const getMvsData = async () => {
+  mvsStore.getMvsData({
+    ...requestParams.value,
+    offset: (currentPage.value - 1) * 40,
+    limit: 40
+  })
+}
+getMvsData()
+
+watch(requestParams, () => {
+  currentPage.value = 1
+  getMvsData()
+})
+</script>

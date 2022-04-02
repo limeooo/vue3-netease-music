@@ -5,6 +5,7 @@ import usePlaylistsStore from './module/playlists'
 import usePlaylistDetailStore from './module/playlistdetail'
 import useSearchStore from './module/search'
 import useUserStore from './module/user'
+import useMvsStore from './module/mvs'
 
 export {
   usePlayerStore,
@@ -13,5 +14,6 @@ export {
   usePlaylistsStore,
   usePlaylistDetailStore,
   useSearchStore,
-  useUserStore
+  useUserStore,
+  useMvsStore
 }

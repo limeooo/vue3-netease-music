@@ -15,7 +15,8 @@ const variables: IVariables = {
 
   ['--color-border']: '#f2f2f1',
   ['--color-scrollbar']: '#D0D0D0',
-  ['--color-active-bgcolor']: '#e3e3e3'
+  ['--color-active-bgcolor']: '#e3e3e3',
+  ['--color-tabs-bgcolor']: '#fdf6f5'
 }
 
 export default variables
