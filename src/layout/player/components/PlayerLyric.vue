@@ -9,7 +9,7 @@
             <div class="cd-inner">
               <img
                 class="cd-image"
-                :src="thumbnail(currentPlayerSong.picUrl, 220)"
+                :src="thumbnail(currentPlayerSong.picUrl, 400)"
                 :class="{ 'is-pause': !playing }"
               />
             </div>

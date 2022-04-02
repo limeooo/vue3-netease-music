@@ -1,7 +1,7 @@
 <template>
   <div class="recommend-intro" @click="handlePlaylistClick()">
     <div class="intro-image">
-      <img v-lazy="thumbnail(playlistInfo.picUrl, 140)" />
+      <img v-lazy="thumbnail(playlistInfo.picUrl, 250)" />
     </div>
     <div class="intro-info">
       <div class="tag">精品歌单</div>

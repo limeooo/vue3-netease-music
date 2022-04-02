@@ -1,6 +1,6 @@
 <template>
   <div class="comment-list-item">
-    <img :src="thumbnail(comment.avatarUrl, 40)" />
+    <img :src="thumbnail(comment.avatarUrl, 80)" />
     <div class="comment-info">
       <div class="top">
         <span class="nickname">{{ comment.nickname + '：' }}</span>

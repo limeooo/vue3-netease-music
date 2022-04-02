@@ -1,13 +1,13 @@
 <template>
   <div class="playlist-detail-header">
     <div class="detail-image">
-      <img v-lazy="thumbnail(playlistDetail.coverImgUrl, 200)" />
+      <img v-lazy="thumbnail(playlistDetail.coverImgUrl, 360)" />
     </div>
     <div class="detail-info">
       <div class="top">
         <div class="title">{{ playlistDetail.name }}</div>
         <div class="user">
-          <img v-lazy="thumbnail(playlistDetail.avatarUrl, 30)" />
+          <img v-lazy="thumbnail(playlistDetail.avatarUrl, 60)" />
           <span>
             {{ playlistDetail.nickname + ' 创建' }}
           </span>

@@ -1,7 +1,7 @@
 <template>
   <div class="player-info">
     <div class="info-image" @click="handleLyricClick()">
-      <img :src="thumbnail(currentPlayerSong.picUrl, 40)" />
+      <img :src="thumbnail(currentPlayerSong.picUrl, 80)" />
       <div class="background-mask">
         <SvgIcon v-if="isOpenLyric" name="shrink" size="22" color="#fff" />
         <SvgIcon v-else name="expand" size="22" color="#fff" />
