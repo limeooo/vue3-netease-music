@@ -1,53 +1,48 @@
 <template>
   <!-- 公用Tabs组件 -->
   <div class="tabs">
+    <span class="title"></span>
     <template v-for="item in tabsConfig" :key="item.value">
-      <li
+      <span
         class="tabs-item"
-        :class="{ isActive: currentChecked === item.value }"
+        :class="{ isActive: modelValue === item.value }"
         @click="handleTabClick(item.value)"
       >
         {{ item.label }}
-      </li>
+      </span>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { withDefaults, ref, watchEffect } from 'vue'
+import { withDefaults } from 'vue'
 import { ITabsConfig } from '@/global/types'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
+    modelValue: string | number
     tabsConfig: ITabsConfig[]
   }>(),
   {}
 )
-const emit = defineEmits(['handleTabClick'])
-
-const currentChecked = ref<string | number>()
-
-watchEffect(() => {
-  currentChecked.value = props.tabsConfig[0].value
-})
+const emit = defineEmits(['update:modelValue'])
 
 const handleTabClick = (value: string | number) => {
-  currentChecked.value = value
-  emit('handleTabClick', value)
+  emit('update:modelValue', value)
 }
 </script>
 
 <style lang="less" scoped>
 .tabs {
   .display-flex(flex-end, center);
-  height: 41px;
+  height: 45px;
   .tabs-item {
+    .display-flex(center, center);
     color: var(--font-color-tab);
     font-size: @font-size-sm;
-    width: 48px;
-    list-style: none;
-    text-align: center;
     cursor: pointer;
+    width: 50px;
+    height: 100%;
     &.isActive {
       color: @color-main;
     }
