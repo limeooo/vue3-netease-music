@@ -19,14 +19,14 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/discovery/discovery.vue')
       },
       {
-        path: '/recommend',
-        name: 'recommend',
-        component: () => import('@/views/recommend/recommend.vue')
+        path: '/playlists',
+        name: 'playlists',
+        component: () => import('@/views/playlists/playlists.vue')
       },
       {
-        path: '/latest',
-        name: 'latest',
-        component: () => import('@/views/latest/latest.vue')
+        path: '/songs',
+        name: 'songs',
+        component: () => import('@/views/songs/songs.vue')
       },
       {
         path: '/about',

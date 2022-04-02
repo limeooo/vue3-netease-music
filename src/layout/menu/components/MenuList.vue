@@ -4,16 +4,16 @@
       <SvgIcon name="menu-icon-1" />
       <span class="title">发现音乐</span>
     </router-link>
-    <router-link class="menu-list-item" to="/recommend">
+    <router-link class="menu-list-item" to="/playlists">
       <SvgIcon name="menu-icon-2" />
       <span class="title">推荐歌单</span>
     </router-link>
-    <router-link class="menu-list-item" to="/latest">
+    <router-link class="menu-list-item" to="/songs">
       <SvgIcon name="menu-icon-3" />
       <span class="title">最新音乐</span>
     </router-link>
     <router-link class="menu-list-item" to="/about">
-      <SvgIcon name="menu-icon-4" />
+      <SvgIcon name="menu-icon-5" />
       <span class="title">关于项目</span>
     </router-link>
     <template v-if="createPlaylist.length > 0">
