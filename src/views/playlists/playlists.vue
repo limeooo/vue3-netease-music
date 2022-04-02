@@ -3,7 +3,7 @@
     <!-- 精品歌单推荐信息 -->
     <PlaylistsIntro :topPlaylist="topPlaylist" />
     <!-- Tabs -->
-    <Tabs :tabsConfig="tabsConfig" v-model="currentTab" />
+    <Tabs :tabsConfig="tabsConfig" v-model="currentTab" position="flex-end" />
     <!-- 歌单列表 -->
     <PlayList :playlist="playlist.playlists ?? []" />
     <!-- 分页器 -->

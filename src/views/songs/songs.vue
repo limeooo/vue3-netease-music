@@ -1,7 +1,7 @@
 <template>
   <div class="songs">
     <!-- Tabs页面 -->
-    <Tabs :tabsConfig="tabsConfig" v-model="currentTab" />
+    <Tabs :tabsConfig="tabsConfig" v-model="currentTab" position="flex-end" />
     <!-- 歌曲列表 -->
     <SongList :song-list="topSongList" />
   </div>
