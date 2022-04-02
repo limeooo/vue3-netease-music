@@ -33,7 +33,9 @@
           Please check that the URL you entered is correct, or click the button
           below to return to the homepage.
         </div>
-        <a class="bullshit__return-home" @click.prevent="$router.push('/main')"
+        <a
+          class="bullshit__return-home"
+          @click.prevent="$router.push('/discovery')"
           >Back to home</a
         >
       </div>
