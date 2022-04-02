@@ -1,7 +1,7 @@
 <template>
-  <div class="recommend">
+  <div class="playlists">
     <!-- 精品歌单推荐信息 -->
-    <RecommendIntro :topPlaylist="topPlaylist" />
+    <PlaylistsIntro :topPlaylist="topPlaylist" />
     <!-- Tabs -->
     <Tabs :tabsConfig="tabsConfig" @handleTabClick="handleTabClick" />
     <!-- 歌单列表 -->
@@ -17,18 +17,18 @@
 </template>
 
 <script setup lang="ts">
-import RecommendIntro from './components/RecommendIntro.vue'
+import PlaylistsIntro from './components/PlaylistsIntro.vue'
 import Tabs from '@/components/tabs/Tabs.vue'
 import PlayList from '@/components/play-list/PlayList.vue'
 
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useRecommendStore } from '@/store'
+import { usePlaylistsStore } from '@/store'
 import { tabsConfig } from './config'
 
-const recommendStore = useRecommendStore()
-recommendStore.getRecommendData()
-const { topPlaylist, playlist } = storeToRefs(recommendStore)
+const playlistsStore = usePlaylistsStore()
+playlistsStore.getPlaylistsData()
+const { topPlaylist, playlist } = storeToRefs(playlistsStore)
 
 const currentPage = ref(1)
 const currentCat = ref('全部')
@@ -37,7 +37,7 @@ const handleTabClick = (value: string | number) => {
     currentCat.value = value
     currentPage.value = 1
   }
-  recommendStore.getTopPlaylist({
+  playlistsStore.getTopPlaylist({
     cat: currentCat.value,
     offset: (currentPage.value - 1) * 50
   })

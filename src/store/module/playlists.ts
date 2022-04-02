@@ -8,7 +8,7 @@ import {
 } from '@/service/playlist'
 import type { IPlaylistAll } from '@/service/playlist/types'
 
-const useRecommendStore = defineStore('recommend', {
+const usePlaylistsStore = defineStore('playlists', {
   state: () => {
     return {
       playlist: {} as IPlaylistAll,
@@ -16,7 +16,7 @@ const useRecommendStore = defineStore('recommend', {
     }
   },
   actions: {
-    getRecommendData() {
+    getPlaylistsData() {
       this.getTopPlaylistHighquality({ limit: 1 })
       this.getTopPlaylist({ cat: '全部', offset: 0 })
     },
@@ -35,4 +35,4 @@ const useRecommendStore = defineStore('recommend', {
   }
 })
 
-export default useRecommendStore
+export default usePlaylistsStore

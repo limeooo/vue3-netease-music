@@ -1,5 +1,5 @@
 <template>
-  <div class="latest">
+  <div class="songs">
     <!-- Tabs页面 -->
     <Tabs :tabsConfig="tabsConfig" @handleTabClick="handleTabClick" />
     <!-- 歌曲列表 -->
@@ -12,14 +12,14 @@ import Tabs from '@/components/tabs/Tabs.vue'
 import SongList from '@/components/song-list/SongList.vue'
 
 import { storeToRefs } from 'pinia'
-import { useLatestStore } from '@/store'
+import { useSongsStore } from '@/store'
 import { tabsConfig } from './config'
 
-const latestStore = useLatestStore()
-const { topSongList } = storeToRefs(latestStore)
-latestStore.getLatestData()
+const songsStore = useSongsStore()
+const { topSongList } = storeToRefs(songsStore)
+songsStore.getSongsData()
 
 const handleTabClick = (value: number) => {
-  latestStore.getTopSongList({ type: value })
+  songsStore.getTopSongList({ type: value })
 }
 </script>

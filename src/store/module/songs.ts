@@ -5,14 +5,14 @@ import { defineStore } from 'pinia'
 import { requestTopSongList } from '@/service/song'
 import type { ISong } from '@/service/song/types'
 
-const useLatestStore = defineStore('latest', {
+const useSongsStore = defineStore('songs', {
   state: () => {
     return {
       topSongList: [] as ISong[]
     }
   },
   actions: {
-    getLatestData() {
+    getSongsData() {
       this.getTopSongList({ type: 0 })
     },
     async getTopSongList(params: { type: number }) {
@@ -24,4 +24,4 @@ const useLatestStore = defineStore('latest', {
   }
 })
 
-export default useLatestStore
+export default useSongsStore

@@ -1,7 +1,7 @@
 import usePlayerStore from './module/player'
 import useDiscoveryStore from './module/discovery'
-import useLatestStore from './module/latest'
-import useRecommendStore from './module/recommend'
+import useSongsStore from './module/songs'
+import usePlaylistsStore from './module/playlists'
 import usePlaylistDetailStore from './module/playlistdetail'
 import useSearchStore from './module/search'
 import useUserStore from './module/user'
@@ -9,8 +9,8 @@ import useUserStore from './module/user'
 export {
   usePlayerStore,
   useDiscoveryStore,
-  useLatestStore,
-  useRecommendStore,
+  useSongsStore,
+  usePlaylistsStore,
   usePlaylistDetailStore,
   useSearchStore,
   useUserStore

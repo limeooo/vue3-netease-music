@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend-intro" @click="handlePlaylistClick()">
+  <div class="playlists-intro" @click="handlePlaylistClick()">
     <div class="intro-image">
       <img v-lazy="thumbnail(playlistInfo.picUrl, 250)" />
     </div>
@@ -43,7 +43,7 @@ const handlePlaylistClick = () => {
 </script>
 
 <style lang="less" scoped>
-.recommend-intro {
+.playlists-intro {
   .border-radius(100%,172px,5px);
   position: relative;
   padding: 16px;
