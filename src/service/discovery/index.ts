@@ -1,4 +1,4 @@
-import requset from '../index'
+import request from '../index'
 import {
   translateBanner,
   translatePersonalizedSong,
@@ -16,7 +16,7 @@ enum REQUEST_URL {
 
 // 请求轮播图数据
 export function requestBanner() {
-  return requset.get<IBanner[]>({
+  return request.get<IBanner[]>({
     url: REQUEST_URL.Banner,
     interceptors: {
       responseInterceptor(res: any): IBanner[] {
@@ -28,7 +28,7 @@ export function requestBanner() {
 
 // 首页发现音乐获取最新音乐数据
 export function requestPersonalizedSong(params: { limit: number }) {
-  return requset.get<ISong[]>({
+  return request.get<ISong[]>({
     url: REQUEST_URL.PersonalizedSong,
     params: params,
     interceptors: {
@@ -41,7 +41,7 @@ export function requestPersonalizedSong(params: { limit: number }) {
 
 // 首页推荐歌单获取最新音乐数据
 export function requestPersonalizedPlaylist(params: { limit: number }) {
-  return requset.get<IPlaylist[]>({
+  return request.get<IPlaylist[]>({
     url: REQUEST_URL.PersonalizedPlaylist,
     params: params,
     interceptors: {

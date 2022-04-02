@@ -1,4 +1,4 @@
-import requset from '../index'
+import request from '../index'
 import { translateUserInfo, translateUserPlaylistInfo } from './translate'
 import type { IUserInfo, IUserPlaylistInfoAll } from './types'
 
@@ -11,8 +11,8 @@ enum REQUEST_URL {
 }
 
 // 用户登录
-export function requsetUserInfo(params: { uid: number }) {
-  return requset.get<IUserInfo>({
+export function requestUserInfo(params: { uid: number }) {
+  return request.get<IUserInfo>({
     url: REQUEST_URL.UserInfo,
     params: params,
     interceptors: {
@@ -33,11 +33,11 @@ export function requsetUserInfo(params: { uid: number }) {
 }
 
 // 用户歌单信息
-export function requsetUserPlaylistInfo(params: {
+export function requestUserPlaylistInfo(params: {
   uid: number
   limit: number
 }) {
-  return requset.get<IUserPlaylistInfoAll>({
+  return request.get<IUserPlaylistInfoAll>({
     url: REQUEST_URL.UserPlaylistInfo,
     params: params,
     interceptors: {

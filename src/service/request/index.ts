@@ -13,7 +13,7 @@ import type { LoadingInstance } from 'element-plus/lib/components/loading/src/lo
 
 const DEAFULT_LOADING = true
 
-class requset {
+class request {
   instance: AxiosInstance
   interceptors?: requestInterceptors
   showLoading: boolean
@@ -133,4 +133,4 @@ class requset {
   }
 }
 
-export default requset
+export default request

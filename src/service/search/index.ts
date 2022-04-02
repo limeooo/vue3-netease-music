@@ -1,4 +1,4 @@
-import requset from '../index'
+import request from '../index'
 import {
   translateSearchHot,
   translateSearchSong,
@@ -16,7 +16,7 @@ enum REQUEST_URL {
 
 // 搜索歌曲
 const searchSong = (params: ISearchParams) =>
-  requset.get<ISongAll>({
+  request.get<ISongAll>({
     url: REQUEST_URL.Search,
     params: params,
     interceptors: {
@@ -28,7 +28,7 @@ const searchSong = (params: ISearchParams) =>
 
 // 搜索歌单
 const searchPlaylist = (params: ISearchParams) =>
-  requset.get<IPlaylistAll>({
+  request.get<IPlaylistAll>({
     url: REQUEST_URL.Search,
     params: params,
     interceptors: {
@@ -39,7 +39,7 @@ const searchPlaylist = (params: ISearchParams) =>
   })
 
 // 搜索
-export function requsetSearch(params: ISearchParams) {
+export function requestSearch(params: ISearchParams) {
   switch (params.type) {
     case SearchType.song:
       return searchSong(params)
@@ -50,7 +50,7 @@ export function requsetSearch(params: ISearchParams) {
 
 // 获取最近热门搜索
 export function requestSearchHot() {
-  return requset.get<string[]>({
+  return request.get<string[]>({
     url: REQUEST_URL.SearchHot,
     interceptors: {
       responseInterceptor(res: any): string[] {

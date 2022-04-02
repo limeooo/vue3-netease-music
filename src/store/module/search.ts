@@ -2,7 +2,7 @@
  * 搜索页面 存储请求数据
  */
 import { defineStore } from 'pinia'
-import { requestSearchHot, requsetSearch } from '@/service/search'
+import { requestSearchHot, requestSearch } from '@/service/search'
 import { useLocalStorage } from '@vueuse/core'
 import { SearchType } from '@/service/search/types'
 import type { ISearchParams } from '@/service/search/types'
@@ -22,7 +22,7 @@ const useSearchStore = defineStore('search', {
   },
   actions: {
     async getSearchResult(params: ISearchParams) {
-      const searchResult = await requsetSearch(params)
+      const searchResult = await requestSearch(params)
       this.$patch((state) => {
         switch (params.type) {
           case SearchType.song:

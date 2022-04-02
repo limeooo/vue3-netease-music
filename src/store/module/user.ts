@@ -3,7 +3,7 @@
  */
 import { defineStore } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
-import { requsetUserInfo, requsetUserPlaylistInfo } from '@/service/user'
+import { requestUserInfo, requestUserPlaylistInfo } from '@/service/user'
 import type { IUserPlaylistInfo } from '@/service/user/types'
 
 const UID_KEY = 'vnext-netease-music-uid'
@@ -23,8 +23,8 @@ const useUserStore = defineStore('user', {
       return useLocalStorage(UID_KEY, 0).value
     },
     async getUserData(uid: number) {
-      const userInfo = await requsetUserInfo({ uid })
-      const userPlaylist = await requsetUserPlaylistInfo({ uid, limit: 1000 })
+      const userInfo = await requestUserInfo({ uid })
+      const userPlaylist = await requestUserPlaylistInfo({ uid, limit: 1000 })
       this.$patch((state) => {
         state.isLogin = true
         state.userName = userInfo.name

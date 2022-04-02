@@ -1,4 +1,4 @@
-import requset from '../index'
+import request from '../index'
 import { translateTopSong, translateSong } from './translate'
 import type { ISong } from './types'
 
@@ -10,7 +10,7 @@ enum REQUEST_URL {
 
 // 根据类型获取最新音乐
 function requestTopSongList(params: { type: number }) {
-  return requset.get<ISong[]>({
+  return request.get<ISong[]>({
     url: REQUEST_URL.SongList,
     params: params,
     interceptors: {
@@ -23,7 +23,7 @@ function requestTopSongList(params: { type: number }) {
 
 // 根据歌曲id获取歌词歌词
 function requestSongLyric(params: { id: number }) {
-  return requset.get<string>({
+  return request.get<string>({
     url: REQUEST_URL.SongLyric,
     params: params,
     interceptors: {
@@ -37,7 +37,7 @@ function requestSongLyric(params: { id: number }) {
 
 // 根据歌曲ids获取歌曲列表详情信息
 function requestSongDetail(params: { ids: string }) {
-  return requset.get<ISong[]>({
+  return request.get<ISong[]>({
     url: REQUEST_URL.SongDetail,
     params: params,
     interceptors: {
