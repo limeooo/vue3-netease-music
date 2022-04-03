@@ -18,7 +18,7 @@ export function formatTime(value: number, format?: string) {
  * 时间戳转换为音乐时长 mm:ss
  */
 export function formatDuration(value: number) {
-  return dayjs.duration(value).format('mm:ss')
+  return value === 0 ? '' : dayjs.duration(value).format('mm:ss')
 }
 
 /**
