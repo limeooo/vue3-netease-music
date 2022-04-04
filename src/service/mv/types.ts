@@ -30,3 +30,15 @@ export interface IMvAll {
   more: boolean
   mvs: IMv[]
 }
+
+/**
+ * mv详情信息
+ */
+export interface IMvDetail {
+  id: number
+  artistId: number
+  playCount: number
+  name: string
+  picUrl: string
+  createTime: string
+}
