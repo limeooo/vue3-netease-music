@@ -18,14 +18,15 @@
       v-model="order"
       title="排序"
       isDividing
+      class="tabs-finally"
     />
     <!-- Mv列表 -->
-    {{ mvObj }}
+    <MvList :mv-list="mvList" />
     <!-- 分页器 -->
     <el-pagination
       v-model:currentPage="currentPage"
       layout="prev, pager, next"
-      :total="mvObj.total / 4"
+      :total="mvTotal / 4"
       @current-change="getMvsData()"
     />
   </div>
@@ -33,6 +34,7 @@
 
 <script setup lang="ts">
 import Tabs from '@/components/tabs/Tabs.vue'
+import MvList from '@/components/mv-list/MvList.vue'
 
 import { ref, computed, watch } from 'vue'
 import { areaTabsConfig, typeTabsConfig, orderTabsConfig } from './config'
@@ -50,7 +52,7 @@ const requestParams = computed(() => ({
 }))
 
 const mvsStore = useMvsStore()
-const { mvObj } = storeToRefs(mvsStore)
+const { mvList, mvTotal } = storeToRefs(mvsStore)
 
 const getMvsData = async () => {
   mvsStore.getMvsData({
@@ -66,3 +68,11 @@ watch(requestParams, () => {
   getMvsData()
 })
 </script>
+
+<style lang="less" scoped>
+.mvs {
+  .tabs-finally {
+    margin-bottom: 20px;
+  }
+}
+</style>

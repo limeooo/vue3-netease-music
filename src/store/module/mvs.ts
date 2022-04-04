@@ -3,21 +3,21 @@
  */
 import { defineStore } from 'pinia'
 import { requestUserPlaylistInfo } from '@/service/mv'
-import type { IMvAll, IRequestMv } from '@/service/mv/types'
+import type { IMv, IRequestMv } from '@/service/mv/types'
 
 const useMvsStore = defineStore('mvs', {
   state: () => {
     return {
-      mvObj: {} as IMvAll
+      mvList: [] as IMv[],
+      mvTotal: 0
     }
   },
   actions: {
     async getMvsData(params: IRequestMv) {
       const mvResult = await requestUserPlaylistInfo(params)
       this.$patch((state) => {
-        state.mvObj.mvs = mvResult.mvs
-        state.mvObj.more = mvResult.more
-        if (mvResult.total) state.mvObj.total = mvResult.total
+        state.mvList = mvResult.mvs
+        if (mvResult.total) state.mvTotal = mvResult.total
       })
     }
   }

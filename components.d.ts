@@ -29,6 +29,8 @@ declare module 'vue' {
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTag: typeof import('element-plus/es')['ElTag']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    MvList: typeof import('./src/components/mv-list/MvList.vue')['default']
+    MvListItem: typeof import('./src/components/mv-list/MvListItem.vue')['default']
     PlayList: typeof import('./src/components/play-list/PlayList.vue')['default']
     PlayListItem: typeof import('./src/components/play-list/PlayListItem.vue')['default']
     SongList: typeof import('./src/components/song-list/SongList.vue')['default']
