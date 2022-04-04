@@ -2,7 +2,7 @@
   <!-- 顶部 -->
   <Header />
   <!-- 左边菜单 -->
-  <Menu />
+  <Menu v-if="!$route.fullPath.startsWith('/mv/')" />
   <!-- 底部播放 -->
   <Player />
   <!-- 主内容 -->

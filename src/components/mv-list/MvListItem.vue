@@ -1,5 +1,5 @@
 <template>
-  <div class="mv-list-item">
+  <div class="mv-list-item" @click="handleMvClick()">
     <div class="card-inner">
       <img v-lazy="thumbnail(mv.picUrl, 480, 280)" />
       <div class="play-count">
@@ -22,15 +22,21 @@
 import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { withDefaults } from 'vue'
+import { useRouter } from 'vue-router'
 import { thumbnail, formatCount, formatDuration } from '@/utils'
 import type { IMv } from '@/service/mv/types'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     mv: IMv
   }>(),
   {}
 )
+
+const router = useRouter()
+const handleMvClick = () => {
+  router.push({ path: `/mv/${props.mv.id}` })
+}
 </script>
 
 <style lang="less" scoped>
