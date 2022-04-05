@@ -64,7 +64,7 @@ import {
   :deep(.el-card) {
     margin-bottom: 20px;
     .el-card__header {
-      background-color: var(--layout-header-bgcolor);
+      background-color: var(--layout-menu-bgcolor);
       color: var(--font-color-title);
       font-size: @font-size-lg;
       font-weight: @font-weight-bold;
@@ -80,7 +80,7 @@ import {
     }
     .el-descriptions__label {
       color: var(--font-color) !important;
-      background-color: var(--layout-header-bgcolor) !important;
+      background-color: var(--layout-menu-bgcolor) !important;
     }
     .el-descriptions__content {
       background-color: var(--layout-content-bgcolor);
