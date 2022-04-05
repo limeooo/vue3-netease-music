@@ -2,11 +2,14 @@
   <!-- 顶部 -->
   <Header />
   <!-- 左边菜单 -->
-  <Menu v-if="!$route.fullPath.startsWith('/mv/')" />
+  <Menu v-show="!$route.fullPath.startsWith('/mv/')" />
   <!-- 底部播放 -->
   <Player />
   <!-- 主内容 -->
-  <div class="page-content">
+  <div
+    class="page-content"
+    :class="{ 'full-page-content': $route.fullPath.startsWith('/mv/') }"
+  >
     <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component" />
@@ -27,5 +30,9 @@ import Player from './player/Player.vue'
   background: var(--layout-content-bgcolor);
   padding: 20px 30px;
   overflow-y: auto;
+  &.full-page-content {
+    .position(auto, auto, auto, auto, static) !important;
+    padding: 70px 30px 80px;
+  }
 }
 </style>
