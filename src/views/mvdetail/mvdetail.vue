@@ -4,7 +4,10 @@
       <MvPlayer :mv-url="mvUrl" :mv-pic-url="mvDetail.picUrl" />
       <CommentList :id="mvDetail.id" :type="CommentType.mv" />
     </div>
-    <div class="detail-right"></div>
+    <div class="detail-right">
+      <p class="title">相关推荐</p>
+      <MvList :mv-list="mvRecommendList" related />
+    </div>
   </div>
 </template>
 
@@ -14,8 +17,9 @@
  */
 import MvPlayer from './components/MvPlayer.vue'
 import CommentList from '@/components/comment-list/CommentList.vue'
+import MvList from '@/components/mv-list/MvList.vue'
 
-import { defineComponent } from 'vue'
+import { defineComponent, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useMvDetailStore } from '@/store'
@@ -23,20 +27,28 @@ import { CommentType } from '@/service/comment/types'
 
 export default defineComponent({
   name: 'MvDetail',
-  components: { MvPlayer, CommentList },
+  components: { MvPlayer, CommentList, MvList },
   setup() {
     const mvDetailStore = useMvDetailStore()
-    const { mvUrl, mvDetail } = storeToRefs(mvDetailStore)
+    const { mvUrl, mvDetail, mvRecommendList } = storeToRefs(mvDetailStore)
 
     const route = useRoute()
     mvDetailStore.getMvDetailData(Number(route.params.id as string))
+
+    watch(
+      () => route.params.id,
+      (id) => {
+        if (id) mvDetailStore.getMvDetailData(Number(route.params.id as string))
+      }
+    )
 
     return {
       MvPlayer,
       CommentList,
       CommentType,
       mvUrl,
-      mvDetail
+      mvDetail,
+      mvRecommendList
     }
   }
 })
@@ -51,7 +63,13 @@ export default defineComponent({
     width: 610px;
   }
   .detail-right {
-    flex: 1;
+    width: 340px;
+    padding-left: 30px;
+    .title {
+      color: var(--font-color-title);
+      font-size: @font-size-sm-medium;
+      font-weight: 700;
+    }
   }
 }
 </style>

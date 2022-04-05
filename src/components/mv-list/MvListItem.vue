@@ -1,5 +1,9 @@
 <template>
-  <div class="mv-list-item" @click="handleMvClick()">
+  <div
+    class="mv-list-item"
+    :class="{ isRelated: related }"
+    @click="handleMvClick()"
+  >
     <div class="card-inner">
       <img v-lazy="thumbnail(mv.picUrl, 480, 280)" />
       <div class="play-count">
@@ -29,8 +33,11 @@ import type { IMv } from '@/service/mv/types'
 const props = withDefaults(
   defineProps<{
     mv: IMv
+    related?: boolean
   }>(),
-  {}
+  {
+    related: false
+  }
 )
 
 const router = useRouter()
@@ -72,7 +79,9 @@ const handleMvClick = () => {
     }
   }
   .card-outside {
+    width: 100%;
     .title {
+      .text-ellipsis();
       font-size: @font-size-sm;
       color: var(--font-color);
       margin-top: 8px;
@@ -88,6 +97,23 @@ const handleMvClick = () => {
       .play {
         opacity: 1;
       }
+    }
+  }
+  &.isRelated {
+    .display-flex(@flex-direction: row);
+    width: 100%;
+    height: 96px;
+    padding: 8px 0;
+    margin-bottom: 0px;
+    .card-inner {
+      .image-size(140px,100%);
+    }
+    .card-outside {
+      width: calc(100% - 140px);
+      padding-left: 8px;
+    }
+    &:hover {
+      background-color: var(--color-active-bgcolor);
     }
   }
 }

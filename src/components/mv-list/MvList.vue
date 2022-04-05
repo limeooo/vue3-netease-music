@@ -2,7 +2,7 @@
   <!-- Mv 视频列表 -->
   <div class="mv-list">
     <template v-for="item in mvList" :key="item.id">
-      <MvListItem :mv="item" />
+      <MvListItem :mv="item" :related="related" />
     </template>
   </div>
 </template>
@@ -16,8 +16,11 @@ import type { IMv } from '@/service/mv/types'
 withDefaults(
   defineProps<{
     mvList: IMv[]
+    related?: boolean
   }>(),
-  {}
+  {
+    related: false
+  }
 )
 </script>
 
