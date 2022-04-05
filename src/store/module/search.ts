@@ -8,6 +8,7 @@ import { SearchType } from '@/service/search/types'
 import type { ISearchParams } from '@/service/search/types'
 import type { ISongAll } from '@/service/song/types'
 import type { IPlaylistAll } from '@/service/playlist/types'
+import type { IMvAll } from '@/service/mv/types'
 
 const SEARCH_KEY = 'vnext-netease-music-search-hot'
 
@@ -16,6 +17,7 @@ const useSearchStore = defineStore('search', {
     return {
       searchSong: {} as ISongAll,
       searchPlaylist: {} as IPlaylistAll,
+      searchMv: {} as IMvAll,
       searchHotList: [] as string[],
       searchHistory: [] as string[]
     }
@@ -30,6 +32,9 @@ const useSearchStore = defineStore('search', {
             break
           case SearchType.playlist:
             state.searchPlaylist = searchResult as IPlaylistAll
+            break
+          case SearchType.mv:
+            state.searchMv = searchResult as IMvAll
             break
         }
       })

@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios'
 import type { ISong, ISongAll } from '@/service/song/types'
 import type { IPlaylist, IPlaylistAll } from '@/service/playlist/types'
+import type { IMv, IMvAll } from '@/service/mv/types'
 
 /**
  * 转化最近热门搜索，标准化字段、数据平级、转换字段格式
@@ -30,7 +31,7 @@ export const translateSearchSong = (res: AxiosResponse): ISongAll => {
   })
   return {
     songs: transSongLists,
-    more: songs.length < 30,
+    more: songs.length === 30,
     total: result.songCount
   }
 }
@@ -56,7 +57,33 @@ export const translateSearchPlaylist = (res: AxiosResponse): IPlaylistAll => {
 
   return {
     playlists: transPlaylists,
-    more: playlists.length < 30,
+    more: playlists.length === 30,
     total: result.playlistCount
+  }
+}
+
+/**
+ * 转化Mv搜索，标准化字段、数据平级、转换字段格式
+ */
+export const translateSearchMv = (res: AxiosResponse): IMvAll => {
+  const { result } = res.data
+  const mvs = result.mvs ?? []
+
+  const transMvs: IMv[] = mvs.map((mv: any) => {
+    return {
+      id: mv.id,
+      name: mv.name,
+      playCount: mv.playCount,
+      duration: mv.duration,
+      picUrl: mv.cover,
+      artistId: mv.artistId,
+      artistName: mv.artistName
+    }
+  })
+
+  return {
+    mvs: transMvs,
+    more: transMvs.length === 40,
+    total: result.mvCount
   }
 }

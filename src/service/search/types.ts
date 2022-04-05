@@ -3,7 +3,9 @@
  */
 export enum SearchType {
   song = '1',
-  playlist = '1000'
+  playlist = '1000',
+  mv = '1004',
+  radio = '1009'
 }
 
 /**

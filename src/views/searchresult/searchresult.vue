@@ -21,6 +21,12 @@
           @searchTotalCallback="searchTotalCallback"
         />
       </el-tab-pane>
+      <el-tab-pane label="视频" :name="SearchType.mv" lazy>
+        <SearchMv
+          :keywords="keywords"
+          @searchTotalCallback="searchTotalCallback"
+        />
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -28,6 +34,7 @@
 <script setup lang="ts">
 import SearchSong from './components/SearchSong.vue'
 import SearchPlaylist from './components/SearchPlaylist.vue'
+import SearchMv from './components/SearchMv.vue'
 
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'

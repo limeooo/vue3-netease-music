@@ -2,12 +2,14 @@ import request from '../index'
 import {
   translateSearchHot,
   translateSearchSong,
-  translateSearchPlaylist
+  translateSearchPlaylist,
+  translateSearchMv
 } from './translate'
 import { SearchType } from './types'
 import type { ISearchParams } from './types'
 import type { ISongAll } from '@/service/song/types'
 import type { IPlaylistAll } from '@/service/playlist/types'
+import type { IMvAll } from '@/service/mv/types'
 
 enum REQUEST_URL {
   Search = '/cloudsearch',
@@ -38,6 +40,18 @@ const searchPlaylist = (params: ISearchParams) =>
     }
   })
 
+// 搜索Mv
+const searchMv = (params: ISearchParams) =>
+  request.get<IMvAll>({
+    url: REQUEST_URL.Search,
+    params: params,
+    interceptors: {
+      responseInterceptor(res: any): IMvAll {
+        return translateSearchMv(res)
+      }
+    }
+  })
+
 // 搜索
 export function requestSearch(params: ISearchParams) {
   switch (params.type) {
@@ -45,6 +59,8 @@ export function requestSearch(params: ISearchParams) {
       return searchSong(params)
     case SearchType.playlist:
       return searchPlaylist(params)
+    case SearchType.mv:
+      return searchMv(params)
   }
 }
 
