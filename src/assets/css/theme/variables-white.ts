@@ -11,7 +11,7 @@ const variables: IVariables = {
   ['--font-color']: '#4a4a4a',
   ['--font-color-tab']: '#7f7f81',
   ['--font-color-title']: '#333333',
-  ['--font-color-describe']: '#bebebe',
+  ['--font-color-desc']: '#bebebe',
 
   ['--color-border']: '#f2f2f1',
   ['--color-scrollbar']: '#D0D0D0',

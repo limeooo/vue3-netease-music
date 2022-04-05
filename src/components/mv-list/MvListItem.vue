@@ -88,7 +88,7 @@ const handleMvClick = () => {
     }
     .artist {
       font-size: @font-size-sm;
-      color: var(--font-color-describe);
+      color: var(--font-color-desc);
       margin-top: 4px;
     }
   }
