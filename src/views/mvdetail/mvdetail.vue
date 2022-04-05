@@ -2,6 +2,7 @@
   <div class="mv-detail" v-if="mvDetail.id">
     <div class="detail-left">
       <MvPlayer :mv-url="mvUrl" :mv-pic-url="mvDetail.picUrl" />
+      <MvInfo :mv-detail="mvDetail" :artist-info="artistInfo" />
       <CommentList :id="mvDetail.id" :type="CommentType.mv" />
     </div>
     <div class="detail-right">
@@ -16,6 +17,7 @@
  * 由于为了使用keep-alive中的exclude属性需要定义name、所以未使用setup暴露
  */
 import MvPlayer from './components/MvPlayer.vue'
+import MvInfo from './components/MvInfo.vue'
 import CommentList from '@/components/comment-list/CommentList.vue'
 import MvList from '@/components/mv-list/MvList.vue'
 
@@ -27,10 +29,11 @@ import { CommentType } from '@/service/comment/types'
 
 export default defineComponent({
   name: 'MvDetail',
-  components: { MvPlayer, CommentList, MvList },
+  components: { MvPlayer, CommentList, MvList, MvInfo },
   setup() {
     const mvDetailStore = useMvDetailStore()
-    const { mvUrl, mvDetail, mvRecommendList } = storeToRefs(mvDetailStore)
+    const { mvUrl, mvDetail, mvRecommendList, artistInfo } =
+      storeToRefs(mvDetailStore)
 
     const route = useRoute()
     mvDetailStore.getMvDetailData(Number(route.params.id as string))
@@ -45,10 +48,12 @@ export default defineComponent({
     return {
       MvPlayer,
       CommentList,
+
       CommentType,
       mvUrl,
       mvDetail,
-      mvRecommendList
+      mvRecommendList,
+      artistInfo
     }
   }
 })
@@ -68,7 +73,7 @@ export default defineComponent({
     .title {
       color: var(--font-color-title);
       font-size: @font-size-sm-medium;
-      font-weight: 700;
+      font-weight: @font-weight-bold;
     }
   }
 }
