@@ -3,24 +3,42 @@
   <SongList :song-list="songList" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+/**
+ * 由于为了使用keep-alive中的exclude属性需要定义name、所以未使用setup暴露
+ */
 import SongList from '@/components/song-list/SongList.vue'
 
-import { ref, watchEffect } from 'vue'
+import { ref, defineComponent, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { requestSongDetail } from '@/service/song'
 import { requestPlaylistDetail } from '@/service/playlist'
 import { ISong } from '@/service/song/types'
 
-const route = useRoute()
-const songList = ref<ISong[]>([])
-watchEffect(async () => {
-  if (route.params.id) {
-    const playlistDetail = await requestPlaylistDetail({
-      id: route.params.id as string
+export default defineComponent({
+  name: 'UserPlaylist',
+  components: { SongList },
+  setup() {
+    const route = useRoute()
+    const songList = ref<ISong[]>([])
+
+    watchEffect(async () => {
+      if (route.params.id) {
+        const playlistDetail = await requestPlaylistDetail({
+          id: route.params.id as string
+        })
+        const _songList = await requestSongDetail({
+          ids: playlistDetail.songIds
+        })
+        songList.value = _songList
+      }
     })
-    const _songList = await requestSongDetail({ ids: playlistDetail.songIds })
-    songList.value = _songList
+
+    return {
+      SongList,
+
+      songList
+    }
   }
 })
 </script>
