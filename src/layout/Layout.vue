@@ -11,7 +11,7 @@
     :class="{ 'full-page-content': $route.fullPath.startsWith('/mv/') }"
   >
     <router-view v-slot="{ Component }">
-      <keep-alive>
+      <keep-alive :exclude="['MvDetail', 'PlaylistDetail']">
         <component :is="Component" />
       </keep-alive>
     </router-view>

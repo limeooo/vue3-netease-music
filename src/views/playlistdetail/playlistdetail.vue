@@ -19,27 +19,44 @@
   </el-tabs>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+/**
+ * 由于为了使用keep-alive中的exclude属性需要定义name、所以未使用setup暴露
+ */
 import PlaylistDetailHeader from './components/PlaylistDetailHeader.vue'
 import SongList from '@/components/song-list/SongList.vue'
 import CommentList from '@/components/comment-list/CommentList.vue'
 
-import { ref, watchEffect } from 'vue'
+import { ref, defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { usePlaylistDetailStore } from '@/store'
 import { CommentType } from '@/service/comment/types'
 
-const route = useRoute()
-const tabsActiveName = ref('song')
-const playlistDetailStore = usePlaylistDetailStore()
-const { playlistDetail, songList } = storeToRefs(playlistDetailStore)
-watchEffect(() => {
-  if (route.params.id) {
-    tabsActiveName.value = 'song'
+export default defineComponent({
+  name: 'PlaylistDetail',
+  components: { PlaylistDetailHeader, SongList, CommentList },
+  setup() {
+    const tabsActiveName = ref('song')
+
+    const playlistDetailStore = usePlaylistDetailStore()
+    const { playlistDetail, songList } = storeToRefs(playlistDetailStore)
+
+    const route = useRoute()
     playlistDetailStore.getPlaylistDetailPageData({
       id: route.params.id as string
     })
+
+    return {
+      PlaylistDetailHeader,
+      SongList,
+      CommentList,
+
+      tabsActiveName,
+      playlistDetail,
+      songList,
+      CommentType
+    }
   }
 })
 </script>

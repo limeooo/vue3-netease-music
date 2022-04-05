@@ -8,22 +8,36 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+/**
+ * 由于为了使用keep-alive中的exclude属性需要定义name、所以未使用setup暴露
+ */
 import MvPlayer from './components/MvPlayer.vue'
 import CommentList from '@/components/comment-list/CommentList.vue'
 
-import { watchEffect } from 'vue'
+import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useMvDetailStore } from '@/store'
 import { CommentType } from '@/service/comment/types'
 
-const route = useRoute()
-const mvDetailStore = useMvDetailStore()
-const { mvUrl, mvDetail } = storeToRefs(mvDetailStore)
-watchEffect(() => {
-  if (route.params.id) {
+export default defineComponent({
+  name: 'MvDetail',
+  components: { MvPlayer, CommentList },
+  setup() {
+    const mvDetailStore = useMvDetailStore()
+    const { mvUrl, mvDetail } = storeToRefs(mvDetailStore)
+
+    const route = useRoute()
     mvDetailStore.getMvDetailData(Number(route.params.id as string))
+
+    return {
+      MvPlayer,
+      CommentList,
+      CommentType,
+      mvUrl,
+      mvDetail
+    }
   }
 })
 </script>
