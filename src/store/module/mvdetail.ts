@@ -18,6 +18,7 @@ const useMvDetailStore = defineStore('mvDetail', {
   },
   actions: {
     getMvDetailData(id: number) {
+      this.$reset()
       this.getMvDetailInfo(id)
       this.getMvRecommendList(id)
       this.getMvUrl(id)
