@@ -1,7 +1,7 @@
 <template>
   <div class="menu-user" @click="dialogVisible = true">
     <div class="user-avatar">
-      <img v-if="isLogin" :src="userAvatar" />
+      <img v-if="isLogin" :src="thumbnail(userAvatar, 80)" />
       <SvgIcon v-else name="menu-icon" size="36" />
     </div>
     <div class="user-name">
@@ -78,6 +78,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@/store'
+import { thumbnail } from '@/utils'
 
 const router = useRouter()
 const userStore = useUserStore()

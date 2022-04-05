@@ -7,7 +7,7 @@
       controls
     ></video>
     <template v-if="!isStartPlaying">
-      <img class="img" :src="mvPicUrl" />
+      <img class="img" :src="thumbnail(mvPicUrl, 1100, 620)" />
       <div class="play" @click="handlePlayingClick()">
         <SvgIcon name="player-play-empty" size="30" color="#f63434" />
       </div>
@@ -20,6 +20,7 @@ import SvgIcon from '@/components/base/SvgIcon.vue'
 
 import { ref, computed, withDefaults } from 'vue'
 import { useMediaControls } from '@vueuse/core'
+import { thumbnail } from '@/utils'
 
 const props = withDefaults(
   defineProps<{
