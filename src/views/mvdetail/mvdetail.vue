@@ -21,7 +21,7 @@ import MvInfo from './components/MvInfo.vue'
 import CommentList from '@/components/comment-list/CommentList.vue'
 import MvList from '@/components/mv-list/MvList.vue'
 
-import { defineComponent, watch } from 'vue'
+import { defineComponent, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useMvDetailStore } from '@/store'
@@ -36,14 +36,10 @@ export default defineComponent({
       storeToRefs(mvDetailStore)
 
     const route = useRoute()
-    mvDetailStore.getMvDetailData(Number(route.params.id as string))
-
-    watch(
-      () => route.params.id,
-      (id) => {
-        if (id) mvDetailStore.getMvDetailData(Number(route.params.id as string))
-      }
-    )
+    watchEffect(() => {
+      if (route.params.id)
+        mvDetailStore.getMvDetailData(Number(route.params.id as string))
+    })
 
     return {
       MvPlayer,
