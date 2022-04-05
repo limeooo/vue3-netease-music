@@ -26,9 +26,7 @@ const props = withDefaults(
     mvUrl: string
     mvPicUrl: string
   }>(),
-  {
-    mvPicUrl: ''
-  }
+  {}
 )
 
 // 是否点击过开始播放按钮、否则图片占位
