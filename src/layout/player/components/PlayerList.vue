@@ -66,7 +66,7 @@ const handleDeletePlayerSong = (index: number) => {
   .position(0, 0, 62px, auto);
   z-index: @z-index-player-list;
   background: var(--layout-content-bgcolor);
-  width: 550px;
+  width: 500px;
   height: calc(100vh - 62px);
   box-shadow: 5px 5px 5px 2px rgb(0, 0, 0, 0.2);
   padding: 15px 20px;

@@ -2,27 +2,27 @@
   <div class="player-control">
     <SvgIcon
       name="player-prev"
-      size="30"
+      size="24"
       color="#f63434"
       @click="handleToggleSong(ToggleOrder.pre)"
     />
     <SvgIcon
       v-if="playing"
       name="player-pause"
-      size="58"
+      size="48"
       class="center"
       @click="handleSongStatusClick()"
     />
     <SvgIcon
       v-else
       name="player-play"
-      size="54"
+      size="48"
       class="center"
       @click="handleSongStatusClick()"
     />
     <SvgIcon
       name="player-next"
-      size="30"
+      size="24"
       color="#f63434"
       @click="handleToggleSong(ToggleOrder.next)"
     />
@@ -65,8 +65,8 @@ const handleToggleSong = (order: ToggleOrder) => {
 .player-control {
   .display-flex(@align-items: center);
   cursor: pointer;
-  // .center {
-  //   margin: 0 5px;
-  // }
+  .center {
+    margin: 0 8px;
+  }
 }
 </style>

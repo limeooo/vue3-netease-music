@@ -3,7 +3,7 @@ import { IVariables } from './types'
 
 const variables: IVariables = {
   ...variablesWhite,
-  ['--layout-header-bgcolor']: '#D74D45'
+  ['--layout-header-bgcolor']: '#b54f41'
 }
 
 export default variables
