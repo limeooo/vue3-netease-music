@@ -5,18 +5,21 @@ import { defineStore } from 'pinia'
 import {
   requestBanner,
   requestPersonalizedSong,
-  requestPersonalizedPlaylist
+  requestPersonalizedPlaylist,
+  requestPersonalizedMv
 } from '@/service/discovery'
 import type { IBanner } from '@/service/discovery/types'
 import type { ISong } from '@/service/song/types'
 import type { IPlaylist } from '@/service/playlist/types'
+import type { IMv } from '@/service/mv/types'
 
 const useDiscoveryStore = defineStore('discovery', {
   state: () => {
     return {
       bannerList: [] as IBanner[],
       songList: [] as ISong[],
-      playlistList: [] as IPlaylist[]
+      playlistList: [] as IPlaylist[],
+      mvList: [] as IMv[]
     }
   },
   actions: {
@@ -24,6 +27,7 @@ const useDiscoveryStore = defineStore('discovery', {
       this.getBannerList()
       this.getSongList()
       this.getPlaylistList()
+      this.getMvList()
     },
     async getBannerList() {
       const bannerList = await requestBanner()
@@ -41,6 +45,12 @@ const useDiscoveryStore = defineStore('discovery', {
       const playlistList = await requestPersonalizedPlaylist({ limit: 10 })
       this.$patch((state) => {
         state.playlistList = playlistList
+      })
+    },
+    async getMvList() {
+      const mvList = await requestPersonalizedMv({ limit: 8 })
+      this.$patch((state) => {
+        state.mvList = mvList
       })
     }
   }

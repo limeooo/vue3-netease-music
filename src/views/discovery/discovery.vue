@@ -5,6 +5,9 @@
     <!-- 推荐歌单 -->
     <p class="title">推荐歌单</p>
     <PlayList :playlist="playlistList" />
+    <!-- 推荐MV -->
+    <p class="title">推荐MV</p>
+    <MvList :mvList="mvList" />
     <!-- 最新音乐 -->
     <p class="title">最新音乐</p>
     <SongList :songList="songList" />
@@ -15,12 +18,14 @@
 import Banner from '@/components/banner/Banner.vue'
 import SongList from '@/components/song-list/SongList.vue'
 import PlayList from '@/components/play-list/PlayList.vue'
+import MvList from '@/components/mv-list/MvList.vue'
 
 import { storeToRefs } from 'pinia'
 import { useDiscoveryStore } from '@/store'
 
 const discoveryStore = useDiscoveryStore()
-const { bannerList, songList, playlistList } = storeToRefs(discoveryStore)
+const { bannerList, songList, playlistList, mvList } =
+  storeToRefs(discoveryStore)
 discoveryStore.getDiscoveryData()
 </script>
 

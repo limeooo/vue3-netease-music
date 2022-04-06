@@ -2,9 +2,10 @@ import type { AxiosResponse } from 'axios'
 import type { IBanner } from './types'
 import type { ISong } from '@/service/song/types'
 import type { IPlaylist } from '@/service/playlist/types'
+import type { IMv } from '@/service/mv/types'
 
 /**
- * 转化发现音乐、轮播图、转换字段格式
+ * 转化发现音乐-轮播图、转换字段格式
  */
 export const translateBanner = (res: AxiosResponse): IBanner[] => {
   const banners = res.data.banners ?? []
@@ -18,7 +19,7 @@ export const translateBanner = (res: AxiosResponse): IBanner[] => {
 }
 
 /**
- * 转化发现音乐、最新音乐、转换字段格式
+ * 转化发现音乐-最新音乐、转换字段格式
  */
 export const translatePersonalizedSong = (res: AxiosResponse): ISong[] => {
   const result = res.data.result ?? []
@@ -37,7 +38,7 @@ export const translatePersonalizedSong = (res: AxiosResponse): ISong[] => {
 }
 
 /**
- * 转化发现音乐、推荐歌单、转换字段格式
+ * 转化发现音乐-推荐歌单、转换字段格式
  */
 export const translatePersonalizedPlaylist = (
   res: AxiosResponse
@@ -52,6 +53,25 @@ export const translatePersonalizedPlaylist = (
       picUrl: playlist.picUrl,
       playCount: playlist.playCount,
       copywriter: playlist.copywriter
+    }
+  })
+}
+
+/**
+ * 转化发现音乐-推荐Mv、转换字段格式
+ */
+export const translatePersonalizedMv = (res: AxiosResponse): IMv[] => {
+  const result = res.data.result ?? []
+
+  return result.map((mv: any) => {
+    return {
+      id: mv.id,
+      name: mv.name,
+      playCount: mv.playCount,
+      duration: mv.duration,
+      picUrl: mv.picUrl,
+      artistId: mv.artistId,
+      artistName: mv.artistName
     }
   })
 }
