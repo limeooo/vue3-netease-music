@@ -26,7 +26,8 @@ export const translateSearchSong = (res: AxiosResponse): ISongAll => {
       picUrl: song.al.picUrl,
       artists: song.ar.map((ar: any) => ar.name).join('/'),
       album: song.al.name,
-      duration: song.dt
+      duration: song.dt,
+      mvid: song.mv
     }
   })
   return {

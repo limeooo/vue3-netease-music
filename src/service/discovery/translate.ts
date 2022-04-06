@@ -32,7 +32,8 @@ export const translatePersonalizedSong = (res: AxiosResponse): ISong[] => {
       picUrl: song.picUrl,
       artists: song.song.artists.map((ar: any) => ar.name).join('/'),
       album: song.song.album.name,
-      duration: song.song.duration
+      duration: song.song.duration,
+      mvid: song.song.mvid
     }
   })
 }

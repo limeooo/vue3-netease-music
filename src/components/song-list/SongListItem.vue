@@ -8,7 +8,12 @@
       class="item-text"
       :class="{ isActive: currentPlayerSong.id === songItem.id }"
     >
-      {{ songItem.name }}
+      <span>{{ songItem.name }}</span>
+      <SvgIcon
+        name="mv-player"
+        v-if="songItem.mvid && songItem.mvid !== 0"
+        @click.stop="handleMvClick()"
+      />
     </div>
     <div class="item-text">{{ songItem.artists }}</div>
     <div class="item-text">{{ songItem.album }}</div>
@@ -17,17 +22,28 @@
 </template>
 
 <script setup lang="ts">
+import SvgIcon from '@/components/base/SvgIcon.vue'
+
 import { withDefaults } from 'vue'
+import { useRouter } from 'vue-router'
 import { padZero, formatDuration, thumbnail } from '@/utils'
 import type { ISong } from '@/service/song/types'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     songItem: ISong
     currentPlayerSong: ISong
   }>(),
   {}
 )
+
+/**
+ * 跳转播放Mv
+ */
+const router = useRouter()
+const handleMvClick = () => {
+  router.push({ path: `/mv/${props.songItem.mvid}` })
+}
 </script>
 
 <style lang="less" scoped>
@@ -61,6 +77,9 @@ withDefaults(
     &.isActive {
       color: @color-main;
     }
+  }
+  .icon-mv-player {
+    margin-left: 5px;
   }
 }
 </style>

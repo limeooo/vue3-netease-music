@@ -15,7 +15,8 @@ export const translateTopSong = (res: AxiosResponse): ISong[] => {
       picUrl: song.album.picUrl,
       artists: song.artists.map((ar: any) => ar.name).join('/'),
       album: song.album.name,
-      duration: song.duration
+      duration: song.duration,
+      mvid: song.mvid
     }
   })
 }
@@ -34,7 +35,8 @@ export const translateSong = (res: AxiosResponse): ISong[] => {
       picUrl: song.al.picUrl,
       artists: song.ar.map((ar: any) => ar.name).join('/'),
       album: song.al.name,
-      duration: song.dt
+      duration: song.dt,
+      mvid: song.mv
     }
   })
 }
