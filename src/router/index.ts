@@ -39,7 +39,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/about/about.vue')
       },
       {
-        path: '/playlist/:id',
+        path: '/playlist/:playlistid',
         name: 'playlist',
         component: () => import('@/views/playlistdetail/playlistdetail.vue')
       },
@@ -49,12 +49,12 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/searchresult/searchresult.vue')
       },
       {
-        path: '/userplaylist/:id',
+        path: '/userplaylist/:userplaylistid',
         name: 'userplaylist',
         component: () => import('@/views/userplaylist/userplaylist.vue')
       },
       {
-        path: '/mv/:id',
+        path: '/mv/:mvid',
         name: 'mv',
         component: () => import('@/views/mvdetail/mvdetail.vue')
       }

@@ -37,8 +37,8 @@ export default defineComponent({
 
     const route = useRoute()
     watchEffect(() => {
-      if (route.params.id)
-        mvDetailStore.getMvDetailData(Number(route.params.id as string))
+      if (route.params.mvid)
+        mvDetailStore.getMvDetailData(Number(route.params.mvid as string))
     })
 
     return {

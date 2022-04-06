@@ -23,9 +23,9 @@ export default defineComponent({
     const songList = ref<ISong[]>([])
 
     watchEffect(async () => {
-      if (route.params.id) {
+      if (route.params.userplaylistid) {
         const playlistDetail = await requestPlaylistDetail({
-          id: route.params.id as string
+          id: route.params.userplaylistid as string
         })
         const _songList = await requestSongDetail({
           ids: playlistDetail.songIds

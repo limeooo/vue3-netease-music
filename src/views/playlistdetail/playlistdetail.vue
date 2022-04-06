@@ -44,7 +44,7 @@ export default defineComponent({
 
     const route = useRoute()
     playlistDetailStore.getPlaylistDetailPageData({
-      id: route.params.id as string
+      id: route.params.playlistid as string
     })
 
     return {
