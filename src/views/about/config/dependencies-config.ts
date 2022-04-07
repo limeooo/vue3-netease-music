@@ -14,6 +14,10 @@ export const dependencies: IDescription[] = [
     value: '^2.0.12'
   },
   {
+    name: 'mitt',
+    value: '^3.0.0'
+  },
+  {
     name: 'axios',
     value: '^0.26.1'
   },
