@@ -36,6 +36,8 @@ import { ref, computed, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlayerStore } from '@/store'
 import { ToggleOrder } from '@/global/config'
+import emitter from '@/utils/eventBus'
+
 /**
  * @vueuse/core包引入，使用媒体控制功能，官网 https://vueuse.org/
  */
@@ -87,6 +89,11 @@ watch(
     playing.value = true
   }
 )
+
+// 监听bus事件接收关闭音乐
+emitter.on('closeMusic', () => {
+  playing.value = false
+})
 </script>
 
 <style lang="less" scoped>

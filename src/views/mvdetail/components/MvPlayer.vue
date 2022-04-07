@@ -21,6 +21,7 @@ import SvgIcon from '@/components/base/SvgIcon.vue'
 import { ref, computed, withDefaults } from 'vue'
 import { useMediaControls } from '@vueuse/core'
 import { thumbnail } from '@/utils'
+import emitter from '@/utils/eventBus'
 
 const props = withDefaults(
   defineProps<{
@@ -47,6 +48,8 @@ const { playing } = useMediaControls(videoRef, {
 const handlePlayingClick = () => {
   isStartPlaying.value = true
   playing.value = true
+  // 发射事件暂停播放音乐
+  emitter.emit('closeMusic')
 }
 </script>
 
