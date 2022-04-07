@@ -127,11 +127,7 @@ watch(
  * 监听当前歌词行数更换位置
  */
 watch(lyricCurrentIndex, (index) => {
-  if (
-    scrollLineRefs.value &&
-    scrollLyricRef.value &&
-    scrollLyricRef.value.scrollTop
-  ) {
+  if (scrollLineRefs.value && scrollLyricRef.value) {
     const currentDom = scrollLineRefs.value[index]
     scrollLyricRef.value.scrollTop =
       currentDom.offsetTop - 200 + currentDom.offsetHeight / 2
