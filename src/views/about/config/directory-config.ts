@@ -38,23 +38,34 @@ export const directoryConfig = `
 │   │       ├── expand.svg
 │   │       ├── github.svg
 │   │       ├── great.svg
+│   │       ├── header-fullscreen-cancel.svg
+│   │       ├── header-fullscreen.svg
+│   │       ├── header-home.svg
 │   │       ├── loading-audio.svg
 │   │       ├── loading-error.svg
+│   │       ├── menu-icon-0.svg
 │   │       ├── menu-icon-1.svg
 │   │       ├── menu-icon-2.svg
 │   │       ├── menu-icon-3.svg
 │   │       ├── menu-icon-4.svg
+│   │       ├── menu-icon-5.svg
 │   │       ├── menu-icon.svg
+│   │       ├── mv-player.svg
+│   │       ├── player-cycle.svg
 │   │       ├── player-list.svg
 │   │       ├── player-next.svg
 │   │       ├── player-pause.svg
 │   │       ├── player-play-empty.svg
 │   │       ├── player-play.svg
 │   │       ├── player-prev.svg
+│   │       ├── player-random.svg
+│   │       ├── player-sequential.svg
+│   │       ├── player-sm.svg
 │   │       ├── player-volume-close.svg
 │   │       ├── player-volume.svg
 │   │       ├── rubbish.svg
 │   │       ├── search.svg
+│   │       ├── share.svg
 │   │       ├── shrink.svg
 │   │       └── theme-skin.svg
 │   ├── components
@@ -67,6 +78,9 @@ export const directoryConfig = `
 │   │   │   └── CommentListItem.vue
 │   │   ├── descriptions
 │   │   │   └── Descriptions.vue
+│   │   ├── mv-list
+│   │   │   ├── MvList.vue
+│   │   │   └── MvListItem.vue
 │   │   ├── play-list
 │   │   │   ├── PlayList.vue
 │   │   │   └── PlayListItem.vue
@@ -77,6 +91,7 @@ export const directoryConfig = `
 │   │       └── Tabs.vue
 │   ├── env.d.ts
 │   ├── global
+│   │   ├── config.ts
 │   │   └── types.ts
 │   ├── layout
 │   │   ├── Layout.vue
@@ -107,6 +122,7 @@ export const directoryConfig = `
 │   │   ├── dayjs.ts
 │   │   ├── flexable.ts
 │   │   ├── loading-hot-search.ts
+│   │   ├── loading-user-info.ts
 │   │   ├── notification.ts
 │   │   ├── register-direnctive.ts
 │   │   ├── svg-icons-register.ts
@@ -114,6 +130,10 @@ export const directoryConfig = `
 │   ├── router
 │   │   └── index.ts
 │   ├── service
+│   │   ├── artist
+│   │   │   ├── index.ts
+│   │   │   ├── translate.ts
+│   │   │   └── types.ts
 │   │   ├── comment
 │   │   │   ├── index.ts
 │   │   │   ├── translate.ts
@@ -124,6 +144,10 @@ export const directoryConfig = `
 │   │   │   ├── translate.ts
 │   │   │   └── types.ts
 │   │   ├── index.ts
+│   │   ├── mv
+│   │   │   ├── index.ts
+│   │   │   ├── translate.ts
+│   │   │   └── types.ts
 │   │   ├── playlist
 │   │   │   ├── index.ts
 │   │   │   ├── translate.ts
@@ -135,7 +159,11 @@ export const directoryConfig = `
 │   │   │   ├── index.ts
 │   │   │   ├── translate.ts
 │   │   │   └── types.ts
-│   │   └── song
+│   │   ├── song
+│   │   │   ├── index.ts
+│   │   │   ├── translate.ts
+│   │   │   └── types.ts
+│   │   └── user
 │   │       ├── index.ts
 │   │       ├── translate.ts
 │   │       └── types.ts
@@ -143,11 +171,14 @@ export const directoryConfig = `
 │   │   ├── index.ts
 │   │   └── module
 │   │       ├── discovery.ts
-│   │       ├── latest.ts
+│   │       ├── mvdetail.ts
+│   │       ├── mvs.ts
 │   │       ├── player.ts
 │   │       ├── playlistdetail.ts
-│   │       ├── recommend.ts
-│   │       └── search.ts
+│   │       ├── playlists.ts
+│   │       ├── search.ts
+│   │       ├── songs.ts
+│   │       └── user.ts
 │   ├── utils
 │   │   └── index.ts
 │   └── views
@@ -163,27 +194,40 @@ export const directoryConfig = `
 │       │       └── stacks-config.ts
 │       ├── discovery
 │       │   └── discovery.vue
-│       ├── latest
+│       ├── mvdetail
+│       │   ├── components
+│       │   │   ├── MvInfo.vue
+│       │   │   └── MvPlayer.vue
+│       │   └── mvdetail.vue
+│       ├── mvs
 │       │   ├── config
 │       │   │   ├── index.ts
 │       │   │   └── tabs-config.ts
-│       │   └── latest.vue
+│       │   └── mvs.vue
 │       ├── playlistdetail
 │       │   ├── components
 │       │   │   └── PlaylistDetailHeader.vue
 │       │   └── playlistdetail.vue
-│       ├── recommend
+│       ├── playlists
 │       │   ├── components
-│       │   │   └── RecommendIntro.vue
+│       │   │   └── PlaylistsIntro.vue
 │       │   ├── config
 │       │   │   ├── index.ts
 │       │   │   └── tabs-config.ts
-│       │   └── recommend.vue
-│       └── searchresult
-│           ├── components
-│           │   ├── SearchPlaylist.vue
-│           │   └── SearchSong.vue
-│           └── searchresult.vue
+│       │   └── playlists.vue
+│       ├── searchresult
+│       │   ├── components
+│       │   │   ├── SearchMv.vue
+│       │   │   ├── SearchPlaylist.vue
+│       │   │   └── SearchSong.vue
+│       │   └── searchresult.vue
+│       ├── songs
+│       │   ├── config
+│       │   │   ├── index.ts
+│       │   │   └── tabs-config.ts
+│       │   └── songs.vue
+│       └── userplaylist
+│           └── userplaylist.vue
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
