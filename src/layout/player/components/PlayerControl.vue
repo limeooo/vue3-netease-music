@@ -45,13 +45,12 @@ const props = withDefaults(
 )
 
 const playerStore = usePlayerStore()
-const { currentPlayerSongList } = storeToRefs(playerStore)
+const { currentPlayerSong, currentPlayerSongList } = storeToRefs(playerStore)
 
 // 监听切换播放状态
 const emit = defineEmits(['update:playing'])
 const handleSongStatusClick = () => {
-  if (currentPlayerSongList.value.length > 0)
-    emit('update:playing', !props.playing)
+  if (currentPlayerSong.value.id) emit('update:playing', !props.playing)
 }
 
 // 监听切换按钮 切换歌曲
