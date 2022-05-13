@@ -4,25 +4,27 @@
 
 参考了很多个github的仿网易云开源项目一步一步自己搭的，也是第一次自己写一个音乐播放器，用到的新技术还是很多的，有喜欢的可以一起学习，欢迎提出建议和star✨✨✨
 
-[🌟🌟🌟预览地址](http://175.178.164.2/discovery)
+[🌟🌟🌟预览地址](https://music.limeooo.cloud/discovery)
 
-![1](https://s1.ax1x.com/2022/04/05/qO9Jbj.png)
+![首页](https://img.limeooo.cloud/img/202205132106366.png)
 
-![2](https://s1.ax1x.com/2022/04/05/qO9U5q.png)
+![搜索](https://img.limeooo.cloud/img/202205132107460.png)
 
-![3](https://s1.ax1x.com/2022/04/05/qO9dP0.png)
+![推荐歌单](https://img.limeooo.cloud/img/202205132108374.png)
 
-![4](https://s1.ax1x.com/2022/04/05/qO91xS.png)
+![歌单详情](https://img.limeooo.cloud/img/202205132108808.png)
 
-![5](https://s1.ax1x.com/2022/04/05/qO9Nan.png)
+![最新音乐](https://img.limeooo.cloud/img/202205132108486.png)
 
-![6](https://s1.ax1x.com/2022/04/05/qO9GrQ.png)
+![音乐歌词](https://img.limeooo.cloud/img/202205132109551.png)
 
-![7](https://s1.ax1x.com/2022/04/05/qO9tVs.png)
+![最新MV](https://img.limeooo.cloud/img/202205132109390.png)
 
-![8](https://s1.ax1x.com/2022/04/05/qO98Kg.png)
+![MV详情](https://img.limeooo.cloud/img/202205132109089.png)
 
-后端接口：http://175.178.164.2:3000
+![登录后歌单](https://img.limeooo.cloud/img/202205132110333.png)
+
+后端接口：https://music.api.limeooo.cloud
 
 ### 安装依赖
 
