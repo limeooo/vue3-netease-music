@@ -180,6 +180,7 @@ export const directoryConfig = `
 │   │       ├── songs.ts
 │   │       └── user.ts
 │   ├── utils
+│   │   ├── eventBus.ts
 │   │   └── index.ts
 │   └── views
 │       ├── 404.vue
