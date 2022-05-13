@@ -9,10 +9,10 @@ switch (process.env.NODE_ENV) {
     BASE_URL = '/api'
     break
   case 'production':
-    BASE_URL = 'http://175.178.164.2:3000'
+    BASE_URL = 'https://music.api.limeooo.cloud'
     break
   default:
-    BASE_URL = 'http://175.178.164.2:3000'
+    BASE_URL = 'https://music.api.limeooo.cloud'
     break
 }
 

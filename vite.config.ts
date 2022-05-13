@@ -50,7 +50,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://175.178.164.2:3000',
+        target: 'https://music.api.limeooo.cloud',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
