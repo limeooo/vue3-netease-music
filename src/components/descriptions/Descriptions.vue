@@ -4,7 +4,8 @@
       <template v-for="(item, index) in tableData" :key="index">
         <el-descriptions-item>
           <template #label> {{ item.name }} </template>
-          <el-tag size="small">{{ item.value }}</el-tag>
+          <span class="content">{{ item.value }}</span>
+          <!-- <el-tag size="small">{{ item.value }}</el-tag> -->
         </el-descriptions-item>
       </template>
     </el-descriptions>
@@ -37,8 +38,12 @@ withDefaults(
   :deep(.el-descriptions__label) {
     font-size: @font-size-sm-medium;
   }
-  :deep(.el-tag__content) {
-    font-size: @font-size-sm;
+  // :deep(.el-tag__content) {
+  //   font-size: @font-size-sm;
+  // }
+  .content {
+    color: var(--font-color);
+    font-size: @font-size-sm-medium;
   }
 }
 </style>
