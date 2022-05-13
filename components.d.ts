@@ -26,7 +26,6 @@ declare module 'vue' {
     ElSlider: typeof import('element-plus/es')['ElSlider']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
-    ElTag: typeof import('element-plus/es')['ElTag']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     MvList: typeof import('./src/components/mv-list/MvList.vue')['default']
     MvListItem: typeof import('./src/components/mv-list/MvListItem.vue')['default']
